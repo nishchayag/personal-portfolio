@@ -135,9 +135,9 @@ function SkillsSection() {
   ];
 
   return (
-    <div className="bg-neutral-950 w-full text-2xl pt-20">
+    <div className=" bg-gradient-to-b from-neutral-900 to-neutral-950 w-full flex flex-col gap-15 text-2xl pt-20 overflow-hidden">
       <h1 className="text-center text-6xl">What I know</h1>
-      <div className="flex justify-center pt-15 scale-150">
+      <div className="flex justify-center  md:scale-150 ">
         <FloatingDock items={dockItems} />
       </div>
     </div>
