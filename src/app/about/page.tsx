@@ -1,6 +1,5 @@
 import React from "react";
 import { Github, Linkedin } from "lucide-react";
-import { motion } from "motion/react";
 import { BackgroundLines } from "@/components/ui/backgroundLines";
 function page() {
   return (

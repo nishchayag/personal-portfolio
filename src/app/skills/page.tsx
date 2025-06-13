@@ -16,14 +16,14 @@ function page() {
           incremental static regeneration (ISR) to optimize performance and
           ensure fast load times across different devices and networks. With its
           file-based routing system, Next.js simplifies navigation logic, while
-          allowing dynamic and nested routes to be created effortlessly. I’ve
+          allowing dynamic and nested routes to be created effortlessly. I've
           also used API routes in Next.js to build backend functionality
           directly within the same codebase, enabling faster development and
           easier deployment of full-stack features. In terms of styling and UI,
           I frequently integrate Tailwind CSS for utility-first design and enjoy
           the smooth developer experience Next.js offers, especially with its
           built-in support for TypeScript, automatic code splitting, and fast
-          refresh during development. I’ve deployed applications on platforms
+          refresh during development. I've deployed applications on platforms
           like Vercel, leveraging features such as custom domains, automatic
           builds, and edge functions to ensure my apps are fast and reliable.
           Overall, Next.js is one of my go-to tools when building
@@ -38,7 +38,7 @@ function page() {
       content: (
         <div className="text-center text-lg">
           I have extensive experience using React.js to build dynamic,
-          component-driven user interfaces for web applications. React’s
+          component-driven user interfaces for web applications. React's
           declarative nature and efficient rendering with the virtual DOM allow
           me to develop fast, responsive frontends with reusable components and
           clean architecture. I work comfortably with React Hooks, Context API,
@@ -57,7 +57,7 @@ function page() {
           I use Node.js to build efficient, non-blocking, event-driven backend
           services and APIs. With its asynchronous nature and powerful
           ecosystem, Node.js allows me to create scalable server-side
-          applications using modern JavaScript. I’m familiar with using
+          applications using modern JavaScript. I'm familiar with using
           npm/yarn, managing packages, and handling processes like file system
           operations, authentication, and third-party API integrations. Combined
           with Express and MongoDB, Node.js powers the backend of many of my
@@ -71,13 +71,13 @@ function page() {
       content: (
         <div className="text-center text-lg">
           Express.js is my go-to framework for building RESTful APIs and
-          server-side logic with Node.js. I’ve used it extensively to handle
+          server-side logic with Node.js. I've used it extensively to handle
           routing, middleware integration, request validation, error handling,
           and connecting with databases like MongoDB. Express allows me to
           quickly scaffold backend services while maintaining flexibility and
           control over request/response handling. I structure Express
           applications in a modular way, keeping routes, controllers, and
-          middleware organized and scalable for larger codebases. I’ve also
+          middleware organized and scalable for larger codebases. I've also
           implemented features such as authentication (JWT/session-based), form
           handling, and file uploads using Express.
         </div>
@@ -90,9 +90,9 @@ function page() {
           I use MongoDB as the primary NoSQL database for storing and managing
           application data in a flexible, JSON-like format. With MongoDB, I can
           easily design scalable data models that align with modern web
-          applications. I’m proficient in performing CRUD operations, designing
+          applications. I'm proficient in performing CRUD operations, designing
           schemas with Mongoose, and managing relationships between collections.
-          I’ve also implemented features such as data validation, indexing, and
+          I've also implemented features such as data validation, indexing, and
           aggregation pipelines. MongoDB integrates seamlessly into my
           Node.js/Express stack, enabling fast development and real-time updates
           for dynamic applications.
@@ -108,7 +108,7 @@ function page() {
           and scalability. I use TypeScript in combination with React and
           Node.js to write clean, well-documented code with strong type safety
           and better tooling support, such as autocompletion and error detection
-          during development. I’m comfortable with advanced TypeScript features
+          during development. I'm comfortable with advanced TypeScript features
           like generics, utility types, and interfaces, and I regularly define
           precise type contracts for props, APIs, and data models to avoid
           runtime errors and enhance code quality across the entire stack.
@@ -123,7 +123,7 @@ function page() {
           deep understanding of modern ES6+ features such as destructuring,
           arrow functions, template literals, spread/rest operators,
           async/await, and modular imports/exports. I write clean, modular
-          JavaScript code across both frontend and backend environments. I’m
+          JavaScript code across both frontend and backend environments. I'm
           also familiar with concepts like closures, the event loop, promises,
           and functional programming patterns. Whether it's manipulating the
           DOM, handling asynchronous operations, or integrating third-party
@@ -138,12 +138,12 @@ function page() {
         <div className="text-center text-lg">
           I use Tailwind CSS as my primary utility-first CSS framework to
           rapidly build modern, responsive, and highly customizable user
-          interfaces. Tailwind’s approach allows me to style directly within my
+          interfaces. Tailwind's approach allows me to style directly within my
           components, leading to faster development and more maintainable code.
-          I’m comfortable working with utility classes for layout, spacing,
+          I'm comfortable working with utility classes for layout, spacing,
           typography, colors, and responsive breakpoints, enabling pixel-perfect
-          designs without writing custom CSS from scratch. I’ve also leveraged
-          Tailwind’s theming, plugin system, and dark mode support to build
+          designs without writing custom CSS from scratch. I've also leveraged
+          Tailwind's theming, plugin system, and dark mode support to build
           cohesive design systems. Combined with frameworks like Next.js and
           tools like Framer Motion, Tailwind helps me create polished,
           production-ready frontends with excellent developer experience.
