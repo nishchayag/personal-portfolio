@@ -1,6 +1,5 @@
 import React from "react";
 import { Timeline } from "./ui/timeline";
-import { cn } from "@/lib/utils";
 import ProjectsButton from "./projectsButton";
 import { LinkPreview } from "./ui/link-preview";
 
@@ -16,8 +15,8 @@ function Projects() {
           seamless and comfortable experience, while also being pleasing to the
           eye.
           <br />
-          For detailed breakdown of the project, please check-out the "Projects
-          Page" by clicking the button below!
+          For detailed breakdown of the project, please check-out the
+          &quot;Projects Page&quot; by clicking the button below!
           <br />
           <ProjectsButton />
         </div>
@@ -47,7 +46,7 @@ function Projects() {
             </p>
           </div>
           <br /> For detailed breakdown of the project, please check-out the
-          "Projects Page" by clicking the button below!
+          &quot;Projects Page&quot; by clicking the button below!
           <br />
           <ProjectsButton />
         </div>
@@ -70,7 +69,7 @@ function Projects() {
           to get a gist of what the game is about, so you can understand the
           thought process and logic behind the project.
           <br /> For detailed breakdown of the project, please check-out the
-          "Projects Page" by clicking the button below!
+          &quot;Projects Page&quot; by clicking the button below!
           <br />
           <ProjectsButton />
         </div>
@@ -85,7 +84,7 @@ function Projects() {
           showcases my knowledge and ability to use and create hooks in React
           efficiently.
           <br /> For detailed breakdown of the project, please check-out the
-          "Projects Page" by clicking the button below!
+          &quot;Projects Page&quot; by clicking the button below!
           <br />
           <ProjectsButton />
         </div>
