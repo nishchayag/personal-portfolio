@@ -49,7 +49,7 @@ export const TypewriterWithBreaks = ({
   }, [isInView, animate]);
 
   return (
-    <div className={cn(" lg:text-6xl  ", className)}>
+    <div className={cn(" lg:text-7xl  ", className)}>
       <motion.div ref={scope} className="inline">
         {animateSegments.map((seg, i) => (
           <div

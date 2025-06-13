@@ -122,16 +122,6 @@ function SkillsSection() {
       ),
       href: "https://tailwindcss.com/",
     },
-    {
-      title: "AcertinityUI",
-      icon: (
-        <img
-          src="https://assets.aceternity.com/logo.png"
-          alt="Aceternity Logo"
-        />
-      ),
-      href: "https://ui.aceternity.com/",
-    },
   ];
 
   return (

@@ -8,7 +8,7 @@ function HeroSection() {
       text: "Hi",
     },
     {
-      text: `\nI am nishchay agarwal\n`,
+      text: `\nI am Nishchay Agarwal\n`,
     },
     {
       text: "A full-stack web-developer",
@@ -18,12 +18,8 @@ function HeroSection() {
   return (
     <div className="flex flex-wrap h-205">
       <BackgroundBeamsWithCollision>
-        <div className="lg:pl-40 px-5 w-full text-6xl flex flex-col gap-y-4 lg:w-1/2">
-          <TypewriterWithBreaks words={typeWords} />
-        </div>
-        <div className="flex justify-center items-center w-full lg:w-1/2 ">
-          {" "}
-          photo
+        <div className="px-5 w-full text-6xl lg:text-7xl md:text-center  gap-y-4 ">
+          <TypewriterWithBreaks words={typeWords} className="" />
         </div>
       </BackgroundBeamsWithCollision>
     </div>

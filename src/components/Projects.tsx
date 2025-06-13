@@ -1,6 +1,8 @@
 import React from "react";
 import { Timeline } from "./ui/timeline";
 import { cn } from "@/lib/utils";
+import ProjectsButton from "./projectsButton";
+import { LinkPreview } from "./ui/link-preview";
 
 function Projects() {
   const projectData = [
@@ -8,7 +10,7 @@ function Projects() {
       title: "My Portfolio Website",
       content: (
         <div className=" text-center text-lg px-10 ">
-          This reffers to the Website you are looking at right now. <br /> This,
+          This refers to the Website you are looking at right now. <br /> This,
           is my personal Portfolio Website, which I created from scratch using
           various technologies in my knowledge, with an effort to give a
           seamless and comfortable experience, while also being pleasing to the
@@ -17,9 +19,7 @@ function Projects() {
           For detailed breakdown of the project, please check-out the "Projects
           Page" by clicking the button below!
           <br />
-          <button className="shadow-[0_0_0_3px_#000000_inset] px-6 py-2 mt-5 bg-white text-black rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
-            Click Me!
-          </button>
+          <ProjectsButton />
         </div>
       ),
     },
@@ -49,9 +49,45 @@ function Projects() {
           <br /> For detailed breakdown of the project, please check-out the
           "Projects Page" by clicking the button below!
           <br />
-          <button className="shadow-[0_0_0_3px_#000000_inset] px-6 py-2 mt-5 bg-white text-black rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
-            Click Me!
-          </button>
+          <ProjectsButton />
+        </div>
+      ),
+    },
+    {
+      title: "Connect 4",
+      content: (
+        <div className="text-center text-lg">
+          This Connect 4 game project, which I have made completely in Vanilla
+          JavaScript, showcases my problem solving skills, and my ability to
+          think and imagine what the solution may be for a particular problem.
+          If you are unfamiliar with the game of Connect 4, I suggest you to{" "}
+          <LinkPreview
+            url="https://officialgamerules.org/game-rules/connect-4/"
+            className=" bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold"
+          >
+            Click Here
+          </LinkPreview>{" "}
+          to get a gist of what the game is about, so you can understand the
+          thought process and logic behind the project.
+          <br /> For detailed breakdown of the project, please check-out the
+          "Projects Page" by clicking the button below!
+          <br />
+          <ProjectsButton />
+        </div>
+      ),
+    },
+    {
+      title: "Password Generator",
+      content: (
+        <div className="text-center text-lg">
+          This Password Generator App, is created by me using react and a
+          various react hooks, and some custom hooks as well. This project
+          showcases my knowledge and ability to use and create hooks in React
+          efficiently.
+          <br /> For detailed breakdown of the project, please check-out the
+          "Projects Page" by clicking the button below!
+          <br />
+          <ProjectsButton />
         </div>
       ),
     },

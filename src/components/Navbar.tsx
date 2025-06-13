@@ -2,15 +2,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { Twitter, Linkedin, Github } from "lucide-react";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="select-none">
-      <div className="flex justify-end p-5 ">
+    <div className="select-none bg-transparent z-50 ">
+      <div className="flex justify-end p-5 bg-transparent z-50 ">
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-white rounded-lg h-13 w-13 flex justify-center items-center p-10"
+          className="bg-white rounded-lg h-13 w-13 flex justify-center items-center p-10 z-50 fixed top-5 right-5"
         >
           <button
             title="navbar-toggler"
@@ -65,52 +65,50 @@ function Navbar() {
               : { y: [0, 100, -1000] }
           }
           transition={{ duration: 0.7 }}
-          className=" text-gray-300 p-5 absolute w-full z-10 "
+          className=" text-gray-300 p-5  w-full z-50 fixed top-25 right-0"
         >
           <div className="bg-white rounded-xl flex flex-col text-7xl p-10 font-semiboldold">
             <Link
               href="/"
               className="hover:text-black transition-colors duration-400 ease-in-out "
+              onClick={() => setIsOpen(false)}
             >
               home.
             </Link>
             <Link
-              href="/"
-              className="hover:text-black transition-colors duration-300"
+              href="/skills"
+              className="hover:text-black transition-colors duration-300 ease-in-out"
+              onClick={() => setIsOpen(false)}
             >
               skills.
             </Link>
             <Link
-              href="/"
-              className="hover:text-black transition-colors duration-300"
+              href="/projects"
+              className="hover:text-black transition-colors duration-300 ease-in-out"
+              onClick={() => setIsOpen(false)}
             >
               projects.
             </Link>
             <Link
-              href="/"
-              className="hover:text-black transition-colors duration-300"
-            >
-              experience.
-            </Link>
-            <Link
-              href="/"
-              className="hover:text-black transition-colors duration-300"
+              href="/about"
+              className="hover:text-black transition-colors duration-300 ease-in-out"
+              onClick={() => setIsOpen(false)}
             >
               about me.
             </Link>
 
             <div className="flex gap-4 mt-5">
-              <a href="" target="_blank">
+              <a href="https://github.com/nishchayag" target="_blank">
                 <Github className="hover:text-black w-10 h-10" />
               </a>
-              <a href="/" target="_blank">
+              <a href="https://x.com/nishchay_agar" target="_blank">
                 <Twitter className="hover:text-black w-10 h-10" />
               </a>
-              <a href="/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/nishchay-agarwal/"
+                target="_blank"
+              >
                 <Linkedin className="hover:text-black w-10 h-10" />
-              </a>
-              <a href="/" target="_blank">
-                <Mail className="hover:text-black w-10 h-10" />
               </a>
             </div>
           </div>
