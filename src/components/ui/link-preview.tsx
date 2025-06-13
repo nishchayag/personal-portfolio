@@ -64,8 +64,8 @@ export const LinkPreview = ({
   const x = useMotionValue(0);
 
   const translateX = useSpring(x, springConfig);
-
-  const handleMouseMove = (event: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleMouseMove = (event: React.SyntheticEvent) => {
     const targetRect = event.target.getBoundingClientRect();
     const eventOffsetX = event.clientX - targetRect.left;
     const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2; // Reduce the effect to make it subtle
