@@ -3,14 +3,6 @@
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-
-type cardType = {
-  to: string;
-  src: string;
-  title: string;
-  tech: string;
-};
-
 export const Card = React.memo(
   ({
     card,
@@ -18,7 +10,7 @@ export const Card = React.memo(
     hovered,
     setHovered,
   }: {
-    card: object;
+    card: any;
     index: number;
     hovered: number | null;
     setHovered: React.Dispatch<React.SetStateAction<number | null>>;
@@ -35,6 +27,7 @@ export const Card = React.memo(
         <Image
           src={card.src}
           alt={card.title}
+          fill
           className="object-cover absolute inset-0"
         />
         <div
