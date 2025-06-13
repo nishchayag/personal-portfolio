@@ -8,6 +8,7 @@ type cardType = {
   to: string;
   src: string;
   title: string;
+  tech: string;
 };
 
 export const Card = React.memo(
