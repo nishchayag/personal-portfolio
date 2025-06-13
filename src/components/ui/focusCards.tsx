@@ -47,6 +47,8 @@ export const Card = React.memo(
   )
 );
 
+Card.displayName = "Card";
+
 type CardType = {
   title: string;
   src: string;
