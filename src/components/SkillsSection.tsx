@@ -1,7 +1,5 @@
 import React from "react";
 import { FloatingDock } from "./ui/floating-dock";
-import asertinitySvg from "./ui/logo-dark.svg";
-import { svg } from "motion/react-client";
 function SkillsSection() {
   const dockItems = [
     {

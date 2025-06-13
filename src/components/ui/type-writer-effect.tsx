@@ -12,7 +12,6 @@ interface WordSegment {
 export const TypewriterWithBreaks = ({
   words,
   className,
-  cursorClassName,
 }: {
   words: WordSegment[];
   className?: string;
