@@ -1,6 +1,86 @@
 import React from "react";
 import { FloatingDock } from "./ui/floating-dock";
 function SkillsSection() {
+  // Enhanced skills data with proficiency levels
+  const skillsData = [
+    {
+      category: "Frontend",
+      skills: [
+        {
+          name: "Next.js",
+          level: 90,
+          years: "2+",
+          description: "Production apps with SSR/SSG",
+        },
+        {
+          name: "React.js",
+          level: 95,
+          years: "3+",
+          description: "Advanced hooks & state management",
+        },
+        {
+          name: "TypeScript",
+          level: 85,
+          years: "2+",
+          description: "Type-safe development",
+        },
+        {
+          name: "JavaScript",
+          level: 95,
+          years: "3+",
+          description: "ES6+ & modern features",
+        },
+        {
+          name: "Tailwind CSS",
+          level: 90,
+          years: "2+",
+          description: "Responsive design systems",
+        },
+      ],
+    },
+    {
+      category: "Backend",
+      skills: [
+        {
+          name: "Node.js",
+          level: 85,
+          years: "2+",
+          description: "Server-side development",
+        },
+        {
+          name: "Express.js",
+          level: 90,
+          years: "2+",
+          description: "RESTful APIs & middleware",
+        },
+        {
+          name: "MongoDB",
+          level: 90,
+          years: "2+",
+          description: "NoSQL database design",
+        },
+      ],
+    },
+    {
+      category: "Tools & Others",
+      skills: [
+        {
+          name: "Git",
+          level: 85,
+          years: "3+",
+          description: "Version control & collaboration",
+        },
+        {
+          name: "Vercel",
+          level: 90,
+          years: "2+",
+          description: "Deployment & hosting",
+        },
+        { name: "Figma", level: 45, years: "1+", description: "UI/UX design" },
+      ],
+    },
+  ];
+
   const dockItems = [
     {
       title: "NextJs",
@@ -123,10 +203,72 @@ function SkillsSection() {
   ];
 
   return (
-    <div className=" bg-gradient-to-b from-neutral-900 to-neutral-950 w-full flex flex-col gap-15 text-2xl pt-20 overflow-hidden">
-      <h1 className="text-center text-6xl">What I know</h1>
-      <div className="flex justify-center  md:scale-150 ">
-        <FloatingDock items={dockItems} />
+    <div className="bg-gradient-to-b from-neutral-900 to-neutral-950 w-full flex flex-col gap-15 text-2xl pt-20 overflow-hidden">
+      <h1 className="text-center text-6xl text-white">What I know</h1>
+
+      {/* Enhanced Skills Grid */}
+      <div className="max-w-6xl mx-auto px-4 mt-16">
+        <div className="grid lg:grid-cols-3 gap-8">
+          {skillsData.map((category) => (
+            <div
+              key={category.category}
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+            >
+              <h3 className="text-2xl font-semibold text-white mb-6 text-center">
+                {category.category}
+              </h3>
+              <div className="space-y-4">
+                {category.skills.map((skill) => (
+                  <div key={skill.name} className="group">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-gray-300 font-medium">
+                        {skill.name}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm text-gray-400">
+                          {skill.years}
+                        </span>
+                        <span className="text-sm text-blue-400 font-medium">
+                          {skill.level}%
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Progress Bar */}
+                    <div className="w-full bg-gray-700 rounded-full h-2 mb-2 overflow-hidden">
+                      <div
+                        className={`bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full transition-all duration-1000 ease-out ${
+                          skill.level >= 90
+                            ? "w-[90%]"
+                            : skill.level >= 85
+                            ? "w-[85%]"
+                            : skill.level >= 80
+                            ? "w-[80%]"
+                            : skill.level >= 75
+                            ? "w-[75%]"
+                            : "w-[70%]"
+                        }`}
+                      ></div>
+                    </div>
+
+                    {/* Skill Description - Shows on Hover */}
+                    <p className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {skill.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Original Floating Dock */}
+      <div className="mt-20">
+        <h2 className="text-center text-3xl text-white mb-10">Quick Access</h2>
+        <div className="flex justify-center md:scale-150">
+          <FloatingDock items={dockItems} />
+        </div>
       </div>
     </div>
   );
