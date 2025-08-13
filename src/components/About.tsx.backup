@@ -1,0 +1,228 @@
+"use client";
+import React, { useState } from "react";
+import { Github, Linkedin, Mail, Phone, MapPin, Calendar } from "lucide-react";
+function About() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    setTimeout(() => {
+      alert("Thank you for your message! I'll get back to you soon.");
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
+  return (
+    <div className="mt-20 mb-10">
+      <h1 className="text-6xl text-center">About me</h1>
+
+      {/* Profile Section */}
+      <div className="flex flex-col lg:flex-row items-center gap-12 mt-20 px-4 lg:px-20">
+        {/* Profile Photo Placeholder */}
+        <div className="flex-shrink-0">
+          <div className="w-64 h-64 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
+            <div className="w-56 h-56 bg-gray-200 rounded-full flex items-center justify-center">
+              <span className="text-4xl text-gray-600">👨‍💻</span>
+            </div>
+          </div>
+          {/* Availability Status */}
+          <div className="mt-6 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              Available for Freelance Work
+            </div>
+          </div>
+        </div>
+
+        {/* About Text */}
+        <div className="flex-1 text-lg text-center lg:text-left">
+          <span>
+            Hey there! I&apos;m Nishchay Agarwal, a Full-Stack Developer with a
+            strong focus on building performant, modern web applications using
+            the MERN stack and Next.js. I enjoy crafting seamless user
+            experiences while keeping the codebase clean, modular, and scalable.
+            My journey into web development started out of pure curiosity —
+            wanting to understand how the apps I used every day actually worked.
+            That curiosity quickly turned into a passion, and now I find myself
+            spending hours building, debugging, learning, and refining projects
+            that I genuinely care about. I&apos;ve worked on real-world
+            applications both independently and through a few freelance
+            projects, and I&apos;m now actively looking for internship
+            opportunities where I can contribute, learn from experienced teams,
+            and sharpen my skills in a professional setting.
+          </span>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div className="mt-20 px-4 lg:px-20">
+        <h2 className="text-4xl text-center mb-12">Let&apos;s Connect</h2>
+
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Info */}
+          <div className="space-y-6">
+            <h3 className="text-2xl font-semibold mb-6">Get in Touch</h3>
+
+            <div className="space-y-4">
+              <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                <Mail className="w-6 h-6 text-blue-600" />
+                <div>
+                  <p className="font-medium">Email</p>
+                  <a
+                    href="mailto:nishchay.agar@gmail.com"
+                    className="text-blue-600 hover:underline"
+                  >
+                    nishchay.agar@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                <Phone className="w-6 h-6 text-green-600" />
+                <div>
+                  <p className="font-medium">Phone</p>
+                  <a
+                    href="tel:+919351325580"
+                    className="text-green-600 hover:underline"
+                  >
+                    +91 9351325580
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+                <MapPin className="w-6 h-6 text-red-600" />
+                <div>
+                  <p className="font-medium">Location</p>
+                  <p className="text-gray-600">India</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="pt-6">
+              <h4 className="text-xl font-semibold mb-4">Follow Me</h4>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/nishchayag"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  title="Visit my GitHub profile"
+                >
+                  <Github className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/nishchay-agarwal/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors"
+                  title="Visit my LinkedIn profile"
+                >
+                  <Linkedin className="w-6 h-6" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Enter your name"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
+                  Your Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  rows={5}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                  placeholder="Tell me about your project or just say hello!"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${
+                  isSubmitting
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-blue-600 hover:bg-blue-700 text-white"
+                }`}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default About;
