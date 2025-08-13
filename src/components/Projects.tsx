@@ -6,6 +6,28 @@ import { LinkPreview } from "./ui/link-preview";
 function Projects() {
   const projectData = [
     {
+      title: "Feedbacker-io",
+      content: (
+        <div className="text-center text-lg px-10">
+          This Project is an anonymous feedback collection tool which helps
+          people submit and recieve completely anonymous and honest feedback for
+          true and realistic growth, all for free. <br />
+          <ProjectsButton />
+        </div>
+      ),
+    },
+    {
+      title: "Notesify",
+      content: (
+        <div className="text-center text-lg px-10">
+          This is a free note-taking application that allows users to create,
+          edit, and delete notes effortlessly. <br />
+          <ProjectsButton />
+        </div>
+      ),
+    },
+
+    {
       title: "My Portfolio Website",
       content: (
         <div className=" text-center text-lg px-10 ">
@@ -45,44 +67,6 @@ function Projects() {
               Functional website with an attractive design
             </p>
           </div>
-          <br /> For detailed breakdown of the project, please check-out the
-          &quot;Projects Page&quot; by clicking the button below!
-          <br />
-          <ProjectsButton />
-        </div>
-      ),
-    },
-    {
-      title: "Connect 4",
-      content: (
-        <div className="text-center text-lg">
-          This Connect 4 game project, which I have made completely in Vanilla
-          JavaScript, showcases my problem solving skills, and my ability to
-          think and imagine what the solution may be for a particular problem.
-          If you are unfamiliar with the game of Connect 4, I suggest you to{" "}
-          <LinkPreview
-            url="https://officialgamerules.org/game-rules/connect-4/"
-            className=" bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent font-bold"
-          >
-            Click Here
-          </LinkPreview>{" "}
-          to get a gist of what the game is about, so you can understand the
-          thought process and logic behind the project.
-          <br /> For detailed breakdown of the project, please check-out the
-          &quot;Projects Page&quot; by clicking the button below!
-          <br />
-          <ProjectsButton />
-        </div>
-      ),
-    },
-    {
-      title: "Password Generator",
-      content: (
-        <div className="text-center text-lg">
-          This Password Generator App, is created by me using react and a
-          various react hooks, and some custom hooks as well. This project
-          showcases my knowledge and ability to use and create hooks in React
-          efficiently.
           <br /> For detailed breakdown of the project, please check-out the
           &quot;Projects Page&quot; by clicking the button below!
           <br />

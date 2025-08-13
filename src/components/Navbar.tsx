@@ -98,15 +98,27 @@ function Navbar() {
             </Link>
 
             <div className="flex gap-4 mt-5">
-              <a href="https://github.com/nishchayag" target="_blank">
+              <a
+                href="https://github.com/nishchayag"
+                target="_blank"
+                rel="noopener"
+                title="Visit my GitHub profile"
+              >
                 <Github className="hover:text-black w-10 h-10" />
               </a>
-              <a href="https://x.com/nishchay_agar" target="_blank">
+              <a
+                href="https://x.com/nishchay_agar"
+                target="_blank"
+                rel="noopener"
+                title="Visit my X profile"
+              >
                 <Twitter className="hover:text-black w-10 h-10" />
               </a>
               <a
                 href="https://www.linkedin.com/in/nishchay-agarwal/"
                 target="_blank"
+                rel="noopener"
+                title="Visit my LinkedIn profile"
               >
                 <Linkedin className="hover:text-black w-10 h-10" />
               </a>

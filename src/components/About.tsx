@@ -6,42 +6,50 @@ function About() {
       <h1 className="text-6xl text-center">About me</h1>
       <div className="text-lg w-full px-4 text-center mt-20 lg:px-20 ">
         <span className="">
-          Hey there! I’m Nishchay Agarwal, a Full-Stack Developer with a strong
-          focus on building performant, modern web applications using the MERN
-          stack and Next.js. I enjoy crafting seamless user experiences while
-          keeping the codebase clean, modular, and scalable. My journey into web
-          development started out of pure curiosity — wanting to understand how
-          the apps I used every day actually worked. That curiosity quickly
-          turned into a passion, and now I find myself spending hours building,
-          debugging, learning, and refining projects that I genuinely care
-          about. I’ve worked on real-world applications both independently and
-          through a few freelance projects, and I’m now actively looking for
-          internship opportunities where I can contribute, learn from
-          experienced teams, and sharpen my skills in a professional setting. My
-          core stack includes MongoDB, Express, React, Node.js, and Next.js. I’m
-          comfortable building end-to-end solutions — from setting up APIs and
-          databases to creating dynamic frontends with a strong focus on
-          performance and responsiveness. Beyond the code, I’m someone who
-          values clarity, consistency, and learning by doing. I love exploring
-          the latest in web tech, improving my development workflow, and
-          thinking about how small UX details can make a big impact. When I’m
-          not coding, I’m probably watching tech podcasts, playing video games,
-          or just diving into something new that helps me grow — whether it’s a
-          tool, a tutorial, or a topic outside tech entirely. I’m always open to
+          Hey there! I&apos;m Nishchay Agarwal, a Full-Stack Developer with a
+          strong focus on building performant, modern web applications using the
+          MERN stack and Next.js. I enjoy crafting seamless user experiences
+          while keeping the codebase clean, modular, and scalable. My journey
+          into web development started out of pure curiosity — wanting to
+          understand how the apps I used every day actually worked. That
+          curiosity quickly turned into a passion, and now I find myself
+          spending hours building, debugging, learning, and refining projects
+          that I genuinely care about. I&apos;ve worked on real-world
+          applications both independently and through a few freelance projects,
+          and I&apos;m now actively looking for internship opportunities where I
+          can contribute, learn from experienced teams, and sharpen my skills in
+          a professional setting. My core stack includes MongoDB, Express,
+          React, Node.js, and Next.js. I&apos;m comfortable building end-to-end
+          solutions — from setting up APIs and databases to creating dynamic
+          frontends with a strong focus on performance and responsiveness.
+          Beyond the code, I&apos;m someone who values clarity, consistency, and
+          learning by doing. I love exploring the latest in web tech, improving
+          my development workflow, and thinking about how small UX details can
+          make a big impact. When I&apos;m not coding, I&apos;m probably
+          watching tech podcasts, playing video games, or just diving into
+          something new that helps me grow — whether it&apos;s a tool, a
+          tutorial, or a topic outside tech entirely. I&apos;m always open to
           connecting with like-minded people and collaborating on exciting
-          projects. If you’re looking for someone who’s curious, committed, and
-          eager to contribute — I’d love to hear from you!
+          projects. If you&apos;re looking for someone who&apos;s curious,
+          committed, and eager to contribute — I&apos;d love to hear from you!
         </span>
       </div>
       <div className="flex flex-col items-center">
         <div className="flex justify-center gap-4 my-10 bg-white text-gray-300  w-fit px-4 py-2 rounded-md ">
-          <a href="https://github.com/nishchayag" target="_blank">
+          <a
+            href="https://github.com/nishchayag"
+            target="_blank"
+            rel="noopener"
+            title="Visit my GitHub profile"
+          >
             <Github className="hover:text-black w-10 h-10" />
           </a>
 
           <a
             href="https://www.linkedin.com/in/nishchay-agarwal/"
             target="_blank"
+            rel="noopener"
+            title="Visit my LinkedIn profile"
           >
             <Linkedin className="hover:text-black w-10 h-10" />
           </a>
