@@ -1,133 +1,274 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Twitter, Linkedin, Github } from "lucide-react";
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="select-none bg-transparent z-50 ">
-      <div className="flex justify-end p-5 bg-transparent z-50 ">
-        <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="bg-white rounded-lg h-13 w-13 flex justify-center items-center p-10 z-50 fixed top-5 right-5"
-        >
-          <button
-            title="navbar-toggler"
-            className="w-10 h-10 flex flex-col justify-center items-end gap-1 z-50"
-          >
-            <motion.span
-              animate={
-                isOpen
-                  ? {
-                      y: [0, 8, 8],
-                      rotate: [0, 0, 45],
-                    }
-                  : {
-                      y: [8, 8, 0],
-                      rotate: [45, 0, 0],
-                    }
-              }
-              transition={{
-                duration: 1,
-                times: [0, 0.5, 1],
-              }}
-              className="w-8 h-1 bg-black"
-            />
-            <motion.span
-              animate={
-                isOpen ? { rotate: [0, 0, -45] } : { rotate: [-45, 0, 0] }
-              }
-              transition={{
-                duration: 1,
-                times: [0, 0.5, 1],
-              }}
-              className="w-8 h-1 bg-black"
-            />
-            <motion.span
-              animate={
-                isOpen
-                  ? { y: [0, -6, -6], opacity: [1, 1, 0] }
-                  : { y: [-6, -6, 0], opacity: [0, 0, 1] }
-              }
-              className="w-6 h-1 bg-black "
-            />
-          </button>
-        </div>
-      </div>
-      {isOpen && (
-        <motion.div
-          animate={
-            isOpen
-              ? {
-                  y: [-1000, 100, 0],
-                }
-              : { y: [0, 100, -1000] }
-          }
-          transition={{ duration: 0.7 }}
-          className=" text-gray-300 p-5  w-full z-50 fixed top-25 right-0"
-        >
-          <div className="bg-white rounded-xl flex flex-col text-7xl p-10 font-semiboldold">
-            <Link
-              href="/"
-              className="hover:text-black transition-colors duration-400 ease-in-out "
-              onClick={() => setIsOpen(false)}
-            >
-              home.
-            </Link>
-            <Link
-              href="/skills"
-              className="hover:text-black transition-colors duration-300 ease-in-out"
-              onClick={() => setIsOpen(false)}
-            >
-              skills.
-            </Link>
-            <Link
-              href="/projects"
-              className="hover:text-black transition-colors duration-300 ease-in-out"
-              onClick={() => setIsOpen(false)}
-            >
-              projects.
-            </Link>
-            <Link
-              href="/about"
-              className="hover:text-black transition-colors duration-300 ease-in-out"
-              onClick={() => setIsOpen(false)}
-            >
-              about me.
-            </Link>
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Menu,
+  X,
+  Home,
+  User,
+  Code,
+  Briefcase,
+  Mail,
+  Github,
+  Linkedin,
+} from "lucide-react";
 
-            <div className="flex gap-4 mt-5">
+function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Handle active section detection
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "skills", "projects", "about", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: "Home", href: "#home", icon: <Home className="w-4 h-4" /> },
+    { name: "Skills", href: "#skills", icon: <Code className="w-4 h-4" /> },
+    {
+      name: "Projects",
+      href: "#projects",
+      icon: <Briefcase className="w-4 h-4" />,
+    },
+    { name: "About", href: "#about", icon: <User className="w-4 h-4" /> },
+    { name: "Contact", href: "#contact", icon: <Mail className="w-4 h-4" /> },
+  ];
+
+  const socialLinks = [
+    {
+      name: "GitHub",
+      href: "https://github.com/nishchayag",
+      icon: <Github className="w-5 h-5" />,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://linkedin.com/in/nishchayag",
+      icon: <Linkedin className="w-5 h-5" />,
+    },
+  ];
+
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <>
+      <motion.nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-black/80 backdrop-blur-lg border-b border-white/10"
+            : "bg-transparent"
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo/Brand */}
+            <motion.div
+              className="flex-shrink-0"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <a
-                href="https://github.com/nishchayag"
-                target="_blank"
-                rel="noopener"
-                title="Visit my GitHub profile"
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("#home");
+                }}
+                className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
               >
-                <Github className="hover:text-black w-10 h-10" />
+                Nishchay Agarwal
               </a>
-              <a
-                href="https://x.com/nishchay_agar"
-                target="_blank"
-                rel="noopener"
-                title="Visit my X profile"
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                {navItems.map((item) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                      activeSection === item.href.slice(1)
+                        ? "text-blue-400 bg-blue-400/10"
+                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                    }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item.name}
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop Social Links */}
+            <div className="hidden md:flex items-center space-x-3">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <motion.button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-gray-400 hover:text-white transition-colors p-2"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <Twitter className="hover:text-black w-10 h-10" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/nishchay-agarwal/"
-                target="_blank"
-                rel="noopener"
-                title="Visit my LinkedIn profile"
-              >
-                <Linkedin className="hover:text-black w-10 h-10" />
-              </a>
+                {isMobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </motion.button>
             </div>
           </div>
-        </motion.div>
-      )}
-    </div>
+        </div>
+
+        {/* Mobile Navigation Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              className="md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }}
+                    className={`flex items-center gap-3 px-3 py-3 rounded-md text-base font-medium transition-all duration-300 ${
+                      activeSection === item.href.slice(1)
+                        ? "text-blue-400 bg-blue-400/10"
+                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                    }`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item.icon}
+                    {item.name}
+                  </motion.a>
+                ))}
+
+                {/* Mobile Social Links */}
+                <div className="flex gap-4 px-3 py-3">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: (navItems.length + index) * 0.1,
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      {social.icon}
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.nav>
+
+      {/* Scroll Progress Indicator */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 z-50 origin-left"
+        style={{
+          scaleX: useScrollProgress(),
+        }}
+      />
+    </>
   );
+}
+
+// Custom hook for scroll progress
+function useScrollProgress() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = window.scrollY / totalHeight;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return scrollProgress;
 }
 
 export default Navbar;

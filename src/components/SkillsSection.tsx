@@ -1,90 +1,118 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { FloatingDock } from "./ui/floating-dock";
+
 function SkillsSection() {
-  // Enhanced skills data with proficiency levels
-  const skillsData = [
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  // Enhanced skills data with categories
+  const skills = [
     {
-      category: "Frontend",
-      skills: [
-        {
-          name: "Next.js",
-          level: 90,
-          years: "2+",
-          description: "Production apps with SSR/SSG",
-        },
-        {
-          name: "React.js",
-          level: 95,
-          years: "3+",
-          description: "Advanced hooks & state management",
-        },
-        {
-          name: "TypeScript",
-          level: 85,
-          years: "2+",
-          description: "Type-safe development",
-        },
-        {
-          name: "JavaScript",
-          level: 95,
-          years: "3+",
-          description: "ES6+ & modern features",
-        },
-        {
-          name: "Tailwind CSS",
-          level: 90,
-          years: "2+",
-          description: "Responsive design systems",
-        },
-      ],
+      name: "Next.js",
+      level: "Expert",
+      years: "2+",
+      percentage: 90,
+      color: "from-blue-500 to-cyan-500",
+      description: "Full-stack React framework with SSR/SSG",
+      category: "frontend",
     },
     {
-      category: "Backend",
-      skills: [
-        {
-          name: "Node.js",
-          level: 85,
-          years: "2+",
-          description: "Server-side development",
-        },
-        {
-          name: "Express.js",
-          level: 90,
-          years: "2+",
-          description: "RESTful APIs & middleware",
-        },
-        {
-          name: "MongoDB",
-          level: 90,
-          years: "2+",
-          description: "NoSQL database design",
-        },
-      ],
+      name: "React.js",
+      level: "Expert",
+      years: "3+",
+      percentage: 95,
+      color: "from-cyan-400 to-blue-500",
+      description: "Component-based UI library with hooks",
+      category: "frontend",
     },
     {
-      category: "Tools & Others",
-      skills: [
-        {
-          name: "Git",
-          level: 85,
-          years: "3+",
-          description: "Version control & collaboration",
-        },
-        {
-          name: "Vercel",
-          level: 90,
-          years: "2+",
-          description: "Deployment & hosting",
-        },
-        { name: "Figma", level: 45, years: "1+", description: "UI/UX design" },
-      ],
+      name: "TypeScript",
+      level: "Advanced",
+      years: "2+",
+      percentage: 85,
+      color: "from-blue-600 to-indigo-600",
+      description: "Type-safe JavaScript for better development",
+      category: "language",
+    },
+    {
+      name: "JavaScript",
+      level: "Expert",
+      years: "3+",
+      percentage: 95,
+      color: "from-yellow-400 to-orange-500",
+      description: "Core language for web development",
+      category: "language",
+    },
+    {
+      name: "Tailwind CSS",
+      level: "Advanced",
+      years: "2+",
+      percentage: 90,
+      color: "from-teal-400 to-cyan-500",
+      description: "Utility-first CSS framework",
+      category: "frontend",
+    },
+    {
+      name: "Node.js",
+      level: "Advanced",
+      years: "2+",
+      percentage: 85,
+      color: "from-green-500 to-emerald-600",
+      description: "JavaScript runtime for backend development",
+      category: "backend",
+    },
+    {
+      name: "Express.js",
+      level: "Advanced",
+      years: "2+",
+      percentage: 85,
+      color: "from-gray-600 to-gray-800",
+      description: "Minimal web framework for Node.js",
+      category: "backend",
+    },
+    {
+      name: "MongoDB",
+      level: "Advanced",
+      years: "2+",
+      percentage: 80,
+      color: "from-green-600 to-green-800",
+      description: "NoSQL database for modern applications",
+      category: "backend",
+    },
+    {
+      name: "Git",
+      level: "Advanced",
+      years: "3+",
+      percentage: 85,
+      color: "from-orange-500 to-red-500",
+      description: "Version control system for tracking code changes",
+      category: "tools",
+    },
+    {
+      name: "Vercel",
+      level: "Expert",
+      years: "2+",
+      percentage: 90,
+      color: "from-black to-gray-700",
+      description: "Deployment and hosting platform",
+      category: "tools",
+    },
+    {
+      name: "Figma",
+      level: "Intermediate",
+      years: "1+",
+      percentage: 75,
+      color: "from-purple-500 to-pink-500",
+      description: "UI/UX design and prototyping tool",
+      category: "tools",
     },
   ];
 
+  // Enhanced dock items with categories and descriptions
   const dockItems = [
     {
-      title: "NextJs",
-
+      title: "Next.js",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -104,9 +132,13 @@ function SkillsSection() {
         </svg>
       ),
       href: "https://nextjs.org/",
+      category: "frontend",
+      level: "Expert",
+      years: "2+",
+      description: "Full-stack React framework with SSR/SSG capabilities",
     },
     {
-      title: "Reactjs",
+      title: "React.js",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -131,6 +163,10 @@ function SkillsSection() {
         </svg>
       ),
       href: "https://react.dev/",
+      category: "frontend",
+      level: "Expert",
+      years: "3+",
+      description: "Component-based UI library with hooks and state management",
     },
     {
       title: "TypeScript",
@@ -155,6 +191,10 @@ function SkillsSection() {
         </svg>
       ),
       href: "https://www.typescriptlang.org/",
+      category: "language",
+      level: "Advanced",
+      years: "2+",
+      description: "Type-safe JavaScript for better development experience",
     },
     {
       title: "JavaScript",
@@ -174,13 +214,17 @@ function SkillsSection() {
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M20 4l-2 14.5l-6 2l-6 -2l-2 -14.5z" />
           <path d="M7.5 8h3v8l-2 -1" />
-          <path d="M16.5 8h-2.5a.5 .5 0 0 0 -.5 .5v3a.5 .5 0 0 0 .5 .5h1.423a.5 .5 0 0 1 .495 .57l-.418 2.93l-2 .5" />
+          <path d="M16.5 8h-2.5a .5 .5 0 0 0 -.5 .5v3a.5 .5 0 0 0 .5 .5h1.423a.5 .5 0 0 1 .495 .57l-.418 2.93l-2 .5" />
         </svg>
       ),
       href: "https://javascript.info/",
+      category: "language",
+      level: "Expert",
+      years: "3+",
+      description: "Core programming language for web development",
     },
     {
-      title: "TailwindCSS",
+      title: "Tailwind CSS",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -199,75 +243,254 @@ function SkillsSection() {
         </svg>
       ),
       href: "https://tailwindcss.com/",
+      category: "frontend",
+      level: "Advanced",
+      years: "2+",
+      description: "Utility-first CSS framework for rapid UI development",
+    },
+    {
+      title: "Node.js",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+          <path d="M12 6.5v11M6.5 12h11" />
+        </svg>
+      ),
+      href: "https://nodejs.org/",
+      category: "backend",
+      level: "Advanced",
+      years: "2+",
+      description: "JavaScript runtime for server-side development",
+    },
+    {
+      title: "MongoDB",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 2v20M2 12h20" />
+        </svg>
+      ),
+      href: "https://mongodb.com/",
+      category: "backend",
+      level: "Advanced",
+      years: "2+",
+      description: "NoSQL database for modern applications",
+    },
+    {
+      title: "Git",
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M9 12l2 2 4-4" />
+          <path d="M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+      ),
+      href: "https://git-scm.com/",
+      category: "tools",
+      level: "Advanced",
+      years: "3+",
+      description: "Version control system for tracking code changes",
     },
   ];
 
+  // Category definitions
+  const categories = [
+    { id: "all", name: "All Skills", count: skills.length },
+    {
+      id: "frontend",
+      name: "Frontend",
+      count: skills.filter((skill) => skill.category === "frontend").length,
+    },
+    {
+      id: "backend",
+      name: "Backend",
+      count: skills.filter((skill) => skill.category === "backend").length,
+    },
+    {
+      id: "language",
+      name: "Languages",
+      count: skills.filter((skill) => skill.category === "language").length,
+    },
+    {
+      id: "tools",
+      name: "Tools",
+      count: skills.filter((skill) => skill.category === "tools").length,
+    },
+  ];
+
+  // Filter functions
+  const filteredSkills =
+    selectedCategory === "all"
+      ? skills
+      : skills.filter((skill) => skill.category === selectedCategory);
+
+  const filteredDockItems =
+    selectedCategory === "all"
+      ? dockItems
+      : dockItems.filter((item) => item.category === selectedCategory);
+
   return (
     <div className="bg-gradient-to-b from-neutral-900 to-neutral-950 w-full flex flex-col gap-15 text-2xl pt-20 overflow-hidden">
-      <h1 className="text-center text-6xl text-white">What I know</h1>
+      <h1 className="text-center text-6xl text-white mb-8">What I know</h1>
 
-      {/* Enhanced Skills Grid */}
-      <div className="max-w-6xl mx-auto px-4 mt-16">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {skillsData.map((category) => (
-            <div
-              key={category.category}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+      {/* Category Filter Pills */}
+      <div className="flex justify-center ">
+        <div className="flex flex-wrap gap-3 bg-white/5 backdrop-blur-sm rounded-2xl p-2 border border-white/10">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                selectedCategory === category.id
+                  ? "bg-white text-black shadow-lg"
+                  : "text-gray-400 hover:text-white hover:bg-white/10"
+              }`}
             >
-              <h3 className="text-2xl font-semibold text-white mb-6 text-center">
-                {category.category}
-              </h3>
-              <div className="space-y-4">
-                {category.skills.map((skill) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-300 font-medium">
-                        {skill.name}
-                      </span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-400">
-                          {skill.years}
-                        </span>
-                        <span className="text-sm text-blue-400 font-medium">
-                          {skill.level}%
-                        </span>
-                      </div>
-                    </div>
+              {category.name} ({category.count})
+            </button>
+          ))}
+        </div>
+      </div>
 
-                    {/* Progress Bar */}
-                    <div className="w-full bg-gray-700 rounded-full h-2 mb-2 overflow-hidden">
-                      <div
-                        className={`bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full transition-all duration-1000 ease-out ${
-                          skill.level >= 90
-                            ? "w-[90%]"
-                            : skill.level >= 85
-                            ? "w-[85%]"
-                            : skill.level >= 80
-                            ? "w-[80%]"
-                            : skill.level >= 75
-                            ? "w-[75%]"
-                            : "w-[70%]"
-                        }`}
-                      ></div>
-                    </div>
-
-                    {/* Skill Description - Shows on Hover */}
-                    <p className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {skill.description}
-                    </p>
+      {/* Interactive Skills Cards */}
+      <div className="max-w-6xl mx-auto px-4 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-6">
+          {filteredSkills.map((skill) => (
+            <div
+              key={skill.name}
+              className="relative group cursor-pointer"
+              onMouseEnter={() => setHoveredSkill(skill.name)}
+              onMouseLeave={() => setHoveredSkill(null)}
+            >
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                {/* Skill Header */}
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl font-semibold text-white">
+                    {skill.name}
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-gray-400">{skill.years}</span>
+                    <span
+                      className={`text-sm font-medium bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`}
+                    >
+                      {skill.level}
+                    </span>
                   </div>
-                ))}
+                </div>
+
+                {/* Animated Progress Bar */}
+                <div className="mb-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm text-gray-300">Proficiency</span>
+                    <span className="text-sm font-medium text-white">
+                      {skill.percentage}%
+                    </span>
+                  </div>
+                  <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                    <div
+                      className={`h-2 bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out transform origin-left`}
+                      style={{
+                        width:
+                          hoveredSkill === skill.name
+                            ? `${skill.percentage}%`
+                            : "0%",
+                        transitionDelay:
+                          hoveredSkill === skill.name ? "200ms" : "0ms",
+                      }}
+                    />
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div
+                  className={`transition-all duration-300 overflow-hidden ${
+                    hoveredSkill === skill.name
+                      ? "max-h-20 opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-sm text-gray-400 leading-relaxed">
+                    {skill.description}
+                  </p>
+                </div>
+
+                {/* Animated Border */}
+                <div
+                  className={`absolute inset-0 rounded-xl bg-gradient-to-r ${skill.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`}
+                />
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Original Floating Dock */}
-      <div className="mt-20">
+      {/* Enhanced Floating Dock */}
+      <div className="flex flex-col items-center">
         <h2 className="text-center text-3xl text-white mb-10">Quick Access</h2>
-        <div className="flex justify-center md:scale-150">
-          <FloatingDock items={dockItems} />
+        <div className="mb-8">
+          <div className="transform scale-125 md:scale-150">
+            <FloatingDock items={filteredDockItems} />
+          </div>
+        </div>
+      </div>
+
+      {/* Skills Summary */}
+      <div className="text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Full-Stack Developer
+            </h2>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Passionate about creating modern web experiences with the latest
+              technologies. Proficient in both frontend and backend development,
+              with a focus on performance, accessibility, and user experience.
+            </p>
+            <div className="flex justify-center gap-8 mt-6 text-sm">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-blue-400">3+</div>
+                <div className="text-gray-400">Years Experience</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-400">
+                  {skills.length}
+                </div>
+                <div className="text-gray-400">Technologies</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-purple-400">10+</div>
+                <div className="text-gray-400">Projects Built</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
