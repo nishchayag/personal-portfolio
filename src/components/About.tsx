@@ -106,7 +106,7 @@ function About() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-neutral-900 to-neutral-950 w-full text-white py-20 overflow-hidden">
+    <div className="bg-transparent w-full text-white py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <motion.div

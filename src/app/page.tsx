@@ -7,19 +7,19 @@ import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <div>
-      <section id="home">
+      <section id="home" className="relative z-20">
         <HeroSection />
       </section>
-      <section id="skills">
+      <section id="skills" className="relative z-20">
         <SkillsSection />
       </section>
-      <section id="projects">
+      <section id="projects" className="relative z-20">
         <Projects />
       </section>
-      <section id="about">
+      <section id="about" className="relative z-20">
         <About />
       </section>
-      <section id="contact">
+      <section id="contact" className="relative z-20">
         <Contact />
       </section>
     </div>

@@ -17,7 +17,7 @@ function HeroSection() {
 
   return (
     <div className="flex flex-wrap h-205">
-      <BackgroundBeamsWithCollision>
+      <BackgroundBeamsWithCollision extendToFooter={true}>
         <div className="px-5 w-full text-6xl lg:text-7xl md:text-center  gap-y-4 ">
           <TypewriterWithBreaks words={typeWords} className="" />
         </div>

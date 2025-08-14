@@ -92,7 +92,7 @@ function Contact() {
   ];
 
   return (
-    <footer className="bg-gradient-to-t from-black to-neutral-950 text-white py-20">
+    <footer className="bg-transparent text-white py-20">
       <div className="max-w-7xl mx-auto px-4">
         {/* Contact Section */}
         <div className="grid lg:grid-cols-2 gap-16 mb-16">

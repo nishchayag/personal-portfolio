@@ -358,7 +358,7 @@ function SkillsSection() {
       : dockItems.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="bg-gradient-to-b from-neutral-900 to-neutral-950 w-full flex flex-col gap-15 text-2xl pt-20 overflow-hidden">
+    <div className="bg-transparent w-full flex flex-col gap-15 text-2xl pt-20 overflow-hidden">
       <h1 className="text-center text-6xl text-white mb-8">What I know</h1>
 
       {/* Category Filter Pills */}

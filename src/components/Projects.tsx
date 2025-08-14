@@ -271,7 +271,7 @@ function Projects() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-neutral-950 to-neutral-900 w-full flex flex-col text-2xl pt-20 overflow-hidden">
+    <div className="bg-transparent w-full flex flex-col text-2xl pt-20 overflow-hidden">
       <h1 className="text-center text-6xl text-white mb-16">My Projects</h1>
 
       {/* Featured Projects Section */}
