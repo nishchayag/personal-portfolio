@@ -75,7 +75,7 @@ function Projects() {
       category: "Frontend",
       featured: false,
       status: "Live",
-      demoUrl: "https://nishchayagarwal.vercel.app",
+      demoUrl: "https://nishchayag.live/",
       githubUrl: "https://github.com/nishchayag/portfolio",
       imageUrl: "/api/placeholder/600/400",
       keyFeatures: [
@@ -96,7 +96,7 @@ function Projects() {
       category: "Frontend",
       featured: false,
       status: "Live",
-      demoUrl: "https://kaizenn.in",
+      demoUrl: "https://kaizenn.in/",
       githubUrl: null,
       imageUrl: "/api/placeholder/600/400",
       keyFeatures: [

@@ -27,8 +27,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 10,
       duration: extendToFooter ? Math.random() * 8 + 10 : Math.random() * 4 + 5,
       repeatDelay: extendToFooter
-        ? Math.random() * 12 + 5
-        : Math.random() * 6 + 2,
+        ? Math.random() * 4 + 2
+        : Math.random() * 2 + 1,
       delay: Math.random() * 8,
       className: `h-${Math.floor(Math.random() * 16) + 4}`, // h-4 to h-20
     },
@@ -37,8 +37,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 220,
       duration: extendToFooter ? Math.random() * 10 + 8 : Math.random() * 5 + 4,
       repeatDelay: extendToFooter
-        ? Math.random() * 15 + 6
-        : Math.random() * 7 + 3,
+        ? Math.random() * 5 + 2
+        : Math.random() * 3 + 1,
       delay: Math.random() * 6,
       className: `h-${Math.floor(Math.random() * 12) + 6}`, // h-6 to h-18
     },
@@ -47,8 +47,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 440,
       duration: extendToFooter ? Math.random() * 12 + 9 : Math.random() * 6 + 3,
       repeatDelay: extendToFooter
-        ? Math.random() * 10 + 8
-        : Math.random() * 5 + 2,
+        ? Math.random() * 4 + 3
+        : Math.random() * 2 + 1,
       delay: Math.random() * 7,
       className: `h-${Math.floor(Math.random() * 14) + 5}`, // h-5 to h-19
     },
@@ -57,8 +57,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 660,
       duration: extendToFooter ? Math.random() * 9 + 11 : Math.random() * 4 + 6,
       repeatDelay: extendToFooter
-        ? Math.random() * 13 + 7
-        : Math.random() * 6 + 4,
+        ? Math.random() * 5 + 3
+        : Math.random() * 3 + 2,
       delay: Math.random() * 5,
       className: `h-${Math.floor(Math.random() * 16) + 4}`, // h-4 to h-20
     },
@@ -67,8 +67,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 880,
       duration: extendToFooter ? Math.random() * 11 + 8 : Math.random() * 5 + 4,
       repeatDelay: extendToFooter
-        ? Math.random() * 14 + 6
-        : Math.random() * 7 + 3,
+        ? Math.random() * 6 + 2
+        : Math.random() * 3 + 1,
       delay: Math.random() * 9,
       className: `h-${Math.floor(Math.random() * 18) + 3}`, // h-3 to h-21
     },
@@ -77,8 +77,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 1100,
       duration: extendToFooter ? Math.random() * 13 + 7 : Math.random() * 6 + 5,
       repeatDelay: extendToFooter
-        ? Math.random() * 11 + 9
-        : Math.random() * 5 + 4,
+        ? Math.random() * 4 + 4
+        : Math.random() * 2 + 2,
       delay: Math.random() * 6,
       className: `h-${Math.floor(Math.random() * 15) + 5}`, // h-5 to h-20
     },
@@ -87,8 +87,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 1320,
       duration: extendToFooter ? Math.random() * 10 + 9 : Math.random() * 4 + 6,
       repeatDelay: extendToFooter
-        ? Math.random() * 12 + 8
-        : Math.random() * 6 + 3,
+        ? Math.random() * 5 + 3
+        : Math.random() * 3 + 1,
       delay: Math.random() * 8,
       className: `h-${Math.floor(Math.random() * 17) + 4}`, // h-4 to h-21
     },
@@ -97,8 +97,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 1540,
       duration: extendToFooter ? Math.random() * 14 + 6 : Math.random() * 7 + 4,
       repeatDelay: extendToFooter
-        ? Math.random() * 16 + 5
-        : Math.random() * 8 + 2,
+        ? Math.random() * 6 + 2
+        : Math.random() * 3 + 1,
       delay: Math.random() * 7,
       className: `h-${Math.floor(Math.random() * 13) + 6}`, // h-6 to h-19
     },
@@ -108,8 +108,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 150 + 50,
       duration: extendToFooter ? Math.random() * 15 + 8 : Math.random() * 8 + 3,
       repeatDelay: extendToFooter
-        ? Math.random() * 18 + 4
-        : Math.random() * 9 + 2,
+        ? Math.random() * 6 + 2
+        : Math.random() * 4 + 1,
       delay: Math.random() * 10,
       className: `h-${Math.floor(Math.random() * 12) + 8}`, // h-8 to h-20
     },
@@ -120,8 +120,8 @@ export const BackgroundBeamsWithCollision = ({
         ? Math.random() * 12 + 10
         : Math.random() * 6 + 5,
       repeatDelay: extendToFooter
-        ? Math.random() * 14 + 7
-        : Math.random() * 7 + 3,
+        ? Math.random() * 5 + 3
+        : Math.random() * 3 + 1,
       delay: Math.random() * 5,
       className: `h-${Math.floor(Math.random() * 16) + 4}`, // h-4 to h-20
     },
@@ -130,8 +130,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 160 + 520,
       duration: extendToFooter ? Math.random() * 11 + 9 : Math.random() * 5 + 4,
       repeatDelay: extendToFooter
-        ? Math.random() * 13 + 6
-        : Math.random() * 6 + 4,
+        ? Math.random() * 4 + 3
+        : Math.random() * 2 + 1,
       delay: Math.random() * 8,
       className: `h-${Math.floor(Math.random() * 14) + 5}`, // h-5 to h-19
     },
@@ -140,8 +140,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 190 + 740,
       duration: extendToFooter ? Math.random() * 16 + 5 : Math.random() * 8 + 3,
       repeatDelay: extendToFooter
-        ? Math.random() * 17 + 4
-        : Math.random() * 8 + 2,
+        ? Math.random() * 6 + 2
+        : Math.random() * 3 + 1,
       delay: Math.random() * 6,
       className: `h-${Math.floor(Math.random() * 18) + 3}`, // h-3 to h-21
     },
@@ -150,8 +150,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 170 + 960,
       duration: extendToFooter ? Math.random() * 13 + 8 : Math.random() * 6 + 5,
       repeatDelay: extendToFooter
-        ? Math.random() * 15 + 6
-        : Math.random() * 7 + 3,
+        ? Math.random() * 5 + 3
+        : Math.random() * 3 + 1,
       delay: Math.random() * 9,
       className: `h-${Math.floor(Math.random() * 15) + 6}`, // h-6 to h-21
     },
@@ -160,8 +160,8 @@ export const BackgroundBeamsWithCollision = ({
       translateX: Math.random() * 200 + 1180,
       duration: extendToFooter ? Math.random() * 14 + 7 : Math.random() * 7 + 4,
       repeatDelay: extendToFooter
-        ? Math.random() * 12 + 8
-        : Math.random() * 6 + 4,
+        ? Math.random() * 4 + 3
+        : Math.random() * 3 + 2,
       delay: Math.random() * 7,
       className: `h-${Math.floor(Math.random() * 17) + 4}`, // h-4 to h-21
     },
@@ -172,8 +172,8 @@ export const BackgroundBeamsWithCollision = ({
         ? Math.random() * 10 + 10
         : Math.random() * 5 + 5,
       repeatDelay: extendToFooter
-        ? Math.random() * 19 + 3
-        : Math.random() * 9 + 2,
+        ? Math.random() * 6 + 1
+        : Math.random() * 4 + 1,
       delay: Math.random() * 8,
       className: `h-${Math.floor(Math.random() * 13) + 7}`, // h-7 to h-20
     },
@@ -337,7 +337,7 @@ const CollisionMechanism = React.forwardRef<
           ref={beamRef}
           animate="animate"
           initial={{
-            translateY: beamOptions.initialY || "-200px",
+            translateY: beamOptions.initialY || "-400px",
             translateX: beamOptions.initialX || "0px",
             rotate: beamOptions.rotate || 0,
           }}
@@ -360,7 +360,7 @@ const CollisionMechanism = React.forwardRef<
           }}
           className={cn(
             "absolute m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent",
-            extendToFooter ? "left-0 top-20 z-50" : "left-0 top-20",
+            extendToFooter ? "left-0 top-0 z-50" : "left-0 top-0",
             beamOptions.className
           )}
         />
@@ -406,7 +406,7 @@ const ExtendedCollisionMechanism = React.forwardRef<
       ref={beamRef}
       animate="animate"
       initial={{
-        translateY: beamOptions.initialY || "-200px",
+        translateY: beamOptions.initialY || "-400px",
         translateX: beamOptions.initialX || "0px",
         rotate: beamOptions.rotate || 0,
       }}
@@ -422,11 +422,11 @@ const ExtendedCollisionMechanism = React.forwardRef<
         repeat: Infinity,
         repeatType: "loop",
         ease: "linear",
-        delay: beamOptions.delay || 0,
+        delay: 0,
         repeatDelay: beamOptions.repeatDelay || 0,
       }}
       className={cn(
-        "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent z-10",
+        "absolute left-0 top-0 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent z-10",
         beamOptions.className
       )}
     />
