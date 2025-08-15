@@ -35,15 +35,55 @@ function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Primary method: Formspree (easier setup, no server config needed)
+      // Replace 'YOUR_FORM_ID' with your actual Formspree form ID
+      // Sign up at https://formspree.io for free
+      const formspreeResponse = await fetch("https://formspree.io/f/xgvzqrwk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Portfolio Contact: Message from ${formData.name}`,
+        }),
+      });
+
+      if (formspreeResponse.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        // Fallback: Try your own API route
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          setSubmitStatus("success");
+          setFormData({ name: "", email: "", message: "" });
+        } else {
+          const errorData = await response.json();
+          console.error("Form submission error:", errorData);
+          setSubmitStatus("error");
+        }
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+    } finally {
       setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-
-      setTimeout(() => setSubmitStatus("idle"), 3000);
-    }, 2000);
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    }
   };
 
   const socialLinks = [
@@ -179,6 +219,8 @@ function Contact() {
                     ? "bg-gray-600 cursor-not-allowed"
                     : submitStatus === "success"
                     ? "bg-green-600 hover:bg-green-700"
+                    : submitStatus === "error"
+                    ? "bg-red-600 hover:bg-red-700"
                     : "bg-blue-600 hover:bg-blue-700 hover:scale-105"
                 }`}
                 whileTap={{ scale: 0.95 }}
@@ -193,6 +235,11 @@ function Contact() {
                     <Heart className="w-4 h-4" />
                     Message Sent!
                   </>
+                ) : submitStatus === "error" ? (
+                  <>
+                    <Mail className="w-4 h-4" />
+                    Try Again
+                  </>
                 ) : (
                   <>
                     <Send className="w-4 h-4" />
@@ -200,6 +247,29 @@ function Contact() {
                   </>
                 )}
               </motion.button>
+
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-green-400 text-sm text-center bg-green-900/20 p-3 rounded-lg border border-green-500/20"
+                >
+                  🎉 Thank you! Your message has been sent successfully.
+                  I&apos;ll get back to you soon.
+                </motion.div>
+              )}
+
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-red-400 text-sm text-center bg-red-900/20 p-3 rounded-lg border border-red-500/20"
+                >
+                  ⚠️ Sorry, there was an error sending your message. Please try
+                  again or email me directly at nishchay.agar@gmail.com
+                </motion.div>
+              )}
             </form>
           </motion.div>
 
