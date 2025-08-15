@@ -75,7 +75,7 @@ function Navbar() {
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/nishchayag",
+      href: "https://www.linkedin.com/in/nishchay-agarwal/",
       icon: <Linkedin className="w-5 h-5" />,
     },
   ];

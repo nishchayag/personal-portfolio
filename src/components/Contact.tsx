@@ -97,7 +97,7 @@ function Contact() {
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-6 h-6" />,
-      url: "https://linkedin.com/in/nishchayag",
+      url: "https://www.linkedin.com/in/nishchay-agarwal/",
       color: "hover:text-blue-400",
       bgColor: "hover:bg-blue-900/50",
     },
