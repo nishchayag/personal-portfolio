@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS, featuring stunning animations and smooth user interactions.
 
-**🌐 Live Demo**: [https://personal-portfolio-nishchay-agarwals-projects.vercel.app/](https://personal-portfolio-nishchay-agarwals-projects.vercel.app/)
+**🌐 Live Demo**: [https://www.nishchayag.live/](https://www.nishchayag.live/)
 
 ## 🚀 Features
 
