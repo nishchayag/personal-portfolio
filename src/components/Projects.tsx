@@ -39,6 +39,34 @@ function Projects() {
     },
     {
       id: 2,
+      title: "Doxiqo",
+      description:
+        "A RAG application that automatically generates comprehensive user documentation by analyzing project code.",
+      longDescription:
+        "Upload your project code and Doxiqo uses Retrieval-Augmented Generation to intelligently analyze it and generate professional user documentation. Perfect for developers who want to create documentation without the manual effort.",
+      techStack: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Gemini API",
+        "MongoDB",
+        "UploadThing",
+      ],
+      category: "Full-Stack",
+      featured: true,
+      status: "Live",
+      demoUrl: "https://doxiqo.nishchayag.live",
+      githubUrl: "https://github.com/nishchayag/doxiqo",
+      imageUrl: "/api/placeholder/600/400",
+      keyFeatures: [
+        "Automatic code analysis",
+        "RAG-powered generation",
+        "Professional documentation",
+        "Code upload support",
+      ],
+    },
+    {
+      id: 3,
       title: "Notesify",
       description:
         "A modern note-taking application with rich text editing, organization features, and cloud synchronization.",
@@ -59,7 +87,7 @@ function Projects() {
       ],
     },
     {
-      id: 3,
+      id: 4,
       title: "Portfolio Website",
       description:
         "My personal portfolio website showcasing my skills, projects, and experience as a full-stack developer.",
@@ -86,7 +114,7 @@ function Projects() {
       ],
     },
     {
-      id: 4,
+      id: 5,
       title: "Kaizen Portfolio",
       description:
         "A professional portfolio website designed for a freelance client, showcasing their services and previous work.",
@@ -108,7 +136,7 @@ function Projects() {
     },
 
     {
-      id: 5,
+      id: 6,
       title: "Currency Converter",
       description:
         "A simple and user-friendly currency converter application built with vanilla JavaScript.",
@@ -129,7 +157,7 @@ function Projects() {
       ],
     },
     {
-      id: 6,
+      id: 7,
       title: "Digital Signature App",
       description: "A web application for creating  digital signatures.",
       longDescription:
@@ -149,7 +177,7 @@ function Projects() {
       ],
     },
     {
-      id: 7,
+      id: 8,
       title: "Connect 4",
       description: "A web-based version of the classic Connect 4 game.",
       longDescription:
@@ -169,7 +197,7 @@ function Projects() {
       ],
     },
     {
-      id: 8,
+      id: 9,
       title: "Random Password Generator",
       description:
         "A simple and secure random password generator built with JavaScript.",
@@ -190,7 +218,7 @@ function Projects() {
       ],
     },
     {
-      id: 9,
+      id: 10,
       title: "Newspaper App",
       description:
         "A simple newspaper app that fetches and displays news articles from an API.",
@@ -211,7 +239,7 @@ function Projects() {
       ],
     },
     {
-      id: 10,
+      id: 11,
       title: "Key Logger",
       description: "A simple key logger application built with JavaScript.",
       longDescription:
@@ -329,7 +357,7 @@ function Projects() {
                     <span
                       key={tech}
                       className={`px-3 py-1 rounded-full text-xs font-medium border ${getTechBadgeColor(
-                        tech
+                        tech,
                       )}`}
                     >
                       {tech}
@@ -359,10 +387,17 @@ function Projects() {
                 <div className="flex gap-3">
                   {project.demoUrl && (
                     <LinkPreview url={project.demoUrl} className="flex-1">
-                      <p className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-all duration-300 text-sm hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25">
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.open(project.demoUrl, "_blank");
+                        }}
+                        className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-all duration-300 text-sm hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
+                      >
                         <ExternalLink className="w-4 h-4 inline mr-2" />
                         Live Demo
-                      </p>
+                      </button>
                     </LinkPreview>
                   )}
                   {project.githubUrl && (
@@ -441,7 +476,7 @@ function Projects() {
                   <span
                     key={tech}
                     className={`px-2 py-1 rounded text-xs font-medium border ${getTechBadgeColor(
-                      tech
+                      tech,
                     )}`}
                   >
                     {tech}
