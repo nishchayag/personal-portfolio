@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://nishchayag.live/sitemap.xml",
+    sitemap: "https://www.nishchayag.com/sitemap.xml",
   };
 }

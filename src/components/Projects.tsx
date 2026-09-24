@@ -27,7 +27,7 @@ function Projects() {
       category: "Full-Stack",
       featured: true,
       status: "Live",
-      demoUrl: "https://feedbacker-io.nishchayag.live",
+      demoUrl: "https://feedbackerio.nishchayag.com",
       githubUrl: "https://github.com/nishchayag/feedbacker.io",
       imageUrl: "/api/placeholder/600/400",
       keyFeatures: [
@@ -55,7 +55,7 @@ function Projects() {
       category: "Full-Stack",
       featured: true,
       status: "Live",
-      demoUrl: "https://doxiqo.nishchayag.live",
+      demoUrl: "https://doxiqo.nishchayag.com",
       githubUrl: "https://github.com/nishchayag/doxiqo",
       imageUrl: "/api/placeholder/600/400",
       keyFeatures: [
@@ -76,7 +76,7 @@ function Projects() {
       category: "Full-Stack",
       featured: true,
       status: "Live",
-      demoUrl: "https://notesify.nishchayag.live",
+      demoUrl: "https://notesify.nishchayag.com",
       githubUrl: "https://github.com/nishchayag/notesify",
       imageUrl: "/api/placeholder/600/400",
       keyFeatures: [
@@ -103,7 +103,7 @@ function Projects() {
       category: "Frontend",
       featured: false,
       status: "Live",
-      demoUrl: "https://nishchayag.live/",
+      demoUrl: "https://www.nishchayag.com/",
       githubUrl: "https://github.com/nishchayag/portfolio",
       imageUrl: "/api/placeholder/600/400",
       keyFeatures: [

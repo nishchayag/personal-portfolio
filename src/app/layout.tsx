@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://nishchayag.live"),
+  metadataBase: new URL("https://www.nishchayag.com"),
   alternates: {
     canonical: "/",
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Nishchay Agarwal | Full-Stack Developer & Freelancer",
     description:
       "Experienced full-stack developer specializing in Next.js, React, and Node.js. Creating innovative web solutions and digital experiences.",
-    url: "https://nishchayag.live",
+    url: "https://www.nishchayag.com",
     siteName: "Nishchay Agarwal&apos;s Portfolio",
     locale: "en_US",
     type: "website",
@@ -93,7 +93,7 @@ export default function RootLayout({
               jobTitle: "Full-Stack Developer",
               description:
                 "Experienced full-stack developer specializing in Next.js, React, and Node.js",
-              url: "https://nishchay-portfolio.vercel.app",
+              url: "https://www.nishchayag.com",
               sameAs: [
                 "https://github.com/nishchay-agarwal",
                 "https://linkedin.com/in/nishchay-agarwal",

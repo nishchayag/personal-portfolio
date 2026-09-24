@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS, featuring stunning animations and smooth user interactions.
 
-**🌐 Live Demo**: [https://www.nishchayag.live/](https://www.nishchayag.live/)
+**🌐 Live Demo**: [https://www.nishchayag.com/](https://www.nishchayag.com/)
 
 ## 🚀 Features
 
