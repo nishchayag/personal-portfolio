@@ -300,13 +300,13 @@ function Projects() {
 
   return (
     <div className="bg-transparent w-full flex flex-col text-2xl pt-20 overflow-hidden">
-      <h1 className="text-center text-6xl text-white mb-16">My Projects</h1>
+      <h2 className="text-center text-6xl text-white mb-16">My Projects</h2>
 
       {/* Featured Projects Section */}
       <div className="max-w-7xl mx-auto px-4 mb-16">
-        <h2 className="text-4xl font-bold text-white text-center mb-12">
+        <h3 className="text-4xl font-bold text-white text-center mb-12">
           Featured Projects
-        </h2>
+        </h3>
         <div className="grid md:grid-cols-2 gap-8">
           {featuredProjects.map((project, _index) => (
             <motion.div
@@ -422,7 +422,7 @@ function Projects() {
               <button
                 key={tech}
                 onClick={() => setSelectedTech(tech)}
-                className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                className={`min-h-11 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${
                   selectedTech === tech
                     ? "bg-white text-black shadow-lg"
                     : "text-gray-400 hover:text-white hover:bg-white/10"
@@ -437,9 +437,9 @@ function Projects() {
 
       {/* All Projects Grid */}
       <div className="max-w-7xl mx-auto px-4 mb-16">
-        <h2 className="text-3xl font-bold text-white text-center mb-12">
+        <h3 className="text-3xl font-bold text-white text-center mb-12">
           All Projects ({filteredProjects.length})
-        </h2>
+        </h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -486,7 +486,7 @@ function Projects() {
               <div className="flex gap-2">
                 {project.demoUrl && (
                   <LinkPreview url={project.demoUrl} className="flex-1">
-                    <span className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded-lg font-medium text-center transition-all duration-300 text-xs hover:scale-105">
+                    <span className="min-h-11 flex items-center justify-center w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded-lg font-medium text-center transition-all duration-300 text-xs hover:scale-105">
                       Demo
                     </span>
                   </LinkPreview>
@@ -496,14 +496,14 @@ function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-2 px-3 rounded-lg font-medium text-center transition-all duration-300 text-xs hover:scale-105"
+                    className="min-h-11 flex items-center justify-center flex-1 bg-gray-700 hover:bg-gray-600 text-white py-2 px-3 rounded-lg font-medium text-center transition-all duration-300 text-xs hover:scale-105"
                   >
                     <Github className="w-3 h-3 inline mr-1" />
                     Code
                   </a>
                 )}
                 {!project.demoUrl && !project.githubUrl && (
-                  <div className="flex-1 bg-gray-800 text-gray-400 py-2 px-3 rounded-lg font-medium text-center text-xs cursor-not-allowed">
+                  <div className="min-h-11 flex items-center justify-center flex-1 bg-gray-800 text-gray-400 py-2 px-3 rounded-lg font-medium text-center text-xs cursor-not-allowed">
                     Private
                   </div>
                 )}
@@ -517,9 +517,9 @@ function Projects() {
       <div className="text-center mb-16">
         <div className="max-w-3xl mx-auto px-4">
           <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h3 className="text-3xl font-bold text-white mb-4">
               Building Digital Solutions
-            </h2>
+            </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
               From concept to deployment, I create full-stack applications that
               solve real-world problems. Each project showcases different

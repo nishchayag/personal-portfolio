@@ -84,7 +84,11 @@ function Navbar() {
     setIsMobileMenuOpen(false);
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+      const behavior = window.matchMedia("(prefers-reduced-motion: reduce)")
+        .matches
+        ? "auto"
+        : "smooth";
+      target.scrollIntoView({ behavior });
     }
   };
 
@@ -114,7 +118,7 @@ function Navbar() {
                   e.preventDefault();
                   handleNavClick("#home");
                 }}
-                className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+                className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
               >
                 Nishchay Agarwal
               </a>
@@ -131,7 +135,7 @@ function Navbar() {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${
                       activeSection === item.href.slice(1)
                         ? "text-blue-400 bg-blue-400/10"
                         : "text-gray-300 hover:text-white hover:bg-white/10"
@@ -153,7 +157,8 @@ function Navbar() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+                  aria-label={social.name}
+                  className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -166,7 +171,10 @@ function Navbar() {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-gray-400 hover:text-white transition-colors p-2"
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
+                className="size-11 flex items-center justify-center text-gray-400 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -184,6 +192,7 @@ function Navbar() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
+              id="mobile-menu"
               className="md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
@@ -199,7 +208,7 @@ function Navbar() {
                       e.preventDefault();
                       handleNavClick(item.href);
                     }}
-                    className={`flex items-center gap-3 px-3 py-3 rounded-md text-base font-medium transition-all duration-300 ${
+                    className={`flex items-center gap-3 px-3 py-3 rounded-md text-base font-medium transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${
                       activeSection === item.href.slice(1)
                         ? "text-blue-400 bg-blue-400/10"
                         : "text-gray-300 hover:text-white hover:bg-white/10"
@@ -222,7 +231,8 @@ function Navbar() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg"
+                      aria-label={social.name}
+                      className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{

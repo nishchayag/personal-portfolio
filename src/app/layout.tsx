@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import MotionProvider from "@/components/MotionProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -69,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark scroll-smooth motion-reduce:scroll-auto">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -107,7 +108,7 @@ export default function RootLayout({
             }),
           }}
         />
-        {children}
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

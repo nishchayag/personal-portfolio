@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { FloatingDock } from "./ui/floating-dock";
 
 function SkillsSection() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   // Enhanced skills data with categories
@@ -359,7 +358,7 @@ function SkillsSection() {
 
   return (
     <div className="bg-transparent w-full flex flex-col gap-15 text-2xl pt-20 overflow-hidden">
-      <h1 className="text-center text-6xl text-white mb-8">What I know</h1>
+      <h2 className="text-center text-6xl text-white mb-8">What I know</h2>
 
       {/* Category Filter Pills */}
       <div className="flex justify-center ">
@@ -368,7 +367,7 @@ function SkillsSection() {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+              className={`min-h-11 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400 ${
                 selectedCategory === category.id
                   ? "bg-white text-black shadow-lg"
                   : "text-gray-400 hover:text-white hover:bg-white/10"
@@ -384,12 +383,7 @@ function SkillsSection() {
       <div className="max-w-6xl mx-auto px-4 ">
         <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill) => (
-            <div
-              key={skill.name}
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setHoveredSkill(skill.name)}
-              onMouseLeave={() => setHoveredSkill(null)}
-            >
+            <div key={skill.name} className="relative group">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
                 {/* Skill Header */}
                 <div className="flex justify-between items-center mb-4">
@@ -416,27 +410,16 @@ function SkillsSection() {
                   </div>
                   <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
                     <div
-                      className={`h-2 bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out transform origin-left`}
+                      className={`h-2 bg-gradient-to-r ${skill.color} rounded-full origin-left`}
                       style={{
-                        width:
-                          hoveredSkill === skill.name
-                            ? `${skill.percentage}%`
-                            : "0%",
-                        transitionDelay:
-                          hoveredSkill === skill.name ? "200ms" : "0ms",
+                        transform: `scaleX(${skill.percentage / 100})`,
                       }}
                     />
                   </div>
                 </div>
 
                 {/* Description */}
-                <div
-                  className={`transition-all duration-300 overflow-hidden ${
-                    hoveredSkill === skill.name
-                      ? "max-h-20 opacity-100"
-                      : "max-h-0 opacity-0"
-                  }`}
-                >
+                <div>
                   <p className="text-sm text-gray-400 leading-relaxed">
                     {skill.description}
                   </p>
@@ -454,7 +437,7 @@ function SkillsSection() {
 
       {/* Enhanced Floating Dock */}
       <div className="flex flex-col items-center">
-        <h2 className="text-center text-3xl text-white mb-10">Quick Access</h2>
+        <h3 className="text-center text-3xl text-white mb-10">Quick Access</h3>
         <div className="mb-8">
           <FloatingDock items={filteredDockItems} />
         </div>
@@ -464,9 +447,9 @@ function SkillsSection() {
       <div className="text-center">
         <div className="max-w-3xl mx-auto px-4">
           <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h3 className="text-3xl font-bold text-white mb-4">
               Full-Stack Developer
-            </h2>
+            </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
               Passionate about creating modern web experiences with the latest
               technologies. Proficient in both frontend and backend development,

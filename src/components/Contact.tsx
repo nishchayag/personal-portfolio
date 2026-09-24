@@ -227,7 +227,7 @@ function Contact() {
               >
                 {isSubmitting ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin motion-reduce:animate-none" />
                     Sending...
                   </>
                 ) : submitStatus === "success" ? (
@@ -323,6 +323,7 @@ function Contact() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={social.name}
                     className={`p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-300 ${social.color} ${social.bgColor}`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
@@ -340,7 +341,7 @@ function Contact() {
             {/* Availability Status */}
             <div className="p-6 bg-gradient-to-r from-green-500/10 to-blue-500/10 backdrop-blur-sm border border-white/10 rounded-lg">
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse motion-reduce:animate-none"></div>
                 <h3 className="font-semibold text-green-400">
                   Available for Work
                 </h3>
@@ -355,8 +356,16 @@ function Contact() {
 
         {/* Back to Top Button */}
         <motion.button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+          onClick={() => {
+            const behavior = window.matchMedia(
+              "(prefers-reduced-motion: reduce)"
+            ).matches
+              ? "auto"
+              : "smooth";
+            window.scrollTo({ top: 0, behavior });
+          }}
+          aria-label="Back to top"
+          className="fixed bottom-8 right-8 min-h-11 min-w-11 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           initial={{ opacity: 0, y: 20 }}

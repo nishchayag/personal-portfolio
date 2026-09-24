@@ -116,9 +116,9 @@ function About() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             About Me
-          </h1>
+          </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             I&apos;m a passionate full-stack developer who loves creating
             digital experiences that make a difference
@@ -136,9 +136,9 @@ function About() {
             viewport={{ once: true }}
           >
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold mb-6 text-blue-400">
+              <h3 className="text-3xl font-bold mb-6 text-blue-400">
                 My Journey
-              </h2>
+              </h3>
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
                   My journey into web development started with curiosity and
@@ -166,9 +166,9 @@ function About() {
 
             {/* Values */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold mb-6 text-purple-400">
+              <h3 className="text-3xl font-bold mb-6 text-purple-400">
                 What I Value
-              </h2>
+              </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {values.map((value, index) => (
                   <motion.div
@@ -192,9 +192,9 @@ function About() {
 
             {/* My Approach */}
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold mb-6 text-green-400">
+              <h3 className="text-3xl font-bold mb-6 text-green-400">
                 My Approach
-              </h2>
+              </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {approach.map((item, index) => (
                   <motion.div
@@ -321,7 +321,7 @@ function About() {
           viewport={{ once: true }}
         >
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-6">Fun Facts About Me</h2>
+            <h3 className="text-2xl font-bold mb-6">Fun Facts About Me</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-4xl mb-2">☕</div>
