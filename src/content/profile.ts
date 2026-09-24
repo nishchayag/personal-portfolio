@@ -10,10 +10,11 @@ export const profile = {
   availability: "Open to freelance projects and full-time roles",
   email: "nishchay.agar@gmail.com",
   resumeUrl:
-    "https://drive.google.com/file/d/1pquVJZphR2WqCjpWMUYl8HTvNWDzRUQ1/view?usp=sharing",
+    "https://drive.google.com/file/d/1SWiz35qvTJNOflGthhbLyDTNTIjni5Rd/view?usp=sharing",
   socials: [
     { label: "GitHub", href: "https://github.com/nishchayag" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/nishchay-agarwal/" },
+    { label: "X", href: "https://x.com/nishchay_agar" },
   ],
 } as const;
 
@@ -46,6 +47,21 @@ export const featuredProjects: Project[] = [
     kind: "Product",
   },
   {
+    slug: "signalhq",
+    title: "SignalHQ",
+    summary:
+      "Multi-tenant anonymous feedback platform for teams: organisations, teams and per-team feedback threads.",
+    stack: ["Next.js", "Mongoose", "MongoDB"],
+    highlights: [
+      "Multi-tenant model where users create organisations and teams with full CRUD management",
+      "Independent feedback threads per team, plus public no-signup pages for anonymous submissions",
+    ],
+    demoUrl: "https://signal.nishchayag.com",
+    githubUrl: "https://github.com/nishchayag/signalhq",
+    image: "/work/signalhq.png",
+    kind: "Product",
+  },
+  {
     slug: "notesify",
     title: "Notesify",
     summary:
@@ -58,21 +74,6 @@ export const featuredProjects: Project[] = [
     demoUrl: "https://notesify.nishchayag.com",
     githubUrl: "https://github.com/nishchayag/notesify",
     image: "/work/notesify.png",
-    kind: "Product",
-  },
-  {
-    slug: "feedbacker",
-    title: "Feedbacker.io",
-    summary:
-      "Anonymous feedback platform: create a shareable link and collect honest feedback without revealing who sent it.",
-    stack: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS"],
-    highlights: [
-      "Shareable public links that accept submissions without sign-up",
-      "Privacy-first design — senders stay anonymous",
-    ],
-    demoUrl: "https://feedbackerio.nishchayag.com",
-    githubUrl: "https://github.com/nishchayag/feedbacker.io",
-    image: "/work/feedbacker.png",
     kind: "Product",
   },
   {
@@ -92,6 +93,21 @@ export const featuredProjects: Project[] = [
 ];
 
 export const otherProjects: Project[] = [
+  {
+    slug: "feedbacker",
+    title: "Feedbacker.io",
+    summary:
+      "Anonymous feedback platform: create a shareable link and collect honest feedback without revealing who sent it.",
+    stack: ["Next.js", "TypeScript", "MongoDB", "Tailwind CSS"],
+    highlights: [
+      "Shareable public links that accept submissions without sign-up",
+      "Privacy-first design — senders stay anonymous",
+    ],
+    demoUrl: "https://feedbackerio.nishchayag.com",
+    githubUrl: "https://github.com/nishchayag/feedbacker.io",
+    image: "/work/feedbacker.png",
+    kind: "Product",
+  },
   { slug: "currency-converter", title: "Currency Converter", summary: "Live exchange-rate converter.", stack: ["JavaScript"], highlights: [], demoUrl: "https://nishchayag.github.io/currency-converter/", kind: "Experiment" },
   { slug: "digital-signature", title: "Digital Signature App", summary: "Draw and download a signature in the browser.", stack: ["JavaScript", "Canvas"], highlights: [], demoUrl: "https://nishchayag.github.io/Digital-Signature-App/", kind: "Experiment" },
   { slug: "connect-4", title: "Connect 4", summary: "Two-player Connect 4 in the browser.", stack: ["JavaScript"], highlights: [], demoUrl: "https://nishchayag.github.io/Connect-4/", kind: "Experiment" },
