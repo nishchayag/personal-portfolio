@@ -1,8 +1,3 @@
-/**
- * Note: Use position fixed according to your needs
- * Desktop navbar is better positioned at the bottom
- * Mobile navbar is better positioned at bottom right.
- **/
 "use client";
 import { cn } from "@/lib/utils";
 import {
@@ -22,12 +17,34 @@ export const FloatingDock = ({
 }: {
   items: { title: string; icon: React.ReactNode; href: string }[];
   desktopClassName?: string;
-  mobileClassName?: string;
 }) => {
   return (
     <>
+      <FloatingDockMobile items={items} />
       <FloatingDockDesktop items={items} className={desktopClassName} />
     </>
+  );
+};
+
+const FloatingDockMobile = ({
+  items,
+}: {
+  items: { title: string; icon: React.ReactNode; href: string }[];
+}) => {
+  return (
+    <div className="mx-auto grid w-fit grid-cols-4 gap-3 md:hidden">
+      {items.map((item) => (
+        <a
+          key={item.title}
+          href={item.href}
+          target="_blank"
+          aria-label={item.title}
+          className="flex size-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-transform duration-150 ease-out active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          {item.icon}
+        </a>
+      ))}
+    </div>
   );
 };
 
@@ -44,7 +61,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "flex h-16 mb-5 items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3  dark:bg-neutral-900",
+        "hidden md:flex h-20 mb-5 items-end gap-5 rounded-2xl bg-gray-50 px-5 pb-3.5  dark:bg-neutral-900",
         className
       )}
     >
@@ -74,18 +91,22 @@ function IconContainer({
     return val - bounds.x - bounds.width / 2;
   });
 
-  const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const widthTransform = useTransform(distance, [-150, 0, 150], [56, 100, 56]);
+  const heightTransform = useTransform(
+    distance,
+    [-150, 0, 150],
+    [56, 100, 56]
+  );
 
   const widthTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
-    [20, 40, 20]
+    [28, 50, 28]
   );
   const heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
-    [20, 40, 20]
+    [28, 50, 28]
   );
 
   const width = useSpring(widthTransform, {
@@ -113,7 +134,7 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href} target="_blank">
+    <a href={href} target="_blank" aria-label={title}>
       <motion.div
         ref={ref}
         style={{ width, height }}

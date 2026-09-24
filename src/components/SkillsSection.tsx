@@ -456,9 +456,7 @@ function SkillsSection() {
       <div className="flex flex-col items-center">
         <h2 className="text-center text-3xl text-white mb-10">Quick Access</h2>
         <div className="mb-8">
-          <div className="transform scale-125 md:scale-150">
-            <FloatingDock items={filteredDockItems} />
-          </div>
+          <FloatingDock items={filteredDockItems} />
         </div>
       </div>
 

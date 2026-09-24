@@ -387,17 +387,10 @@ function Projects() {
                 <div className="flex gap-3">
                   {project.demoUrl && (
                     <LinkPreview url={project.demoUrl} className="flex-1">
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          window.open(project.demoUrl, "_blank");
-                        }}
-                        className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-all duration-300 text-sm hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer"
-                      >
+                      <span className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium text-center transition-all duration-300 text-sm hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 cursor-pointer">
                         <ExternalLink className="w-4 h-4 inline mr-2" />
                         Live Demo
-                      </button>
+                      </span>
                     </LinkPreview>
                   )}
                   {project.githubUrl && (
@@ -493,14 +486,9 @@ function Projects() {
               <div className="flex gap-2">
                 {project.demoUrl && (
                   <LinkPreview url={project.demoUrl} className="flex-1">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded-lg font-medium text-center transition-all duration-300 text-xs hover:scale-105"
-                    >
+                    <span className="block w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-3 rounded-lg font-medium text-center transition-all duration-300 text-xs hover:scale-105">
                       Demo
-                    </a>
+                    </span>
                   </LinkPreview>
                 )}
                 {project.githubUrl && (
