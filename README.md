@@ -142,14 +142,15 @@ src/
 │   ├── icon.tsx           # Generated favicon
 │   ├── opengraph-image.tsx# Generated OG image
 │   ├── (site)/page.tsx    # Home page
-│   ├── preview/           # Earlier redesign variants (v1–v6), kept for comparison
 │   ├── robots.ts          # SEO robots.txt
 │   └── sitemap.ts         # SEO sitemap
 ├── components/
 │   ├── site/               # The live site's components (hero, flagship, cards, theme, etc.)
 │   └── MotionProvider.tsx  # Site-wide reduced-motion config
 └── content/
-    └── profile.ts          # Single source of truth for all content
+    ├── profile.ts          # Local content (the fallback for every project)
+    ├── projects.ts         # Merges each repo's portfolio.json + live GitHub stats
+    └── screenshots.json    # What the weekly screenshot job captures
 ```
 
 ## 🚀 Deployment
