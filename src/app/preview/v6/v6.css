@@ -1,0 +1,56 @@
+/* Variant 6 ("Combined") — scoped to .v6-root so nothing leaks into other routes. */
+
+.v6-root {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", var(--font-inter), system-ui, sans-serif;
+  background: #000;
+  color: #f5f5f7;
+  min-height: 100dvh;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.v6-root ::selection {
+  background: rgba(41, 151, 255, 0.35);
+}
+
+/* The one atmospheric touch: a very faint aurora behind the hero only. */
+.v6-aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  will-change: transform;
+  animation: v6-drift var(--dur, 48s) ease-in-out infinite alternate;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes v6-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(var(--dx, 4%), var(--dy, 3%), 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(calc(var(--dx, 4%) * -0.6), calc(var(--dy, 3%) * 0.8), 0) scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v6-aurora-blob {
+    animation: none;
+  }
+  /* Scroll reveals never hide content from reduced-motion readers. */
+  .v6-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Glass lives on two surfaces only: the sub-nav and the project sheet. */
+@media (prefers-reduced-transparency: reduce) {
+  .v6-glass {
+    background-color: rgba(22, 22, 24, 0.97) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}

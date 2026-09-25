@@ -6,6 +6,7 @@ const variants = [
   { href: "/preview/v3", name: "Split", note: "Sticky intro column, scrolling case studies" },
   { href: "/preview/v4", name: "Keynote", note: "Apple product-page chapters, sticky screenshots" },
   { href: "/preview/v5", name: "Spatial", note: "Depth, glass and cards that morph open" },
+  { href: "/preview/v6", name: "Combined", note: "Keynote hero + SignalHQ flagship + morphing cards" },
   { href: "/", name: "Current site", note: "For comparison" },
 ];
 
