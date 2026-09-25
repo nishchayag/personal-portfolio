@@ -11,7 +11,7 @@
 
 import { featuredProjects, otherProjects, type Project } from "./profile";
 
-const REVALIDATE_SECONDS = 86400;
+const REVALIDATE_SECONDS = 3600;
 const FETCH_TIMEOUT_MS = 5000;
 const PROJECTS_TAG = "projects";
 const TEST_FILE_RE = /\.(test|spec)\.[cm]?[jt]sx?$/;

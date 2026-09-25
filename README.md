@@ -91,13 +91,13 @@ Allowed fields:
 
 `slug`, `image`, `gallery`, `flagship` and `repo` always come from `profile.ts` — a manifest can't change those. Unknown fields are ignored.
 
-### Daily refresh
+### Hourly refresh
 
-The homepage is server-rendered with `export const revalidate = 86400`, and every fetch in `projects.ts` is tagged `"projects"` with a 24h `revalidate`, so Vercel refreshes project content and the flagship's live facts (commit count, first-commit date, test file count) at most once a day.
+The homepage is server-rendered with `export const revalidate = 3600`, and every fetch in `projects.ts` is tagged `"projects"` with a 1h `revalidate`, so Vercel refreshes project content and the flagship's live facts (commit count, first-commit date, test file count) at most once an hour. The facts in `profile.ts` are only a fallback for when GitHub can't be reached; keep them roughly in line with the default branch.
 
 ### On-demand refresh
 
-To pick up a change immediately instead of waiting for the daily revalidation:
+To pick up a change immediately instead of waiting for the hourly revalidation (optional; most edits don't need it):
 
 1. In the Vercel project, set an environment variable `REVALIDATE_SECRET` to a random string.
 2. Call `POST /api/revalidate?secret=<that value>` — it returns `{ "revalidated": true }` and 200 on a match, or 401 on a missing/wrong secret (and always 401 if `REVALIDATE_SECRET` isn't set at all).

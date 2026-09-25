@@ -59,8 +59,8 @@ export const featuredProjects: Project[] = [
       { label: "Keeps teams in the loop", body: "Email verification, password resets and notifications run on Resend with React Email templates, including a daily digest sent by a scheduled job." },
     ],
     facts: [
-      { label: "Test files", value: "74" },
-      { label: "Commits", value: "130+" },
+      { label: "Test files", value: "16" },
+      { label: "Commits", value: "60+" },
       { label: "Since", value: "Jul 2025" },
     ],
     demoUrl: "https://signal.nishchayag.com",
