@@ -4,6 +4,8 @@ const variants = [
   { href: "/preview/v1", name: "Editorial", note: "Quiet, typographic, one accent colour" },
   { href: "/preview/v2", name: "Bento", note: "Everything at a glance in a tile grid" },
   { href: "/preview/v3", name: "Split", note: "Sticky intro column, scrolling case studies" },
+  { href: "/preview/v4", name: "Keynote", note: "Apple product-page chapters, sticky screenshots" },
+  { href: "/preview/v5", name: "Spatial", note: "Depth, glass and cards that morph open" },
   { href: "/", name: "Current site", note: "For comparison" },
 ];
 
