@@ -160,10 +160,10 @@ export const experience = [
 ];
 
 export const skills = {
-  Languages: ["TypeScript", "JavaScript", "HTML", "CSS"],
-  Frontend: ["React", "Next.js", "Tailwind CSS"],
-  "Backend & data": ["MongoDB", "Mongoose", "PostgreSQL", "REST APIs", "Auth", "Sanity CMS", "Gemini API"],
-  Cloud: ["Google Cloud (VMs, Cloud SQL)"],
+  Languages: ["TypeScript", "JavaScript", "Python", "HTML", "CSS"],
+  Frontend: ["React.js", "Next.js", "Tailwind CSS"],
+  "Backend & data": ["MongoDB", "Mongoose", "PostgreSQL", "FastAPI", "REST APIs", "Authentication", "Sanity CMS", "Gemini API"],
+  Cloud: ["Google Cloud Platform (VM instances, Cloud SQL)"],
   Tools: ["Git", "GitHub", "Claude Code"],
 } as const;
 
