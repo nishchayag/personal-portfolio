@@ -28,9 +28,48 @@ export type Project = {
   githubUrl?: string;
   image?: string;
   kind: "Product" | "Client work" | "Experiment";
+  /** The one project to lead with and give the deepest treatment. */
+  flagship?: boolean;
+  /** Longer, verified detail for the flagship case study. */
+  details?: { label: string; body: string }[];
+  facts?: { label: string; value: string }[];
+  /** Extra screenshots (1440x900) for the flagship chapter. */
+  gallery?: { src: string; alt: string }[];
 };
 
 export const featuredProjects: Project[] = [
+  {
+    slug: "signalhq",
+    title: "SignalHQ",
+    flagship: true,
+    summary:
+      "Anonymous feedback for teams. Organisations, teams and questions get shareable links, so people can say what they really think without signing up.",
+    stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "NextAuth", "Resend", "Mistral AI", "Zod"],
+    highlights: [
+      "Multi-tenant model: organisations, teams and questions with full CRUD management and email invitations",
+      "Public no-signup pages for anonymous submissions, with independent feedback threads per team",
+      "AI features on Mistral: insight summaries, suggested messages and automated moderation",
+    ],
+    details: [
+      { label: "Multi-tenant by design", body: "Users create organisations, invite teammates by email and organise feedback into teams and questions, each with its own shareable public link." },
+      { label: "Anonymous, but safe", body: "Responders never need an account. Submissions pass a profanity filter and an AI moderation model before they reach the team, and API routes are rate-limited." },
+      { label: "AI where it helps", body: "One isolated AI module on Mistral powers insight summaries, suggested messages and moderation, with the whole feature switchable off when no key is configured." },
+      { label: "Keeps teams in the loop", body: "Email verification, password resets and notifications run on Resend with React Email templates, including a daily digest sent by a scheduled job." },
+    ],
+    facts: [
+      { label: "Test files", value: "74" },
+      { label: "Commits", value: "130+" },
+      { label: "Since", value: "Jul 2025" },
+    ],
+    demoUrl: "https://signal.nishchayag.com",
+    githubUrl: "https://github.com/nishchayag/signalhq",
+    image: "/work/signalhq.png",
+    gallery: [
+      { src: "/work/signalhq-features.png", alt: "SignalHQ feature overview: anonymous by design, teams and roles, email invites" },
+      { src: "/work/signalhq-flow.png", alt: "SignalHQ onboarding flow: create an organisation, share your link, read the signal" },
+    ],
+    kind: "Product",
+  },
   {
     slug: "doxiqo",
     title: "Doxiqo",
@@ -44,21 +83,6 @@ export const featuredProjects: Project[] = [
     demoUrl: "https://doxiqo.nishchayag.com",
     githubUrl: "https://github.com/nishchayag/doxiqo",
     image: "/work/doxiqo.png",
-    kind: "Product",
-  },
-  {
-    slug: "signalhq",
-    title: "SignalHQ",
-    summary:
-      "Multi-tenant anonymous feedback platform for teams: organisations, teams and per-team feedback threads.",
-    stack: ["Next.js", "Mongoose", "MongoDB"],
-    highlights: [
-      "Multi-tenant model where users create organisations and teams with full CRUD management",
-      "Independent feedback threads per team, plus public no-signup pages for anonymous submissions",
-    ],
-    demoUrl: "https://signal.nishchayag.com",
-    githubUrl: "https://github.com/nishchayag/signalhq",
-    image: "/work/signalhq.png",
     kind: "Product",
   },
   {
