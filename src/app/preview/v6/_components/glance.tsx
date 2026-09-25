@@ -18,7 +18,7 @@ export function Glance() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="scroll-mt-[52px] px-4 py-28 sm:px-6 lg:py-44"
+      className="v6-alt scroll-mt-[52px] bg-[var(--bg-alt)] px-4 py-28 sm:px-6 lg:py-44"
     >
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
@@ -39,12 +39,12 @@ export function Glance() {
                 <p className="mt-auto pt-14 text-[clamp(2.25rem,4.4vw,3.75rem)] font-semibold leading-[1] tracking-[-0.035em]">
                   {current.org}
                 </p>
-                <p className="mt-3 text-[19px] leading-snug text-[#f5f5f7]">
+                <p className="mt-3 text-[19px] leading-snug text-[var(--fg)]">
                   {current.role}{" "}
                   <span className={GREY}>· {current.period}</span>
                 </p>
                 {current.points.length > 0 ? (
-                  <ul className={`mt-8 space-y-3 border-t border-white/[0.08] pt-7 text-[15px] leading-[1.5] ${GREY}`}>
+                  <ul className={`mt-8 space-y-3 border-t border-[rgb(var(--ink)/0.08)] pt-7 text-[15px] leading-[1.5] ${GREY}`}>
                     {current.points.map((point) => (
                       <li key={point} className="text-pretty">
                         {point}
@@ -64,12 +64,12 @@ export function Glance() {
             <div className="flex h-full flex-col p-7">
               <p className={`text-[14px] font-semibold ${GREY}`}>Availability</p>
               <p className="mt-auto flex items-start gap-2.5 pt-10 text-[21px] font-semibold leading-[1.2] tracking-[-0.015em] text-pretty">
-                <span className="mt-[9px] size-2 shrink-0 rounded-full bg-[#30d158]" aria-hidden="true" />
+                <span className="mt-[9px] size-2 shrink-0 rounded-full bg-[var(--ok)]" aria-hidden="true" />
                 {profile.availability}
               </p>
               <a
                 href={`mailto:${profile.email}`}
-                className={`mt-3 inline-flex min-h-11 w-fit items-center text-[15px] text-[#2997ff] ${FOCUS} rounded-md`}
+                className={`mt-3 inline-flex min-h-11 w-fit items-center text-[15px] text-[var(--accent)] ${FOCUS} rounded-md`}
               >
                 Start a conversation ›
               </a>
@@ -83,7 +83,7 @@ export function Glance() {
                 {Object.entries(skills).map(([group, items]) => (
                   <div key={group} className="min-w-0">
                     <dt className={`text-[12px] font-semibold uppercase tracking-[0.06em] ${GREY}`}>{group}</dt>
-                    <dd className="mt-2.5 space-y-1.5 text-[15px] leading-[1.4] text-[#f5f5f7]">
+                    <dd className="mt-2.5 space-y-1.5 text-[15px] leading-[1.4] text-[var(--fg)]">
                       {items.map((item) => (
                         <span key={item} className="block text-pretty [overflow-wrap:anywhere]">
                           {item}
@@ -128,14 +128,14 @@ function Tile({
     <Reveal delay={delay} className={className}>
       <div
         onPointerMove={onPointerMove}
-        className="group/tile relative h-full overflow-hidden rounded-[28px] bg-[#111113] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
+        className="group/tile relative h-full overflow-hidden rounded-[28px] bg-[var(--tile)] shadow-[inset_0_0_0_1px_var(--tile-ring)]"
       >
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 ease-out [@media(hover:hover)_and_(pointer:fine)]:group-hover/tile:opacity-100"
           style={{
             background:
-              "radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.06), transparent 65%)",
+              "radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--spot), transparent 65%)",
           }}
         />
         <div className="relative h-full">{children}</div>
@@ -165,7 +165,7 @@ function EducationTile({ items }: { items: ExperienceItem[] }) {
         <p className={`text-[14px] font-semibold ${GREY}`}>Education</p>
         <span
           aria-hidden="true"
-          className="-mr-1 -mt-1 flex size-10 items-center justify-center rounded-full bg-[#1c1c1e] text-[#f5f5f7]"
+          className="-mr-1 -mt-1 flex size-10 items-center justify-center rounded-full bg-[var(--tile-chip)] text-[var(--fg)]"
         >
           <GraduationCap className="size-[18px]" />
         </span>
@@ -182,18 +182,18 @@ function EducationTile({ items }: { items: ExperienceItem[] }) {
               {range ? (
                 <div className="mt-auto pt-10">
                   <div className="relative flex items-center" aria-hidden="true">
-                    <span className="size-2 rounded-full bg-[#f5f5f7]" />
-                    <span className="h-px flex-1 bg-gradient-to-r from-white/50 to-white/15" />
-                    <span className="size-2 rounded-full border border-white/40" />
+                    <span className="size-2 rounded-full bg-[var(--fg)]" />
+                    <span className="h-px flex-1 bg-gradient-to-r from-[rgb(var(--ink)/0.5)] to-[rgb(var(--ink)/0.15)]" />
+                    <span className="size-2 rounded-full border border-[rgb(var(--ink)/0.4)]" />
                   </div>
                   <dl className="mt-4 flex justify-between gap-4 tabular-nums">
                     <div>
                       <dt className={`text-[12px] font-semibold uppercase tracking-[0.06em] ${GREY}`}>From</dt>
-                      <dd className="mt-1 text-[17px] font-semibold tracking-[-0.01em] text-[#f5f5f7]">{range[0]}</dd>
+                      <dd className="mt-1 text-[17px] font-semibold tracking-[-0.01em] text-[var(--fg)]">{range[0]}</dd>
                     </div>
                     <div className="text-right">
                       <dt className={`text-[12px] font-semibold uppercase tracking-[0.06em] ${GREY}`}>To</dt>
-                      <dd className="mt-1 text-[17px] font-semibold tracking-[-0.01em] text-[#f5f5f7]">{range[1]}</dd>
+                      <dd className="mt-1 text-[17px] font-semibold tracking-[-0.01em] text-[var(--fg)]">{range[1]}</dd>
                     </div>
                   </dl>
                 </div>
@@ -263,7 +263,7 @@ function ClockTile() {
       </p>
       <p className="mt-auto pt-10 text-[clamp(3.25rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.04em] tabular-nums">
         {date === null ? (
-          <span className="text-white/15">--:--</span>
+          <span className="text-[rgb(var(--ink)/0.15)]">--:--</span>
         ) : (
           <time dateTime={date.toISOString()}>{formatter.format(date)}</time>
         )}

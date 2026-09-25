@@ -2,10 +2,10 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { Check, Copy, Github, Linkedin } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Github, Linkedin } from "lucide-react";
 import { IconBrandX } from "@tabler/icons-react";
 import { profile } from "@/content/profile";
-import { EASE_OUT, FOCUS, GREY, Reveal } from "./ui";
+import { EASE_OUT, FOCUS, GREY, Reveal, TEXT_LINK } from "./ui";
 
 const socialIcons: Record<string, typeof Github> = {
   GitHub: Github,
@@ -18,7 +18,7 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="scroll-mt-[52px] border-t border-white/[0.08] px-4 pb-16 pt-32 sm:px-6 lg:pb-20 lg:pt-52"
+      className="scroll-mt-[52px] border-t border-[rgb(var(--ink)/0.08)] px-4 pb-16 pt-32 sm:px-6 lg:pb-20 lg:pt-52"
     >
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
@@ -28,7 +28,9 @@ export function Contact() {
           >
             Let’s build something.
           </h2>
-          <p className={`mt-7 max-w-[40ch] text-[clamp(1.1875rem,1.9vw,1.5rem)] leading-[1.35] text-pretty ${GREY}`}>
+          <p
+            className={`mt-7 max-w-[40ch] text-[clamp(1.1875rem,1.9vw,1.5rem)] leading-[1.35] text-pretty ${GREY}`}
+          >
             Have a project or a role in mind? I’m based in {profile.location}.
           </p>
         </Reveal>
@@ -37,38 +39,55 @@ export function Contact() {
           <div className="flex flex-wrap items-center gap-x-5 gap-y-4">
             <a
               href={`mailto:${profile.email}`}
-              className={`inline-flex min-h-11 min-w-0 items-center break-all text-[clamp(1.5rem,4.2vw,3.25rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-[#2997ff] transition-opacity duration-150 [@media(hover:hover)]:hover:opacity-80 ${FOCUS} rounded-md`}
+              className={`inline-flex min-h-11 min-w-0 items-center break-all text-[clamp(1.5rem,4.2vw,3.25rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-[var(--accent)] transition-opacity duration-150 [@media(hover:hover)]:hover:opacity-80 ${FOCUS} rounded-md`}
             >
               {profile.email}
             </a>
             <CopyEmail />
           </div>
 
-          <ul className="mt-12 flex items-center gap-2">
-            {profile.socials.map((s) => {
-              const Icon = socialIcons[s.label];
-              return (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    className={`flex size-12 items-center justify-center rounded-full bg-[#1c1c1e] text-[#f5f5f7] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[#2c2c2e] ${FOCUS}`}
-                  >
-                    {Icon ? (
-                      <Icon aria-hidden="true" className="size-5" />
-                    ) : (
-                      <span className="text-[13px]">{s.label}</span>
-                    )}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <ul className="flex items-center gap-2">
+              {profile.socials.map((s) => {
+                const Icon = socialIcons[s.label];
+                return (
+                  <li key={s.label}>
+                    <a
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.label}
+                      className={`flex size-12 items-center justify-center rounded-full bg-[var(--chip)] text-[var(--fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[var(--chip-hover)] ${FOCUS}`}
+                    >
+                      {Icon ? (
+                        <Icon aria-hidden="true" className="size-5" />
+                      ) : (
+                        <span className="text-[13px]">{s.label}</span>
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+            <a
+              href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={TEXT_LINK}
+            >
+              Résumé
+              <ArrowUpRight
+                aria-hidden="true"
+                className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:-translate-y-0.5 [@media(hover:hover)]:group-hover:translate-x-0.5"
+              />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
         </Reveal>
 
-        <footer className={`mt-32 flex flex-col gap-2 border-t border-white/[0.08] pt-6 text-[12px] sm:flex-row sm:justify-between ${GREY}`}>
+        <footer
+          className={`mt-32 flex flex-col gap-2 border-t border-[rgb(var(--ink)/0.08)] pt-6 text-[12px] sm:flex-row sm:justify-between ${GREY}`}
+        >
           <p>
             © {new Date().getFullYear()} {profile.name}
           </p>
@@ -102,7 +121,7 @@ function CopyEmail() {
     <button
       type="button"
       onClick={copy}
-      className={`inline-flex min-h-11 items-center gap-2 rounded-full bg-[#1c1c1e] px-5 text-[15px] font-medium text-[#f5f5f7] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[#2c2c2e] ${FOCUS}`}
+      className={`inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--chip)] px-5 text-[15px] font-medium text-[var(--fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[var(--chip-hover)] ${FOCUS}`}
     >
       <span className="relative size-4" aria-hidden="true">
         <AnimatePresence initial={false} mode="popLayout">
@@ -114,7 +133,11 @@ function CopyEmail() {
             transition={{ duration: 0.2, ease: EASE_OUT }}
             className="absolute inset-0"
           >
-            {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
+            {copied ? (
+              <Check className="size-4" />
+            ) : (
+              <Copy className="size-4" />
+            )}
           </motion.span>
         </AnimatePresence>
       </span>

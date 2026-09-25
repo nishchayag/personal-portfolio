@@ -10,16 +10,19 @@ export const MORPH = { type: "spring", bounce: 0.15, duration: 0.45 } as const;
 
 /** Focus ring shared by every interactive element on the page. */
 export const FOCUS =
-  "outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2997ff]";
+  "outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
 
-export const GREY = "text-[#86868b]";
+export const GREY = "text-[var(--fg-2)]";
+
+/** Apple's blue text link (paired links in the hero and the finale). */
+export const TEXT_LINK = `group inline-flex min-h-11 items-center gap-0.5 rounded-md text-[17px] text-[var(--accent)] transition-transform duration-150 ease-out active:scale-[0.97] ${FOCUS}`;
 
 /** Solid dark tile used by the bento, the cards and the process panel. */
-export const TILE = "rounded-[28px] bg-[#111113] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]";
+export const TILE = "rounded-[28px] bg-[var(--tile)] shadow-[inset_0_0_0_1px_var(--tile-ring)]";
 
 /** Pill buttons: one filled, one quiet. Both are 44px+ tall. */
-export const BTN_PRIMARY = `inline-flex min-h-12 items-center gap-1.5 rounded-full bg-[#f5f5f7] px-6 text-[17px] font-medium text-black transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-white ${FOCUS}`;
-export const BTN_SECONDARY = `inline-flex min-h-12 items-center gap-2 rounded-full bg-[#1c1c1e] px-6 text-[17px] font-medium text-[#f5f5f7] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[#2c2c2e] ${FOCUS}`;
+export const BTN_PRIMARY = `inline-flex min-h-12 items-center gap-1.5 rounded-full bg-[var(--btn-bg)] px-6 text-[17px] font-medium text-[var(--btn-fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[var(--btn-bg-hover)] ${FOCUS}`;
+export const BTN_SECONDARY = `inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--chip)] px-6 text-[17px] font-medium text-[var(--fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[var(--chip-hover)] ${FOCUS}`;
 
 /**
  * Apple's two-tone section headline: a white statement, then a grey
@@ -41,7 +44,7 @@ export function SectionHeading({
       id={id}
       className={`max-w-[20ch] text-[clamp(2.5rem,5.6vw,5rem)] font-semibold leading-[1.04] tracking-[-0.035em] text-balance ${className}`}
     >
-      <span className="text-[#f5f5f7]">{lead}</span> <span className={GREY}>{rest}</span>
+      <span className="text-[var(--fg)]">{lead}</span> <span className={GREY}>{rest}</span>
     </h2>
   );
 }

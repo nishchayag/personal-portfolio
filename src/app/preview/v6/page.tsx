@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Combined } from "./_components/combined";
+import { THEME_SCRIPT, V6_ROOT_ID } from "./_components/theme-script";
 import "./v6.css";
 
 // Inter is only the fallback: Apple devices render SF Pro via -apple-system.
@@ -18,7 +19,9 @@ export const metadata: Metadata = {
 
 export default function PreviewV6Page() {
   return (
-    <div className={`${inter.variable} v6-root`}>
+    // data-theme is a server default; the inline script below corrects it before first paint.
+    <div id={V6_ROOT_ID} data-theme="dark" suppressHydrationWarning className={`${inter.variable} v6-root`}>
+      <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
       <Combined />
     </div>
   );

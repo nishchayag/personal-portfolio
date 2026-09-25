@@ -81,7 +81,7 @@ function ProjectCard({
     <motion.div
       layoutId={id("media")}
       transition={MORPH}
-      className="relative aspect-[16/10] w-full overflow-hidden bg-[#0a0a0d]"
+      className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--media-bg)]"
       style={{ borderRadius: 18 }}
     >
       <Screen src={p.image} sizes={variant === "half" ? "(min-width: 768px) 600px, 100vw" : "(min-width: 1024px) 720px, 100vw"} />
@@ -95,12 +95,12 @@ function ProjectCard({
         type="button"
         aria-haspopup="dialog"
         onClick={() => onOpen(p.slug)}
-        className="text-left outline-none after:absolute after:inset-0 after:z-10 after:rounded-[28px] after:content-[''] focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-[#2997ff]"
+        className="text-left outline-none after:absolute after:inset-0 after:z-10 after:rounded-[28px] after:content-[''] focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-[var(--accent)]"
       >
         <motion.span
           layoutId={id("title")}
           transition={MORPH}
-          className={`inline-block font-semibold tracking-[-0.03em] text-[#f5f5f7] ${
+          className={`inline-block font-semibold tracking-[-0.03em] text-[var(--fg)] ${
             variant === "feature" ? "text-[32px] lg:text-[44px]" : "text-[28px] lg:text-[32px]"
           }`}
         >
@@ -129,7 +129,7 @@ function ProjectCard({
   const plus = (
     <span
       aria-hidden="true"
-      className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#1c1c1e] text-[#f5f5f7] transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)_and_(pointer:fine)]:group-hover:rotate-90"
+      className="flex size-9 shrink-0 items-center justify-center rounded-full bg-[var(--tile-chip)] text-[var(--fg)] transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)_and_(pointer:fine)]:group-hover:rotate-90"
     >
       <Plus className="size-[18px]" />
     </span>
@@ -144,7 +144,7 @@ function ProjectCard({
         layoutId={id("surface")}
         transition={MORPH}
         aria-hidden="true"
-        className="absolute inset-0 bg-[#111113] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] transition-shadow duration-200 [@media(hover:hover)_and_(pointer:fine)]:group-hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.14)]"
+        className="absolute inset-0 bg-[var(--tile)] shadow-[inset_0_0_0_1px_var(--tile-ring)] transition-shadow duration-200 [@media(hover:hover)_and_(pointer:fine)]:group-hover:shadow-[inset_0_0_0_1px_var(--tile-ring-hover)]"
         style={{ borderRadius: 28 }}
       />
 

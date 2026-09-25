@@ -28,22 +28,22 @@ export function BrowserFrame({
   const host = hostOf(url);
   return (
     <div
-      className={`overflow-hidden rounded-[12px] bg-[#1c1c1e] shadow-[0_0_0_1px_rgba(255,255,255,0.1),0_30px_80px_-20px_rgba(0,0,0,0.9)] ${className}`}
+      className={`overflow-hidden rounded-[12px] bg-[var(--chrome)] shadow-[var(--frame-shadow)] ${className}`}
     >
-      <div className="flex h-7 items-center gap-3 border-b border-white/[0.06] px-3">
+      <div className="flex h-7 items-center gap-3 border-b border-[rgb(var(--ink)/0.06)] px-3">
         <span className="flex shrink-0 gap-1.5" aria-hidden="true">
-          <span className="size-2.5 rounded-full bg-white/15" />
-          <span className="size-2.5 rounded-full bg-white/15" />
-          <span className="size-2.5 rounded-full bg-white/15" />
+          <span className="size-2.5 rounded-full bg-[rgb(var(--ink)/0.15)]" />
+          <span className="size-2.5 rounded-full bg-[rgb(var(--ink)/0.15)]" />
+          <span className="size-2.5 rounded-full bg-[rgb(var(--ink)/0.15)]" />
         </span>
         {host ? (
-          <span className="mx-auto max-w-[60%] truncate rounded-[5px] bg-white/[0.06] px-3 py-0.5 text-center text-[10px] leading-4 text-white/45">
+          <span className="mx-auto max-w-[60%] truncate rounded-[5px] bg-[rgb(var(--ink)/0.06)] px-3 py-0.5 text-center text-[10px] leading-4 text-[rgb(var(--ink)/0.45)]">
             {host}
           </span>
         ) : null}
         <span className="w-[42px] shrink-0" aria-hidden="true" />
       </div>
-      <div className="relative aspect-[16/10] bg-black">
+      <div className="relative aspect-[16/10] bg-[var(--screen-bg)]">
         {children ??
           (src ? (
             <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover object-top" />
@@ -56,7 +56,7 @@ export function BrowserFrame({
 /** A bare screenshot (no chrome) for the morphing cards and the sheet. */
 export function Screen({ src, sizes, priority }: { src: string; sizes: string; priority?: boolean }) {
   return (
-    <div className="relative h-full w-full overflow-hidden bg-[#0a0a0d]">
+    <div className="relative h-full w-full overflow-hidden bg-[var(--media-bg)]">
       <Image
         src={src}
         alt=""
@@ -66,7 +66,7 @@ export function Screen({ src, sizes, priority }: { src: string; sizes: string; p
         draggable={false}
         className="select-none object-cover object-top transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] [@media(hover:hover)_and_(pointer:fine)]:group-hover:scale-[1.02]"
       />
-      <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]" />
+      <div className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0_0_0_1px_rgb(var(--ink)/0.08)]" />
     </div>
   );
 }

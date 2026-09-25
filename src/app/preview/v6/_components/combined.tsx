@@ -12,6 +12,7 @@ import { LocalNav } from "./local-nav";
 import { MoreWork } from "./more-work";
 import { Services } from "./services";
 import { ProjectSheet } from "./sheet";
+import { ThemeSync } from "./theme";
 import { WorkCards } from "./work-cards";
 
 const flagship = featuredProjects.find((p) => p.flagship) ?? null;
@@ -82,6 +83,7 @@ export function Combined() {
 
   return (
     <MotionConfig reducedMotion="user">
+      <ThemeSync />
       <LayoutGroup id="v6">
         <div id="top" inert={open ? true : undefined}>
           <Hero />

@@ -20,12 +20,12 @@ export function MoreWork() {
         </Reveal>
 
         <Reveal>
-          <ul className="overflow-hidden rounded-[28px] bg-[#111113] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]">
+          <ul className="overflow-hidden rounded-[28px] bg-[var(--tile)] shadow-[inset_0_0_0_1px_var(--tile-ring)]">
             {otherProjects.map((p, i) => {
               const href = p.demoUrl ?? p.githubUrl;
               const inner = (
                 <>
-                  <span className="relative hidden h-11 w-[70px] shrink-0 overflow-hidden rounded-[8px] bg-[#1c1c1e] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] sm:block">
+                  <span className="relative hidden h-11 w-[70px] shrink-0 overflow-hidden rounded-[8px] bg-[var(--media-bg)] shadow-[inset_0_0_0_1px_rgb(var(--ink)/0.06)] sm:block">
                     {p.image ? (
                       <Image src={p.image} alt="" fill sizes="70px" className="object-cover object-top" />
                     ) : (
@@ -36,7 +36,7 @@ export function MoreWork() {
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="flex flex-wrap items-baseline gap-x-2.5">
-                      <span className="text-[17px] font-semibold tracking-[-0.015em] text-[#f5f5f7] transition-colors duration-150 [@media(hover:hover)]:group-hover/row:text-[#2997ff]">
+                      <span className="text-[17px] font-semibold tracking-[-0.015em] text-[var(--fg)] transition-colors duration-150 [@media(hover:hover)]:group-hover/row:text-[var(--accent)]">
                         {p.title}
                       </span>
                       <span className={`text-[13px] ${GREY}`}>{p.kind}</span>
@@ -46,19 +46,19 @@ export function MoreWork() {
                   {href ? (
                     <ArrowUpRight
                       aria-hidden="true"
-                      className="size-5 shrink-0 text-[#86868b] transition-[transform,color] duration-200 ease-out [@media(hover:hover)]:group-hover/row:-translate-y-0.5 [@media(hover:hover)]:group-hover/row:translate-x-0.5 [@media(hover:hover)]:group-hover/row:text-[#2997ff]"
+                      className="size-5 shrink-0 text-[var(--fg-2)] transition-[transform,color] duration-200 ease-out [@media(hover:hover)]:group-hover/row:-translate-y-0.5 [@media(hover:hover)]:group-hover/row:translate-x-0.5 [@media(hover:hover)]:group-hover/row:text-[var(--accent)]"
                     />
                   ) : null}
                 </>
               );
               return (
-                <li key={p.slug} className={i > 0 ? "border-t border-white/[0.06]" : ""}>
+                <li key={p.slug} className={i > 0 ? "border-t border-[rgb(var(--ink)/0.06)]" : ""}>
                   {href ? (
                     <a
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`group/row flex min-h-[68px] items-center gap-4 px-5 py-4 transition-colors duration-150 [@media(hover:hover)]:hover:bg-white/[0.03] sm:px-6 ${FOCUS} focus-visible:-outline-offset-2`}
+                      className={`group/row flex min-h-[68px] items-center gap-4 px-5 py-4 transition-colors duration-150 [@media(hover:hover)]:hover:bg-[rgb(var(--ink)/0.03)] sm:px-6 ${FOCUS} focus-visible:-outline-offset-2`}
                     >
                       {inner}
                     </a>

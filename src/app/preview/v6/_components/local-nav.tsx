@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { profile } from "@/content/profile";
 import { useActiveSection } from "./hooks";
+import { ThemeToggle } from "./theme";
 import { FOCUS } from "./ui";
 
 export const NAV_SECTIONS = [
@@ -25,7 +26,7 @@ export function LocalNav() {
   return (
     <nav
       aria-label="Sections"
-      className="v6-glass sticky top-0 z-40 border-b border-white/[0.08] bg-black/60 backdrop-blur-xl backdrop-saturate-150"
+      className="v6-glass sticky top-0 z-40 border-b border-[rgb(var(--ink)/0.08)] bg-[var(--nav-bg)] backdrop-blur-xl backdrop-saturate-150"
     >
       <div className="mx-auto flex h-[52px] max-w-[1248px] items-center justify-between gap-3 px-4 sm:px-6">
         <a
@@ -46,8 +47,8 @@ export function LocalNav() {
                     aria-current={isActive ? "location" : undefined}
                     className={`relative flex h-[52px] min-w-11 items-center justify-center px-2 text-[13px] transition-colors duration-150 sm:px-3 sm:text-[12px] ${
                       isActive
-                        ? "text-[#f5f5f7]"
-                        : "text-[#86868b] [@media(hover:hover)]:hover:text-[#f5f5f7]"
+                        ? "text-[var(--fg)]"
+                        : "text-[var(--fg-2)] [@media(hover:hover)]:hover:text-[var(--fg)]"
                     } ${FOCUS} focus-visible:-outline-offset-4 rounded-md`}
                   >
                     {section.label}
@@ -55,7 +56,7 @@ export function LocalNav() {
                       <motion.span
                         layoutId="v6-nav-indicator"
                         transition={{ type: "spring", bounce: 0, duration: 0.35 }}
-                        className="absolute inset-x-2 bottom-0 h-[2px] rounded-full bg-[#f5f5f7] sm:inset-x-3"
+                        className="absolute inset-x-2 bottom-0 h-[2px] rounded-full bg-[var(--fg)] sm:inset-x-3"
                         aria-hidden="true"
                       />
                     ) : null}
@@ -64,13 +65,14 @@ export function LocalNav() {
               );
             })}
           </ul>
+          <ThemeToggle className="-mx-1.5" />
           <a
             href={profile.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex min-h-11 shrink-0 items-center py-2 ${FOCUS} rounded-full active:scale-[0.97] transition-transform duration-150 ease-out`}
           >
-            <span className="rounded-full bg-[#f5f5f7] px-3 py-1 text-[12px] font-medium text-black">
+            <span className="rounded-full bg-[var(--btn-bg)] px-3 py-1 text-[12px] font-medium text-[var(--btn-fg)]">
               Résumé
             </span>
           </a>

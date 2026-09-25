@@ -72,8 +72,8 @@ export function Flagship({ project }: { project: Project }) {
         <Reveal>
           <p className={`flex items-center gap-3 text-[17px] font-semibold ${GREY}`}>
             <span>Flagship project</span>
-            <span aria-hidden="true" className="h-4 w-px bg-white/20" />
-            <span id={titleId} className="text-[#f5f5f7]">
+            <span aria-hidden="true" className="h-4 w-px bg-[rgb(var(--ink)/0.2)]" />
+            <span id={titleId} className="text-[var(--fg)]">
               {project.title}
             </span>
           </p>
@@ -81,7 +81,7 @@ export function Flagship({ project }: { project: Project }) {
             id={headingId}
             className="mt-4 max-w-[30ch] text-[clamp(1.75rem,4vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-balance"
           >
-            <span className="text-[#f5f5f7]">{lead}</span> {rest ? <span className={GREY}>{rest}</span> : null}
+            <span className="text-[var(--fg)]">{lead}</span> {rest ? <span className={GREY}>{rest}</span> : null}
           </h2>
         </Reveal>
 
@@ -96,7 +96,7 @@ export function Flagship({ project }: { project: Project }) {
                 {images.slice(1).map((img, i) => (
                   <li key={img.src}>
                     <Reveal delay={i * 0.06}>
-                      <div className="relative aspect-[16/10] overflow-hidden rounded-[10px] bg-[#1c1c1e] shadow-[0_0_0_1px_rgba(255,255,255,0.1)]">
+                      <div className="relative aspect-[16/10] overflow-hidden rounded-[10px] bg-[var(--chrome)] shadow-[var(--frame-shadow)]">
                         <Image src={img.src} alt={img.alt} fill sizes="50vw" className="object-cover object-top" />
                       </div>
                     </Reveal>
@@ -135,12 +135,12 @@ export function Flagship({ project }: { project: Project }) {
             {images.length > 1 ? (
               <div className="mt-5 flex justify-center gap-1.5" aria-hidden="true">
                 {images.map((img, i) => (
-                  <span key={img.src} className="relative h-1 w-6 overflow-hidden rounded-full bg-white/15">
+                  <span key={img.src} className="relative h-1 w-6 overflow-hidden rounded-full bg-[rgb(var(--ink)/0.15)]">
                     <motion.span
                       initial={false}
                       animate={{ opacity: i === activeImage ? 1 : 0 }}
                       transition={fade}
-                      className="absolute inset-0 rounded-full bg-[#f5f5f7]"
+                      className="absolute inset-0 rounded-full bg-[var(--fg)]"
                     />
                   </span>
                 ))}
@@ -179,11 +179,11 @@ export function Flagship({ project }: { project: Project }) {
 
         {facts.length > 0 ? (
           <Reveal className="mt-20 lg:mt-12">
-            <dl className="grid grid-cols-1 border-t border-white/[0.12] sm:grid-cols-3">
+            <dl className="grid grid-cols-1 border-t border-[rgb(var(--ink)/0.12)] sm:grid-cols-3">
               {facts.map((f) => (
                 <div
                   key={f.label}
-                  className="flex items-baseline justify-between gap-4 border-b border-white/[0.08] py-5 last:border-b-0 sm:flex-col-reverse sm:items-start sm:justify-end sm:gap-2 sm:border-b-0 sm:py-8 sm:pr-6"
+                  className="flex items-baseline justify-between gap-4 border-b border-[rgb(var(--ink)/0.08)] py-5 last:border-b-0 sm:flex-col-reverse sm:items-start sm:justify-end sm:gap-2 sm:border-b-0 sm:py-8 sm:pr-6"
                 >
                   <dt className={`text-[15px] ${GREY}`}>{f.label}</dt>
                   <dd className="text-[clamp(2.25rem,4.6vw,4rem)] font-semibold leading-none tracking-[-0.04em] tabular-nums">
@@ -195,12 +195,12 @@ export function Flagship({ project }: { project: Project }) {
           </Reveal>
         ) : null}
 
-        <Reveal className="mt-14 flex flex-col gap-10 border-t border-white/[0.08] pt-10 lg:mt-16 lg:flex-row lg:items-end lg:justify-between">
+        <Reveal className="mt-14 flex flex-col gap-10 border-t border-[rgb(var(--ink)/0.08)] pt-10 lg:mt-16 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h3 className="text-[14px] font-semibold text-[#f5f5f7]">Built with</h3>
+            <h3 className="text-[14px] font-semibold text-[var(--fg)]">Built with</h3>
             <ul className="mt-4 flex max-w-[640px] flex-wrap gap-2">
               {project.stack.map((s) => (
-                <li key={s} className="rounded-full bg-[#1c1c1e] px-3.5 py-1.5 text-[14px] text-[#f5f5f7]/85">
+                <li key={s} className="rounded-full bg-[var(--chip)] px-3.5 py-1.5 text-[14px] text-[var(--fg)]/85">
                   {s}
                 </li>
               ))}

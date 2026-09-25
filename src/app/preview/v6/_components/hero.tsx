@@ -8,11 +8,12 @@ import {
   type MotionValue,
 } from "motion/react";
 import { useEffect, useRef, type CSSProperties } from "react";
-import { ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { featuredProjects, profile, type Project } from "@/content/profile";
 import { BrowserFrame } from "./browser-frame";
 import { useMediaQuery, usePrefersReducedMotion } from "./hooks";
-import { EASE_OUT, FOCUS, GREY } from "./ui";
+import { ThemeToggle } from "./theme";
+import { BTN_PRIMARY, EASE_OUT, GREY, TEXT_LINK } from "./ui";
 
 // The flagship leads the deck and lands front and centre; the rest fan out behind it.
 const withImages = featuredProjects.filter((p) => p.image);
@@ -59,6 +60,11 @@ export function Hero() {
     <div ref={ref} className="relative">
       <Aurora opacity={introOpacity} />
 
+      {/* The sub-nav only arrives after the hero, so the toggle lives here too. */}
+      <div className="absolute right-2 top-2 z-20 sm:right-4 sm:top-3">
+        <ThemeToggle />
+      </div>
+
       <motion.header
         style={{ opacity: introOpacity, scale: introScale }}
         className="relative z-10 flex min-h-svh flex-col items-center justify-start px-4 pt-[20svh] text-center sm:px-6 lg:pt-[18svh]"
@@ -79,27 +85,35 @@ export function Hero() {
           {profile.tagline}
         </motion.p>
 
-        <motion.div {...rise(1)} className="mt-9 flex flex-wrap items-center justify-center gap-x-7 gap-y-3">
-          <a
-            href="#work"
-            className={`inline-flex min-h-11 items-center rounded-full bg-[#f5f5f7] px-6 text-[17px] font-medium text-black transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-white ${FOCUS}`}
-          >
+        {/* One filled button; the two text links pair up beside it (their own centred row on phones). */}
+        <motion.div
+          {...rise(1)}
+          className="mt-9 flex flex-col items-center gap-y-2 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8"
+        >
+          <a href="#work" className={`${BTN_PRIMARY} !min-h-11`}>
             See the work
           </a>
-          <a
-            href="#contact"
-            className={`group inline-flex min-h-11 items-center gap-0.5 rounded-md text-[17px] text-[#2997ff] transition-transform duration-150 ease-out active:scale-[0.97] ${FOCUS}`}
-          >
-            Get in touch
-            <ChevronRight
-              aria-hidden="true"
-              className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-x-0.5"
-            />
-          </a>
+          <div className="flex items-center justify-center gap-x-8">
+            <a href="#contact" className={TEXT_LINK}>
+              Get in touch
+              <ChevronRight
+                aria-hidden="true"
+                className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-x-0.5"
+              />
+            </a>
+            <a href={profile.resumeUrl} target="_blank" rel="noopener noreferrer" className={TEXT_LINK}>
+              Résumé
+              <ArrowUpRight
+                aria-hidden="true"
+                className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:-translate-y-0.5 [@media(hover:hover)]:group-hover:translate-x-0.5"
+              />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
         </motion.div>
 
-        <motion.p {...rise(2)} className="mt-6 inline-flex items-center gap-2 text-[13px] text-[#86868b]">
-          <span className="size-1.5 rounded-full bg-[#30d158]" aria-hidden="true" />
+        <motion.p {...rise(2)} className="mt-6 inline-flex items-center gap-2 text-[13px] text-[var(--fg-2)]">
+          <span className="size-1.5 rounded-full bg-[var(--ok)]" aria-hidden="true" />
           {profile.availability}
         </motion.p>
       </motion.header>
@@ -119,7 +133,7 @@ const BLOBS: Array<{ style: CSSProperties; vars: Record<string, string> }> = [
       top: "-26vmax",
       width: "64vmax",
       height: "64vmax",
-      background: "radial-gradient(closest-side, rgba(41, 151, 255, 0.16), rgba(41, 151, 255, 0) 70%)",
+      background: "radial-gradient(closest-side, var(--aurora-1), transparent 70%)",
     },
     vars: { "--dur": "52s", "--dx": "6%", "--dy": "4%" },
   },
@@ -129,7 +143,7 @@ const BLOBS: Array<{ style: CSSProperties; vars: Record<string, string> }> = [
       top: "-18vmax",
       width: "58vmax",
       height: "58vmax",
-      background: "radial-gradient(closest-side, rgba(120, 100, 255, 0.12), rgba(120, 100, 255, 0) 70%)",
+      background: "radial-gradient(closest-side, var(--aurora-2), transparent 70%)",
     },
     vars: { "--dur": "60s", "--dx": "-5%", "--dy": "6%", "--delay": "-12s" },
   },
@@ -145,8 +159,8 @@ function Aurora({ opacity }: { opacity: MotionValue<number> }) {
       {BLOBS.map((b, i) => (
         <div key={i} className="v6-aurora-blob" style={{ ...b.style, ...(b.vars as CSSProperties) }} />
       ))}
-      {/* Keeps the lower edge truly black where the stack begins. */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,#000_100%)]" />
+      {/* Keeps the lower edge the page colour where the stack begins. */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,var(--bg)_100%)]" />
     </motion.div>
   );
 }
@@ -232,7 +246,10 @@ function StackCard({
         sizes="(min-width: 768px) 700px, 80vw"
         priority={index < 2}
       />
-      <motion.div style={{ opacity: dim }} className="pointer-events-none absolute inset-0 rounded-[12px] bg-black" />
+      {/* Cards behind recede into the page colour; light mode fogs them less so screenshots stay crisp. */}
+      <motion.div style={{ opacity: dim }} className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 rounded-[12px] bg-[var(--bg)] opacity-[var(--recede)]" />
+      </motion.div>
     </motion.div>
   );
 }

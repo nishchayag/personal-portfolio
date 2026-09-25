@@ -22,7 +22,7 @@ export function Services() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="scroll-mt-[52px] border-t border-white/[0.08] px-4 py-28 sm:px-6 lg:py-44"
+      className="scroll-mt-[52px] border-t border-[rgb(var(--ink)/0.08)] px-4 py-28 sm:px-6 lg:py-44"
     >
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
@@ -39,7 +39,7 @@ export function Services() {
           {services.map((service, i) => (
             <li key={service.title}>
               <Reveal delay={i * 0.06}>
-                <div className="h-px w-full bg-white/[0.12]" aria-hidden="true" />
+                <div className="h-px w-full bg-[rgb(var(--ink)/0.12)]" aria-hidden="true" />
                 <h3 className="mt-7 text-[28px] font-semibold leading-[1.1] tracking-[-0.025em] text-balance">
                   {service.title}
                 </h3>
@@ -51,7 +51,7 @@ export function Services() {
           ))}
         </ul>
 
-        <div className="mt-28 rounded-[28px] bg-[#111113] p-7 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)] sm:p-10 lg:mt-40 lg:p-14">
+        <div className="mt-28 rounded-[28px] bg-[var(--tile)] p-7 shadow-[inset_0_0_0_1px_var(--tile-ring)] sm:p-10 lg:mt-40 lg:p-14">
           <Reveal>
             <h3 className="text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.03em]">
               How we’d work. <span className={GREY}>Three steps, no surprises.</span>
@@ -61,7 +61,7 @@ export function Services() {
             {STEPS.map((step, i) => (
               <li key={step.title}>
                 <Reveal delay={i * 0.06}>
-                  <span className="text-[56px] font-semibold leading-none tracking-[-0.04em] text-white/20 tabular-nums">
+                  <span className="text-[56px] font-semibold leading-none tracking-[-0.04em] text-[rgb(var(--ink)/0.2)] tabular-nums">
                     {i + 1}
                   </span>
                   <h4 className="mt-5 text-[21px] font-semibold tracking-[-0.015em]">

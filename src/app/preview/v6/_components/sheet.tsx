@@ -78,7 +78,7 @@ export function ProjectSheet({
     <>
       <motion.div
         aria-hidden="true"
-        className="fixed inset-0 z-[60] bg-black/70"
+        className="fixed inset-0 z-[60] bg-[var(--scrim)]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -116,7 +116,7 @@ export function ProjectSheet({
             layoutId={id("surface")}
             transition={MORPH}
             aria-hidden="true"
-            className="v6-glass absolute inset-0 bg-[#161618]/85 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_40px_120px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl backdrop-saturate-150"
+            className="v6-glass absolute inset-0 bg-[var(--sheet-bg)] shadow-[var(--sheet-shadow)] backdrop-blur-2xl backdrop-saturate-150"
             style={radius}
           />
 
@@ -127,7 +127,7 @@ export function ProjectSheet({
           >
             {bottomSheet ? (
               <div className="flex h-5 items-end justify-center" aria-hidden="true">
-                <span className="h-[5px] w-10 rounded-full bg-white/25" />
+                <span className="h-[5px] w-10 rounded-full bg-[rgb(var(--ink)/0.25)]" />
               </div>
             ) : null}
             <div className={`flex items-center justify-between gap-4 ${bottomSheet ? "px-5 pb-2 pt-2" : "px-6 pb-3 pt-4 sm:px-7"}`}>
@@ -145,7 +145,7 @@ export function ProjectSheet({
                 onClick={onClose}
                 onPointerDown={(e) => e.stopPropagation()}
                 aria-label="Close project details"
-                className={`-mr-1.5 flex size-11 shrink-0 items-center justify-center rounded-full bg-[#2c2c2e] text-[#f5f5f7] transition-[transform,background-color] duration-150 ease-out active:scale-[0.94] [@media(hover:hover)]:hover:bg-[#3a3a3c] ${FOCUS}`}
+                className={`-mr-1.5 flex size-11 shrink-0 items-center justify-center rounded-full bg-[var(--sheet-chip)] text-[var(--fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.94] [@media(hover:hover)]:hover:bg-[var(--sheet-chip-hover)] ${FOCUS}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { delay: 0.26, duration: 0.2 } }}
                 exit={{ opacity: 0, transition: { duration: 0.08 } }}
@@ -165,7 +165,7 @@ export function ProjectSheet({
               <motion.div
                 layoutId={id("media")}
                 transition={MORPH}
-                className="relative aspect-[16/10] w-full overflow-hidden bg-[#0a0a0d]"
+                className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--media-bg)]"
                 style={{ borderRadius: 18 }}
               >
                 <Screen src={p.image} sizes="(min-width: 1024px) 860px, 100vw" />
@@ -177,23 +177,23 @@ export function ProjectSheet({
                 <motion.span
                   layoutId={id("title")}
                   transition={MORPH}
-                  className="inline-block text-[36px] font-semibold leading-[1.05] tracking-[-0.035em] text-[#f5f5f7] sm:text-[48px]"
+                  className="inline-block text-[36px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--fg)] sm:text-[48px]"
                 >
                   {p.title}
                 </motion.span>
               </h2>
 
               <motion.div {...content} exit={{ opacity: 0, transition: { duration: 0.1 } }}>
-                <p className="mt-4 max-w-[52ch] text-[19px] leading-[1.5] text-[#f5f5f7]/85 text-pretty">{p.summary}</p>
+                <p className="mt-4 max-w-[52ch] text-[19px] leading-[1.5] text-[var(--fg)]/85 text-pretty">{p.summary}</p>
 
                 {p.highlights.length > 0 ? (
                   <div className="mt-10">
-                    <h3 className="text-[14px] font-semibold text-[#f5f5f7]">What I built</h3>
+                    <h3 className="text-[14px] font-semibold text-[var(--fg)]">What I built</h3>
                     <ul className="mt-4 space-y-4">
                       {p.highlights.map((h) => (
                         <li
                           key={h}
-                          className="border-l border-white/15 pl-4 text-[17px] leading-[1.5] text-[#f5f5f7] text-pretty"
+                          className="border-l border-[rgb(var(--ink)/0.15)] pl-4 text-[17px] leading-[1.5] text-[var(--fg)] text-pretty"
                         >
                           {h}
                         </li>
@@ -203,10 +203,10 @@ export function ProjectSheet({
                 ) : null}
 
                 <div className="mt-10">
-                  <h3 className="text-[14px] font-semibold text-[#f5f5f7]">Built with</h3>
+                  <h3 className="text-[14px] font-semibold text-[var(--fg)]">Built with</h3>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {p.stack.map((s) => (
-                      <li key={s} className="rounded-full bg-white/[0.07] px-3.5 py-1.5 text-[14px] text-[#f5f5f7]/85">
+                      <li key={s} className="rounded-full bg-[rgb(var(--ink)/0.07)] px-3.5 py-1.5 text-[14px] text-[var(--fg)]/85">
                         {s}
                       </li>
                     ))}
@@ -222,7 +222,7 @@ export function ProjectSheet({
                       </a>
                     ) : null}
                     {p.githubUrl ? (
-                      <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className={`${BTN_SECONDARY} !bg-white/[0.08] [@media(hover:hover)]:hover:!bg-white/[0.14]`}>
+                      <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className={`${BTN_SECONDARY} !bg-[rgb(var(--ink)/0.08)] [@media(hover:hover)]:hover:!bg-[rgb(var(--ink)/0.14)]`}>
                         <IconBrandGithub className="size-[18px]" aria-hidden="true" />
                         View code
                       </a>
