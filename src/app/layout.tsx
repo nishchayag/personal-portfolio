@@ -1,26 +1,30 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
+import { THEME_SCRIPT } from "@/components/site/theme-script";
+import { profile, skills } from "@/content/profile";
+
+// Inter is only the fallback: Apple devices render SF Pro via -apple-system.
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const title = `${profile.name} | ${profile.role}`;
+const description = profile.tagline;
 
 export const metadata: Metadata = {
   title: {
-    default: "Nishchay Agarwal | Full-Stack Developer & Freelancer",
-    template: "%s | Nishchay Agarwal",
+    default: title,
+    template: `%s | ${profile.name}`,
   },
-  description:
-    "Experienced full-stack developer specializing in Next.js, React, and Node.js. Creating innovative web solutions and digital experiences. Available for freelance projects.",
-  keywords: [
-    "full-stack developer",
-    "freelancer",
-    "Next.js",
-    "React",
-    "Node.js",
-    "web development",
-    "Nishchay Agarwal",
-  ],
-  authors: [{ name: "Nishchay Agarwal" }],
-  creator: "Nishchay Agarwal",
-  publisher: "Nishchay Agarwal",
+  description,
+  keywords: [profile.name, profile.role, ...Object.values(skills).flat()],
+  authors: [{ name: profile.name }],
+  creator: profile.name,
+  publisher: profile.name,
   formatDetection: {
     email: false,
     address: false,
@@ -31,22 +35,17 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Nishchay Agarwal | Full-Stack Developer & Freelancer",
-    description:
-      "Experienced full-stack developer specializing in Next.js, React, and Node.js. Creating innovative web solutions and digital experiences.",
+    title,
+    description,
     url: "https://www.nishchayag.com",
-    siteName: "Nishchay Agarwal&apos;s Portfolio",
+    siteName: `${profile.name}’s Portfolio`,
     locale: "en_US",
     type: "website",
   },
-  icons: {
-    icon: "/next.svg",
-  },
   twitter: {
     card: "summary_large_image",
-    title: "Nishchay Agarwal | Full-Stack Developer & Freelancer",
-    description:
-      "Experienced full-stack developer specializing in Next.js, React, and Node.js. Creating innovative web solutions and digital experiences.",
+    title,
+    description,
   },
   robots: {
     index: true,
@@ -59,9 +58,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
 };
 
 export default function RootLayout({
@@ -70,41 +75,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth motion-reduce:scroll-auto">
+    <html
+      lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${inter.variable} scroll-smooth motion-reduce:scroll-auto`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="antialiased overflow-x-hidden bg-black text-white">
+      <body className="antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Nishchay Agarwal",
-              jobTitle: "Full-Stack Developer",
-              description:
-                "Experienced full-stack developer specializing in Next.js, React, and Node.js",
+              name: profile.name,
+              jobTitle: profile.role,
+              description: profile.tagline,
               url: "https://www.nishchayag.com",
-              sameAs: [
-                "https://github.com/nishchay-agarwal",
-                "https://linkedin.com/in/nishchay-agarwal",
-              ],
-              knowsAbout: [
-                "Next.js",
-                "React",
-                "Node.js",
-                "TypeScript",
-                "Full-Stack Development",
-                "Web Development",
-              ],
+              sameAs: profile.socials.map((s) => s.href),
+              knowsAbout: Object.values(skills).flat(),
             }),
           }}
         />

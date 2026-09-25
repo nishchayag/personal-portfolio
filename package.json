@@ -1,5 +1,5 @@
 {
-  "name": "first-next-app",
+  "name": "nishchay-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,19 +9,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@radix-ui/react-hover-card": "^1.1.14",
     "@tabler/icons-react": "^3.34.0",
-    "@types/nodemailer": "^6.4.17",
-    "clsx": "^2.1.1",
     "lucide-react": "^0.513.0",
     "motion": "^12.16.0",
     "next": "^16.2.1",
-    "next-videos": "^1.4.1",
-    "nodemailer": "^7.0.5",
-    "qss": "^3.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.3.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

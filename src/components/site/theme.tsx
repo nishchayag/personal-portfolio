@@ -2,14 +2,10 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useSyncExternalStore } from "react";
-import { THEME_KEY, V6_ROOT_ID } from "./theme-script";
+import { THEME_KEY } from "./theme-script";
 import { FOCUS } from "./ui";
 
 type Theme = "light" | "dark";
-
-function root() {
-  return document.getElementById(V6_ROOT_ID);
-}
 
 function readStored(): Theme | null {
   try {
@@ -25,12 +21,12 @@ function systemTheme(): Theme {
 }
 
 /**
- * Sets data-theme on the wrapper. With `animate`, the page crossfades through
- * a view transition (250ms, see v6.css); otherwise it switches instantly.
+ * Sets data-theme on <html>. With `animate`, the page crossfades through
+ * a view transition (250ms, see globals.css); otherwise it switches instantly.
  */
 function applyTheme(theme: Theme, animate: boolean) {
-  const el = root();
-  if (!el || el.getAttribute("data-theme") === theme) return;
+  const el = document.documentElement;
+  if (el.getAttribute("data-theme") === theme) return;
   const run = () => el.setAttribute("data-theme", theme);
   const canTransition =
     animate &&
@@ -42,15 +38,13 @@ function applyTheme(theme: Theme, animate: boolean) {
 
 // The DOM attribute is the source of truth; components subscribe to it.
 function subscribe(onChange: () => void) {
-  const el = root();
-  if (!el) return () => {};
   const observer = new MutationObserver(onChange);
-  observer.observe(el, { attributes: true, attributeFilter: ["data-theme"] });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   return () => observer.disconnect();
 }
 
 function getTheme(): Theme {
-  return root()?.getAttribute("data-theme") === "light" ? "light" : "dark";
+  return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
 }
 
 export function useTheme() {
@@ -73,7 +67,7 @@ export function ThemeSync() {
 
 /**
  * 44x44 icon button. The glyph swap is pure CSS keyed off data-theme
- * (.v6-theme-icon in v6.css), so the first paint is already correct.
+ * (.v6-theme-icon in globals.css), so the first paint is already correct.
  */
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const theme = useTheme();
@@ -93,7 +87,6 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${next} mode`}
-      aria-pressed={theme === "dark"}
       data-v6-theme-toggle=""
       className={`relative inline-flex size-11 shrink-0 items-center justify-center rounded-full text-[var(--fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.94] [@media(hover:hover)]:hover:bg-[rgb(var(--ink)/0.08)] ${FOCUS} ${className}`}
     >

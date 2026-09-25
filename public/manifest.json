@@ -1,7 +1,7 @@
 {
-  "name": "Nishchay Agarwal - Portfolio",
-  "short_name": "Nishchay Portfolio",
-  "description": "Full-Stack Developer Portfolio showcasing projects and skills",
+  "name": "Nishchay Agarwal — Full-stack developer",
+  "short_name": "Nishchay Agarwal",
+  "description": "Portfolio of Nishchay Agarwal, a full-stack developer building web apps with React, Next.js and TypeScript.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
@@ -9,9 +9,9 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/icon",
+      "sizes": "32x32",
+      "type": "image/png"
     }
   ],
   "categories": ["portfolio", "developer", "web"],
