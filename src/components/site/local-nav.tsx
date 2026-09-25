@@ -26,7 +26,7 @@ export function LocalNav() {
   return (
     <nav
       aria-label="Sections"
-      className="v6-glass sticky top-0 z-40 border-b border-[rgb(var(--ink)/0.08)] bg-[var(--nav-bg)] backdrop-blur-xl backdrop-saturate-150"
+      className="site-glass sticky top-0 z-40 border-b border-[rgb(var(--ink)/0.08)] bg-[var(--nav-bg)] backdrop-blur-xl backdrop-saturate-150"
     >
       <div className="mx-auto flex h-[52px] max-w-[1248px] items-center justify-between gap-3 px-4 sm:px-6">
         <a
@@ -54,7 +54,7 @@ export function LocalNav() {
                     {section.label}
                     {isActive ? (
                       <motion.span
-                        layoutId="v6-nav-indicator"
+                        layoutId="site-nav-indicator"
                         transition={{ type: "spring", bounce: 0, duration: 0.35 }}
                         className="absolute inset-x-2 bottom-0 h-[2px] rounded-full bg-[var(--fg)] sm:inset-x-3"
                         aria-hidden="true"

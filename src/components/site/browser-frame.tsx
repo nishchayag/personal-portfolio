@@ -37,7 +37,7 @@ export function BrowserFrame({
           <span className="size-2.5 rounded-full bg-[rgb(var(--ink)/0.15)]" />
         </span>
         {host ? (
-          <span className="mx-auto max-w-[60%] truncate rounded-[5px] bg-[rgb(var(--ink)/0.06)] px-3 py-0.5 text-center text-[10px] leading-4 text-[rgb(var(--ink)/0.45)]">
+          <span className="mx-auto max-w-[60%] truncate rounded-[5px] bg-[rgb(var(--ink)/0.06)] px-3 py-0.5 text-center text-[10px] leading-4 text-[rgb(var(--ink)/0.7)]">
             {host}
           </span>
         ) : null}

@@ -157,7 +157,7 @@ function Aurora({ opacity }: { opacity: MotionValue<number> }) {
       className="pointer-events-none absolute inset-x-0 top-0 z-0 h-svh overflow-hidden"
     >
       {BLOBS.map((b, i) => (
-        <div key={i} className="v6-aurora-blob" style={{ ...b.style, ...(b.vars as CSSProperties) }} />
+        <div key={i} className="site-aurora-blob" style={{ ...b.style, ...(b.vars as CSSProperties) }} />
       ))}
       {/* Keeps the lower edge the page colour where the stack begins. */}
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_45%,var(--bg)_100%)]" />

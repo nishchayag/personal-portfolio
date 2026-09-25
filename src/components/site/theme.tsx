@@ -67,7 +67,7 @@ export function ThemeSync() {
 
 /**
  * 44x44 icon button. The glyph swap is pure CSS keyed off data-theme
- * (.v6-theme-icon in globals.css), so the first paint is already correct.
+ * (.site-theme-icon in globals.css), so the first paint is already correct.
  */
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const theme = useTheme();
@@ -87,12 +87,12 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${next} mode`}
-      data-v6-theme-toggle=""
+      data-site-theme-toggle=""
       className={`relative inline-flex size-11 shrink-0 items-center justify-center rounded-full text-[var(--fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.94] [@media(hover:hover)]:hover:bg-[rgb(var(--ink)/0.08)] ${FOCUS} ${className}`}
     >
       <span className="relative size-[18px]" aria-hidden="true">
-        <Sun data-icon="sun" className="v6-theme-icon size-[18px]" strokeWidth={1.75} />
-        <Moon data-icon="moon" className="v6-theme-icon size-[18px]" strokeWidth={1.75} />
+        <Sun data-icon="sun" className="site-theme-icon size-[18px]" strokeWidth={1.75} />
+        <Moon data-icon="moon" className="site-theme-icon size-[18px]" strokeWidth={1.75} />
       </span>
     </button>
   );

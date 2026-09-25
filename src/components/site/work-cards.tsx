@@ -75,7 +75,7 @@ function ProjectCard({
 }: { project: Project; variant: Variant } & CardHandlers) {
   const reduce = useReducedMotion();
   const isOpen = openSlug === p.slug;
-  const id = (part: string) => (reduce ? undefined : `v6-${part}-${p.slug}`);
+  const id = (part: string) => (reduce ? undefined : `site-${part}-${p.slug}`);
 
   const media = p.image ? (
     <motion.div
@@ -95,7 +95,7 @@ function ProjectCard({
         type="button"
         aria-haspopup="dialog"
         onClick={() => onOpen(p.slug)}
-        className="text-left outline-none after:absolute after:inset-0 after:z-10 after:rounded-[28px] after:content-[''] focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-[var(--accent)]"
+        className="text-left outline-none after:absolute after:inset-0 after:z-10 after:rounded-[28px] after:content-[''] focus-visible:after:outline-solid focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-[var(--accent)]"
       >
         <motion.span
           layoutId={id("title")}

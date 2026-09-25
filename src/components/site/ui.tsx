@@ -10,15 +10,12 @@ export const MORPH = { type: "spring", bounce: 0.15, duration: 0.45 } as const;
 
 /** Focus ring shared by every interactive element on the page. */
 export const FOCUS =
-  "outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
+  "outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
 
 export const GREY = "text-[var(--fg-2)]";
 
 /** Apple's blue text link (paired links in the hero and the finale). */
 export const TEXT_LINK = `group inline-flex min-h-11 items-center gap-0.5 rounded-md text-[17px] text-[var(--accent)] transition-transform duration-150 ease-out active:scale-[0.97] ${FOCUS}`;
-
-/** Solid dark tile used by the bento, the cards and the process panel. */
-export const TILE = "rounded-[28px] bg-[var(--tile)] shadow-[inset_0_0_0_1px_var(--tile-ring)]";
 
 /** Pill buttons: one filled, one quiet. Both are 44px+ tall. */
 export const BTN_PRIMARY = `inline-flex min-h-12 items-center gap-1.5 rounded-full bg-[var(--btn-bg)] px-6 text-[17px] font-medium text-[var(--btn-fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[var(--btn-bg-hover)] ${FOCUS}`;
@@ -51,7 +48,7 @@ export function SectionHeading({
 
 /**
  * One-shot fade-up as content enters the viewport. Under reduced motion the
- * content is simply there (see .v6-reveal in v6.css), never waiting on a trigger.
+ * content is simply there (see .site-reveal in globals.css), never waiting on a trigger.
  */
 export function Reveal({
   children,
@@ -68,7 +65,7 @@ export function Reveal({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 0.7, ease: EASE_OUT, delay }}
-      className={`v6-reveal ${className ?? ""}`}
+      className={`site-reveal ${className ?? ""}`}
     >
       {children}
     </motion.div>

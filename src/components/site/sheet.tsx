@@ -28,7 +28,7 @@ export function ProjectSheet({
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const drag = useDragControls();
-  const id = (part: string) => (reduce ? undefined : `v6-${part}-${p.slug}`);
+  const id = (part: string) => (reduce ? undefined : `site-${part}-${p.slug}`);
 
   // Focus into the sheet, trap Tab inside it, close on Escape.
   useEffect(() => {
@@ -66,7 +66,7 @@ export function ProjectSheet({
     ? { borderTopLeftRadius: 28, borderTopRightRadius: 28, borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }
     : { borderRadius: 28 };
 
-  const titleId = `v6-sheet-title-${p.slug}`;
+  const titleId = `site-sheet-title-${p.slug}`;
   const content = reduce
     ? { initial: { opacity: 0 }, animate: { opacity: 1, transition: { duration: 0.2 } } }
     : {
@@ -116,7 +116,7 @@ export function ProjectSheet({
             layoutId={id("surface")}
             transition={MORPH}
             aria-hidden="true"
-            className="v6-glass absolute inset-0 bg-[var(--sheet-bg)] shadow-[var(--sheet-shadow)] backdrop-blur-2xl backdrop-saturate-150"
+            className="site-glass absolute inset-0 bg-[var(--sheet-bg)] shadow-[var(--sheet-shadow)] backdrop-blur-2xl backdrop-saturate-150"
             style={radius}
           />
 

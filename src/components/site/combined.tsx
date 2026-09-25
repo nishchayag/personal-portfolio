@@ -84,7 +84,7 @@ export function Combined() {
   return (
     <MotionConfig reducedMotion="user">
       <ThemeSync />
-      <LayoutGroup id="v6">
+      <LayoutGroup id="site">
         <div id="top" inert={open ? true : undefined}>
           <Hero />
           <LocalNav />

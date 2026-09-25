@@ -18,7 +18,7 @@ export function Glance() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="v6-alt scroll-mt-[52px] bg-[var(--bg-alt)] px-4 py-28 sm:px-6 lg:py-44"
+      className="site-alt scroll-mt-[52px] bg-[var(--bg-alt)] px-4 py-28 sm:px-6 lg:py-44"
     >
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
