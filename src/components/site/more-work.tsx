@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { otherProjects } from "@/content/profile";
+import type { Project } from "@/content/profile";
 import { FOCUS, GREY, Reveal, SectionHeading } from "./ui";
 
 /** A compact, quiet list: one row per project, each row a single link. */
-export function MoreWork() {
+export function MoreWork({ projects: otherProjects }: { projects: Project[] }) {
   if (otherProjects.length === 0) return null;
 
   return (

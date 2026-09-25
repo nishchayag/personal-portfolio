@@ -7,20 +7,13 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
-import { useEffect, useRef, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, type CSSProperties } from "react";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
-import { featuredProjects, profile, type Project } from "@/content/profile";
+import { profile, type Project } from "@/content/profile";
 import { BrowserFrame } from "./browser-frame";
 import { useMediaQuery, usePrefersReducedMotion } from "./hooks";
 import { ThemeToggle } from "./theme";
 import { BTN_PRIMARY, EASE_OUT, GREY, TEXT_LINK } from "./ui";
-
-// The flagship leads the deck and lands front and centre; the rest fan out behind it.
-const withImages = featuredProjects.filter((p) => p.image);
-const stackProjects = [
-  ...withImages.filter((p) => p.flagship),
-  ...withImages.filter((p) => !p.flagship),
-];
 
 /** Entrance for everything after the name: rises in, 60ms apart. */
 function rise(step: number) {
@@ -31,9 +24,15 @@ function rise(step: number) {
   };
 }
 
-export function Hero() {
+export function Hero({ projects }: { projects: Project[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = usePrefersReducedMotion();
+
+  // The flagship leads the deck and lands front and centre; the rest fan out behind it.
+  const stackProjects = useMemo(() => {
+    const withImages = projects.filter((p) => p.image);
+    return [...withImages.filter((p) => p.flagship), ...withImages.filter((p) => !p.flagship)];
+  }, [projects]);
 
   // 0 at the top of the page, 1 once the stage has finished its sticky run.
   const { scrollYProgress } = useScroll({

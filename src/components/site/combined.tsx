@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, LayoutGroup, MotionConfig } from "motion/react";
-import { featuredProjects } from "@/content/profile";
+import type { Project } from "@/content/profile";
 import { Contact } from "./contact";
 import { Flagship } from "./flagship";
 import { Glance } from "./glance";
@@ -15,10 +15,10 @@ import { ProjectSheet } from "./sheet";
 import { ThemeSync } from "./theme";
 import { WorkCards } from "./work-cards";
 
-const flagship = featuredProjects.find((p) => p.flagship) ?? null;
-const cardProjects = featuredProjects.filter((p) => p !== flagship);
+export function Combined({ featured, other }: { featured: Project[]; other: Project[] }) {
+  const flagship = useMemo(() => featured.find((p) => p.flagship) ?? null, [featured]);
+  const cardProjects = useMemo(() => featured.filter((p) => p !== flagship), [featured, flagship]);
 
-export function Combined() {
   const [openSlug, setOpenSlug] = useState<string | null>(null);
   const [liftedSlug, setLiftedSlug] = useState<string | null>(null);
   const cards = useRef(new Map<string, HTMLButtonElement>());
@@ -86,7 +86,7 @@ export function Combined() {
       <ThemeSync />
       <LayoutGroup id="site">
         <div id="top" inert={open ? true : undefined}>
-          <Hero />
+          <Hero projects={featured} />
           <LocalNav />
           <main>
             <div id="work" className="scroll-mt-[52px]">
@@ -98,7 +98,7 @@ export function Combined() {
                 onOpen={onOpen}
                 registerCard={registerCard}
               />
-              <MoreWork />
+              <MoreWork projects={other} />
             </div>
             <Glance />
             <Services />

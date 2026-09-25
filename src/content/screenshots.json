@@ -1,0 +1,9 @@
+[
+  { "file": "signalhq.png", "url": "https://signal.nishchayag.com", "scrollY": 0, "waitMs": 2500 },
+  { "file": "signalhq-features.png", "url": "https://signal.nishchayag.com", "scrollY": 1700, "waitMs": 2500 },
+  { "file": "signalhq-flow.png", "url": "https://signal.nishchayag.com", "scrollY": 2700, "waitMs": 2500 },
+  { "file": "doxiqo.png", "url": "https://doxiqo.nishchayag.com", "scrollY": 0, "waitMs": 2500 },
+  { "file": "notesify.png", "url": "https://notesify.nishchayag.com", "scrollY": 0, "waitMs": 2500 },
+  { "file": "feedbacker.png", "url": "https://feedbackerio.nishchayag.com", "scrollY": 0, "waitMs": 2500 },
+  { "file": "kaizenn.png", "url": "https://kaizenn.in/", "scrollY": 0, "waitMs": 2500 }
+]

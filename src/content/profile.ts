@@ -28,6 +28,8 @@ export type Project = {
   githubUrl?: string;
   image?: string;
   kind: "Product" | "Client work" | "Experiment";
+  /** "owner/name" on GitHub. When set, getProjects() overlays live content and facts from that repo. */
+  repo?: string;
   /** The one project to lead with and give the deepest treatment. */
   flagship?: boolean;
   /** Longer, verified detail for the flagship case study. */
@@ -63,6 +65,7 @@ export const featuredProjects: Project[] = [
     ],
     demoUrl: "https://signal.nishchayag.com",
     githubUrl: "https://github.com/nishchayag/signalhq",
+    repo: "nishchayag/signalhq",
     image: "/work/signalhq.png",
     gallery: [
       { src: "/work/signalhq-features.png", alt: "SignalHQ feature overview: anonymous by design, teams and roles, email invites" },
@@ -82,6 +85,7 @@ export const featuredProjects: Project[] = [
     ],
     demoUrl: "https://doxiqo.nishchayag.com",
     githubUrl: "https://github.com/nishchayag/doxiqo",
+    repo: "nishchayag/doxiqo",
     image: "/work/doxiqo.png",
     kind: "Product",
   },
@@ -97,6 +101,7 @@ export const featuredProjects: Project[] = [
     ],
     demoUrl: "https://notesify.nishchayag.com",
     githubUrl: "https://github.com/nishchayag/notesify",
+    repo: "nishchayag/notesify",
     image: "/work/notesify.png",
     kind: "Product",
   },
@@ -129,6 +134,7 @@ export const otherProjects: Project[] = [
     ],
     demoUrl: "https://feedbackerio.nishchayag.com",
     githubUrl: "https://github.com/nishchayag/feedbacker.io",
+    repo: "nishchayag/feedbacker.io",
     image: "/work/feedbacker.png",
     kind: "Product",
   },
