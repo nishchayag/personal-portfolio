@@ -8,7 +8,7 @@ export function MoreWork({ projects: otherProjects }: { projects: Project[] }) {
   if (otherProjects.length === 0) return null;
 
   return (
-    <section aria-labelledby="more-heading" className="px-4 pt-32 pb-24 sm:px-6 lg:pt-44 lg:pb-28">
+    <section aria-labelledby="more-heading" className="px-4 pt-32 pb-28 sm:px-6 lg:pt-44 lg:pb-44">
       <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-20">
         <Reveal className="self-start lg:sticky lg:top-[92px]">
           <SectionHeading
