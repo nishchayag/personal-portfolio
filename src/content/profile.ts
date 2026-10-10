@@ -11,6 +11,14 @@ export const profile = {
   location: "Jaipur, India",
   availability: "Open to freelance projects and full-time roles",
   email: "nishchay.agar@gmail.com",
+  /**
+   * Calls and WhatsApp. Stored in parts and joined in the browser (see contact.tsx), so the
+   * number never appears as plain text in the server HTML that scrapers read.
+   */
+  phone: {
+    parts: ["+91", "93513", "26680"],
+    whatsappText: "Hi Nishchay, I saw your portfolio and I’m interested in working with you.",
+  },
   resumeUrl:
     "https://drive.google.com/file/d/1SWiz35qvTJNOflGthhbLyDTNTIjni5Rd/view?usp=sharing",
   socials: [

@@ -1,9 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { ArrowUpRight, Check, ChevronRight, Copy, Github, Linkedin } from "lucide-react";
-import { IconBrandX } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBrandX } from "@tabler/icons-react";
 import { profile, vibes } from "@/content/profile";
 import { EASE_OUT, FOCUS, GREY, Reveal, TEXT_LINK } from "./ui";
 
@@ -31,7 +31,7 @@ export function Contact() {
           <p
             className={`mt-7 max-w-[40ch] text-[clamp(1.1875rem,1.9vw,1.5rem)] leading-[1.35] text-pretty ${GREY}`}
           >
-            Have a project or a role in mind? I’m based in {profile.location}.
+            Have a project or a role in mind? Email, call or WhatsApp. I’m based in {profile.location}.
           </p>
         </Reveal>
 
@@ -45,6 +45,7 @@ export function Contact() {
             </a>
             <CopyEmail />
           </div>
+          <Phone />
 
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
             <ul className="flex items-center gap-2">
@@ -158,5 +159,41 @@ function CopyEmail() {
         </span>
       </span>
     </button>
+  );
+}
+
+const noop = () => () => {};
+
+/** Phone number for calls and WhatsApp, assembled only in the browser (never in server HTML). */
+function Phone() {
+  const mounted = useSyncExternalStore(noop, () => true, () => false);
+  const { parts, whatsappText } = profile.phone;
+  const display = parts.join(" ");
+  const digits = parts.join("").replace(/[^\d+]/g, "");
+  const whatsapp = `https://wa.me/${digits.replace("+", "")}?text=${encodeURIComponent(whatsappText)}`;
+
+  return (
+    <div className="mt-6 flex min-h-11 flex-wrap items-center gap-x-5 gap-y-4">
+      {mounted ? (
+        <>
+          <a
+            href={`tel:${digits}`}
+            className={`inline-flex min-h-11 items-center text-[clamp(1.5rem,4.2vw,3.25rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-[var(--accent)] tabular-nums transition-opacity duration-150 [@media(hover:hover)]:hover:opacity-80 ${FOCUS} rounded-md`}
+          >
+            {display}
+          </a>
+          <a
+            href={whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex min-h-11 items-center gap-2 rounded-full bg-[var(--chip)] px-5 text-[15px] font-medium text-[var(--fg)] transition-[transform,background-color] duration-150 ease-out active:scale-[0.97] [@media(hover:hover)]:hover:bg-[var(--chip-hover)] ${FOCUS}`}
+          >
+            <IconBrandWhatsapp aria-hidden="true" className="size-4" />
+            WhatsApp
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        </>
+      ) : null}
+    </div>
   );
 }
