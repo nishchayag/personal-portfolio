@@ -11,6 +11,7 @@ import { useMediaQuery } from "./hooks";
 import { LocalNav } from "./local-nav";
 import { MoreWork } from "./more-work";
 import { Services } from "./services";
+import { VibesShelf } from "./vibes-shelf";
 import { ProjectSheet } from "./sheet";
 import { ThemeSync } from "./theme";
 import { WorkCards } from "./work-cards";
@@ -100,6 +101,7 @@ export function Combined({ featured, other }: { featured: Project[]; other: Proj
               />
               <MoreWork projects={other} />
             </div>
+            <VibesShelf />
             <Glance />
             <Services />
             <Contact />

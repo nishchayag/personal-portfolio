@@ -9,11 +9,11 @@ import {
 } from "motion/react";
 import { useEffect, useMemo, useRef, type CSSProperties } from "react";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
-import { profile, type Project } from "@/content/profile";
+import { profile, vibes, type Project } from "@/content/profile";
 import { BrowserFrame } from "./browser-frame";
 import { useMediaQuery, usePrefersReducedMotion } from "./hooks";
 import { ThemeToggle } from "./theme";
-import { BTN_PRIMARY, EASE_OUT, GREY, TEXT_LINK } from "./ui";
+import { BTN_PRIMARY, EASE_OUT, FOCUS, GREY, TEXT_LINK } from "./ui";
 
 /** Entrance for everything after the name: rises in, 60ms apart. */
 function rise(step: number) {
@@ -115,6 +115,18 @@ export function Hero({ projects }: { projects: Project[] }) {
           <span className="size-1.5 rounded-full bg-[var(--ok)]" aria-hidden="true" />
           {profile.availability}
         </motion.p>
+
+        <motion.a
+          {...rise(3)}
+          href={vibes.href}
+          className={`group mt-3 inline-flex min-h-11 items-center gap-0.5 rounded-md text-[15px] text-[var(--accent)] ${FOCUS}`}
+        >
+          {vibes.heroCta}
+          <ChevronRight
+            aria-hidden="true"
+            className="size-4 transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-x-0.5"
+          />
+        </motion.a>
       </motion.header>
 
       {stackProjects.length > 0 ? <ScreenshotStack progress={progress} projects={stackProjects} /> : null}

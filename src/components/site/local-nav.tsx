@@ -8,6 +8,7 @@ import { FOCUS } from "./ui";
 
 export const NAV_SECTIONS = [
   { id: "work", label: "Work" },
+  { id: "vibes", label: "Vibes" },
   { id: "about", label: "About" },
   { id: "services", label: "Services" },
   { id: "contact", label: "Contact" },
@@ -45,7 +46,7 @@ export function LocalNav() {
                   <a
                     href={`#${section.id}`}
                     aria-current={isActive ? "location" : undefined}
-                    className={`relative flex h-[52px] min-w-11 items-center justify-center px-2 text-[13px] transition-colors duration-150 sm:px-3 sm:text-[12px] ${
+                    className={`relative flex h-[52px] min-w-11 items-center justify-center px-[5px] text-[13px] transition-colors duration-150 sm:px-3 sm:text-[12px] ${
                       isActive
                         ? "text-[var(--fg)]"
                         : "text-[var(--fg-2)] [@media(hover:hover)]:hover:text-[var(--fg)]"
