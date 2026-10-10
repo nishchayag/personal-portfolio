@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
@@ -13,11 +14,13 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-// The signature display face: Archivo's width axis runs to 125% for the expanded headlines.
-const archivo = Archivo({
-  subsets: ["latin"],
+// The signature display face: Archivo (latin), cut down with fontTools' instancer to the only range
+// the site uses (width 118–125%, weight 650–800), which takes it from 90 KB to 38 KB.
+const archivo = localFont({
+  src: "./fonts/archivo-display.woff2",
   display: "swap",
-  axes: ["wdth"],
+  weight: "650 800",
+  declarations: [{ prop: "font-stretch", value: "118% 125%" }],
   variable: "--font-display",
 });
 
