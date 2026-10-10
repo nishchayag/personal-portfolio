@@ -24,7 +24,7 @@ export function Contact() {
         <Reveal>
           <h2
             id="contact-heading"
-            className="text-[clamp(3.25rem,9.4vw,8.5rem)] font-semibold leading-[0.92] tracking-[-0.045em] text-balance"
+            className="font-display text-[clamp(2.75rem,8vw,7.25rem)] leading-[0.94] tracking-[-0.045em] text-balance"
           >
             Let’s build something.
           </h2>

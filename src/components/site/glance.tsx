@@ -22,7 +22,7 @@ export function Glance() {
     >
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
-          <p className={`text-[17px] font-semibold ${GREY}`}>About</p>
+          <p className="site-eyebrow">About</p>
           <SectionHeading
             id="about-heading"
             className="mt-3"
@@ -36,7 +36,7 @@ export function Glance() {
             <Tile className="sm:col-span-2 lg:col-span-4 lg:row-span-2" delay={0}>
               <div className="flex h-full flex-col p-7 sm:p-10">
                 <p className={`text-[14px] font-semibold ${GREY}`}>Now</p>
-                <p className="mt-auto pt-14 text-[clamp(2.25rem,4.4vw,3.75rem)] font-semibold leading-[1] tracking-[-0.035em]">
+                <p className="font-display mt-auto pt-14 text-[clamp(2rem,4vw,3.375rem)] leading-[1] tracking-[-0.04em]">
                   {current.org}
                 </p>
                 <p className="mt-3 text-[19px] leading-snug text-[var(--fg)]">
@@ -261,7 +261,7 @@ function ClockTile() {
       <p className={`text-[14px] font-semibold ${GREY}`}>
         Local time in {profile.location.split(",")[0]}
       </p>
-      <p className="mt-auto pt-10 text-[clamp(3.25rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.04em] tabular-nums">
+      <p className="font-display mt-auto pt-10 text-[clamp(2.75rem,4.4vw,4rem)] leading-none tracking-[-0.04em] tabular-nums">
         {date === null ? (
           <span className="text-[rgb(var(--ink)/0.15)]">--:--</span>
         ) : (

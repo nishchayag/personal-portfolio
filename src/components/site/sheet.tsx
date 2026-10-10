@@ -177,7 +177,7 @@ export function ProjectSheet({
                 <motion.span
                   layoutId={id("title")}
                   transition={MORPH}
-                  className="inline-block text-[36px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--fg)] sm:text-[48px]"
+                  className="font-display inline-block text-[32px] leading-[1.05] tracking-[-0.04em] text-[var(--fg)] sm:text-[42px]"
                 >
                   {p.title}
                 </motion.span>

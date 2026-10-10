@@ -28,7 +28,7 @@ export function VibesShelf() {
       <div className="px-4 sm:px-6">
         <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-end lg:gap-16">
           <Reveal>
-            <p className={`text-[17px] font-semibold ${GREY}`}>{vibes.eyebrow}</p>
+            <p className="site-eyebrow">{vibes.eyebrow}</p>
             <SectionHeading id="vibes-heading" className="mt-3" lead={vibes.lead} rest={vibes.rest} />
           </Reveal>
           <Reveal delay={0.06}>

@@ -32,7 +32,7 @@ export function LocalNav() {
       <div className="mx-auto flex h-[52px] max-w-[1248px] items-center justify-between gap-3 px-4 sm:px-6">
         <a
           href="#top"
-          className={`hidden min-h-11 items-center text-[19px] font-semibold tracking-[-0.02em] sm:flex ${FOCUS} rounded-md`}
+          className={`font-display hidden min-h-11 items-center text-[17px] tracking-[-0.03em] sm:flex ${FOCUS} rounded-md`}
         >
           {profile.name}
         </a>

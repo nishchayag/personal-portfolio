@@ -26,7 +26,7 @@ export function Services() {
     >
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
-          <p className={`text-[17px] font-semibold ${GREY}`}>Services</p>
+          <p className="site-eyebrow">Services</p>
           <SectionHeading
             id="services-heading"
             className="mt-3"
@@ -61,7 +61,7 @@ export function Services() {
             {STEPS.map((step, i) => (
               <li key={step.title}>
                 <Reveal delay={i * 0.06}>
-                  <span className="text-[56px] font-semibold leading-none tracking-[-0.04em] text-[rgb(var(--ink)/0.2)] tabular-nums">
+                  <span className="font-display text-[48px] leading-none tracking-[-0.04em] text-[rgb(var(--ink)/0.2)] tabular-nums">
                     {i + 1}
                   </span>
                   <h4 className="mt-5 text-[21px] font-semibold tracking-[-0.015em]">

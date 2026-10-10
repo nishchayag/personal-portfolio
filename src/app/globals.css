@@ -22,10 +22,10 @@
   --bg-alt: #000;
   --fg: #f5f5f7;
   --fg-2: #86868b;
-  --accent: #2997ff;
+  --accent: #ff5b1f;
   --ink: 255 255 255;
   --ok: #30d158;
-  --selection: rgba(41, 151, 255, 0.35);
+  --selection: rgba(255, 91, 31, 0.35);
 
   /* Solid tiles (bento, cards, process panel) and chips on them / on the page. */
   --tile: #111113;
@@ -37,8 +37,8 @@
   --spot: rgba(255, 255, 255, 0.06);
 
   /* The one filled button, and the nav's Résumé pill. */
-  --btn-bg: #f5f5f7;
-  --btn-bg-hover: #fff;
+  --btn-bg: #ff5b1f;
+  --btn-bg-hover: #ff6a33;
   --btn-fg: #000;
 
   /* Glass: the sub-nav and the project sheet. */
@@ -57,8 +57,8 @@
   --media-bg: #0a0a0d;
 
   --recede: 1;
-  --aurora-1: rgba(41, 151, 255, 0.16);
-  --aurora-2: rgba(120, 100, 255, 0.12);
+  --aurora-1: rgba(255, 91, 31, 0.14);
+  --aurora-2: rgba(255, 160, 60, 0.08);
 }
 
 :root[data-theme="light"] {
@@ -69,10 +69,10 @@
   --bg-alt: #f5f5f7;
   --fg: #1d1d1f;
   --fg-2: #6e6e73;
-  --accent: #0066cc;
+  --accent: #c93a06;
   --ink: 0 0 0;
   --ok: #30d158;
-  --selection: rgba(0, 102, 204, 0.18);
+  --selection: rgba(201, 58, 6, 0.16);
 
   --tile: #f5f5f7;
   --tile-ring: transparent;
@@ -82,8 +82,8 @@
   --chip-hover: #dcdce1;
   --spot: rgba(0, 0, 0, 0.035);
 
-  --btn-bg: #0071e3;
-  --btn-bg-hover: #0077ed;
+  --btn-bg: #d4420a;
+  --btn-bg-hover: #c93a06;
   --btn-fg: #fff;
 
   --nav-bg: rgba(255, 255, 255, 0.72);
@@ -132,6 +132,27 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* Signature type: Archivo at its widest for headlines, and wide uppercase eyebrows in the accent. */
+.font-display {
+  font-family: var(--font-display), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-stretch: 118%;
+  font-weight: 750;
+}
+.font-display-wide {
+  font-stretch: 125%;
+  font-weight: 800;
+}
+.site-eyebrow {
+  font-family: var(--font-display), -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-stretch: 125%;
+  font-weight: 650;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 ::selection {

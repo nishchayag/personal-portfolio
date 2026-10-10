@@ -14,7 +14,7 @@ export const FOCUS =
 
 export const GREY = "text-[var(--fg-2)]";
 
-/** Apple's blue text link (paired links in the hero and the finale). */
+/** Accent text link (paired links in the hero and the finale). */
 export const TEXT_LINK = `group inline-flex min-h-11 items-center gap-0.5 rounded-md text-[17px] text-[var(--accent)] transition-transform duration-150 ease-out active:scale-[0.97] ${FOCUS}`;
 
 /** Pill buttons: one filled, one quiet. Both are 44px+ tall. */
@@ -39,7 +39,7 @@ export function SectionHeading({
   return (
     <h2
       id={id}
-      className={`max-w-[20ch] text-[clamp(2.5rem,5.6vw,5rem)] font-semibold leading-[1.04] tracking-[-0.035em] text-balance ${className}`}
+      className={`font-display max-w-[20ch] text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.02] tracking-[-0.04em] text-balance ${className}`}
     >
       <span className="text-[var(--fg)]">{lead}</span> <span className={GREY}>{rest}</span>
     </h2>
@@ -74,7 +74,7 @@ export function Reveal({
 
 /** Eyebrow above a section headline. */
 export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className={`text-[17px] font-semibold ${GREY}`}>{children}</p>;
+  return <p className="site-eyebrow">{children}</p>;
 }
 
 export function hostOf(url?: string) {

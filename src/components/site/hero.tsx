@@ -72,7 +72,7 @@ export function Hero({ projects }: { projects: Project[] }) {
           initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.7, ease: EASE_OUT, delay: 0.12 }}
-          className="text-[clamp(3.5rem,10.4vw,9rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-balance"
+          className="font-display font-display-wide text-[clamp(3rem,8.4vw,7.5rem)] leading-[0.92] tracking-[-0.045em] text-balance"
         >
           {profile.name}
         </motion.h1>

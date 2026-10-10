@@ -71,7 +71,7 @@ export function Flagship({ project }: { project: Project }) {
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1">
-            <p className={`flex items-center gap-3 text-[17px] font-semibold ${GREY}`}>
+            <p className="site-eyebrow flex items-center gap-3">
               <span>Flagship project</span>
               <span aria-hidden="true" className="h-4 w-px bg-[rgb(var(--ink)/0.2)]" />
               <span id={titleId} className="text-[var(--fg)]">
@@ -89,7 +89,7 @@ export function Flagship({ project }: { project: Project }) {
           </div>
           <h2
             id={headingId}
-            className="mt-4 max-w-[30ch] text-[clamp(1.75rem,4vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-balance"
+            className="font-display mt-4 max-w-[30ch] text-[clamp(1.625rem,3.6vw,3.125rem)] leading-[1.06] tracking-[-0.035em] text-balance"
           >
             <span className="text-[var(--fg)]">{lead}</span> {rest ? <span className={GREY}>{rest}</span> : null}
           </h2>
@@ -196,7 +196,7 @@ export function Flagship({ project }: { project: Project }) {
                   className="flex items-baseline justify-between gap-4 border-b border-[rgb(var(--ink)/0.08)] py-5 last:border-b-0 sm:flex-col-reverse sm:items-start sm:justify-end sm:gap-2 sm:border-b-0 sm:py-8 sm:pr-6"
                 >
                   <dt className={`text-[15px] ${GREY}`}>{f.label}</dt>
-                  <dd className="text-[clamp(2.25rem,4.6vw,4rem)] font-semibold leading-none tracking-[-0.04em] tabular-nums">
+                  <dd className="font-display text-[clamp(2rem,4.2vw,3.5rem)] leading-none tracking-[-0.04em] tabular-nums">
                     {f.value}
                   </dd>
                 </div>

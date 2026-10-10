@@ -100,8 +100,8 @@ function ProjectCard({
         <motion.span
           layoutId={id("title")}
           transition={MORPH}
-          className={`inline-block font-semibold tracking-[-0.03em] text-[var(--fg)] ${
-            variant === "feature" ? "text-[32px] lg:text-[44px]" : "text-[28px] lg:text-[32px]"
+          className={`font-display inline-block tracking-[-0.04em] text-[var(--fg)] ${
+            variant === "feature" ? "text-[30px] lg:text-[40px]" : "text-[26px] lg:text-[30px]"
           }`}
         >
           {p.title}

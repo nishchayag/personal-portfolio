@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
@@ -11,6 +11,14 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+// The signature display face: Archivo's width axis runs to 125% for the expanded headlines.
+const archivo = Archivo({
+  subsets: ["latin"],
+  display: "swap",
+  axes: ["wdth"],
+  variable: "--font-display",
 });
 
 const title = `${profile.name} | ${profile.role}`;
@@ -80,7 +88,7 @@ export default function RootLayout({
       lang="en"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${inter.variable} scroll-smooth motion-reduce:scroll-auto`}
+      className={`${inter.variable} ${archivo.variable} scroll-smooth motion-reduce:scroll-auto`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
