@@ -187,6 +187,34 @@
   }
 }
 
+/* Vibes marquee: each track holds the cards twice, so sliding it by exactly half loops seamlessly.
+   Cards carry their own right padding (no flex gap) so the two halves are exactly equal. */
+.site-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.site-marquee-track {
+  animation: site-marquee var(--dur, 140s) linear infinite;
+  will-change: transform;
+}
+.site-marquee[data-dir="right"] .site-marquee-track {
+  animation-direction: reverse;
+}
+.site-marquee:focus-within .site-marquee-track {
+  animation-play-state: paused;
+}
+@media (hover: hover) {
+  .site-marquee:hover .site-marquee-track {
+    animation-play-state: paused;
+  }
+}
+@keyframes site-marquee {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 :root[data-theme="light"] .site-aurora-blob {
   display: none;
 }
@@ -194,6 +222,19 @@
 @media (prefers-reduced-motion: reduce) {
   .site-aurora-blob {
     animation: none;
+  }
+  /* The marquee becomes a still row you scroll yourself, without the duplicate cards. */
+  .site-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    scrollbar-width: none;
+  }
+  .site-marquee-track {
+    animation: none;
+  }
+  .site-marquee [data-dup] {
+    display: none;
   }
   /* Scroll reveals never hide content from reduced-motion readers. */
   .site-reveal {
