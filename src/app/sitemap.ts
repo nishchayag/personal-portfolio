@@ -12,5 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    // The vibe menu is its own app, served here through a rewrite (see next.config.ts).
+    {
+      url: `${baseUrl}/vibes`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }

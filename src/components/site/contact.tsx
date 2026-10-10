@@ -2,9 +2,9 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Check, Copy, Github, Linkedin } from "lucide-react";
+import { ArrowUpRight, Check, ChevronRight, Copy, Github, Linkedin } from "lucide-react";
 import { IconBrandX } from "@tabler/icons-react";
-import { profile } from "@/content/profile";
+import { profile, vibes } from "@/content/profile";
 import { EASE_OUT, FOCUS, GREY, Reveal, TEXT_LINK } from "./ui";
 
 const socialIcons: Record<string, typeof Github> = {
@@ -81,6 +81,13 @@ export function Contact() {
                 className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:-translate-y-0.5 [@media(hover:hover)]:group-hover:translate-x-0.5"
               />
               <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a href={vibes.href} className={TEXT_LINK}>
+              {vibes.contactCta}
+              <ChevronRight
+                aria-hidden="true"
+                className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-x-0.5"
+              />
             </a>
           </div>
         </Reveal>

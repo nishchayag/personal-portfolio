@@ -1,5 +1,6 @@
-import { services } from "@/content/profile";
-import { GREY, Reveal, SectionHeading } from "./ui";
+import { ChevronRight } from "lucide-react";
+import { services, vibes } from "@/content/profile";
+import { GREY, Reveal, SectionHeading, TEXT_LINK } from "./ui";
 
 // Process copy only describes how an engagement runs; it makes no claims.
 const STEPS = [
@@ -50,6 +51,41 @@ export function Services() {
             </li>
           ))}
         </ul>
+
+        <Reveal className="mt-28 lg:mt-40">
+          <div className="h-px w-full bg-[rgb(var(--ink)/0.12)]" aria-hidden="true" />
+          <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-16">
+            <div>
+              <h3 className="max-w-[26ch] text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-balance">
+                {vibes.lead} <span className={GREY}>{vibes.rest}</span>
+              </h3>
+              <ul className="mt-7 flex flex-wrap gap-2" aria-label="Some of the styles">
+                {vibes.examples.map((name) => (
+                  <li key={name} className="rounded-full bg-[var(--chip)] px-3.5 py-1.5 text-[14px] text-[var(--fg)]">
+                    {name}
+                  </li>
+                ))}
+                <li className={`px-1.5 py-1.5 text-[14px] ${GREY}`}>{vibes.more}</li>
+              </ul>
+            </div>
+            <div className="flex flex-col items-start gap-y-1">
+              <a href={vibes.href} className={TEXT_LINK}>
+                {vibes.cta}
+                <ChevronRight
+                  aria-hidden="true"
+                  className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-x-0.5"
+                />
+              </a>
+              <a href={vibes.quizHref} className={TEXT_LINK}>
+                {vibes.quizCta}
+                <ChevronRight
+                  aria-hidden="true"
+                  className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-x-0.5"
+                />
+              </a>
+            </div>
+          </div>
+        </Reveal>
 
         <div className="mt-28 rounded-[28px] bg-[var(--tile)] p-7 shadow-[inset_0_0_0_1px_var(--tile-ring)] sm:p-10 lg:mt-40 lg:p-14">
           <Reveal>

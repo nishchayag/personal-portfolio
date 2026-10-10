@@ -173,6 +173,22 @@ export const skills = {
   Tools: ["Git", "GitHub", "Claude Code"],
 } as const;
 
+/**
+ * The vibe menu: a separate app (repo nishchayag/vibe-menu) served at /vibes through a
+ * rewrite in next.config.ts. Link to it with a plain <a>, never next/link (it's another zone).
+ */
+export const vibes = {
+  href: "/vibes",
+  quizHref: "/vibes/quiz",
+  lead: "Not sure what it should look like?",
+  rest: "Browse 22 website styles, each shown as a live sample site, and send me the ones you like.",
+  examples: ["Claymorphism", "Swiss Design", "Y2K", "Cyberpunk", "Wabi-Sabi"],
+  more: "+ 17 more",
+  cta: "Browse the vibe menu",
+  quizCta: "Find my vibe in 4 questions",
+  contactCta: "Find your website’s vibe",
+};
+
 export const services = [
   { title: "Full-stack web apps", body: "Auth, databases, APIs and a polished front end — built and deployed end to end." },
   { title: "MVPs for founders", body: "Take an idea to a working, deployed product you can put in front of users." },

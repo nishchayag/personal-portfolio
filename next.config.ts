@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 
+// The vibe menu (repo nishchayag/vibe-menu) is a separate Vercel project built with basePath /vibes.
+// Set VIBES_ORIGIN to its deployment URL (e.g. https://vibe-menu-xyz.vercel.app) and /vibes is served from it.
+// Unset means no rewrite, so links to /vibes 404 rather than break the build.
+const VIBES_ORIGIN = process.env.VIBES_ORIGIN?.replace(/\/$/, "");
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -23,6 +28,13 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
+  },
+  async rewrites() {
+    if (!VIBES_ORIGIN) return [];
+    return [
+      { source: "/vibes", destination: `${VIBES_ORIGIN}/vibes` },
+      { source: "/vibes/:path+", destination: `${VIBES_ORIGIN}/vibes/:path+` },
+    ];
   },
   async headers() {
     return [
