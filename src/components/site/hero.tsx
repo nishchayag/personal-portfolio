@@ -75,6 +75,8 @@ export function Hero({ projects }: { projects: Project[] }) {
           className="font-display font-display-wide text-[clamp(3rem,8.4vw,7.5rem)] leading-[0.92] tracking-[-0.045em] text-balance"
         >
           {profile.name}
+          {/* The orange full stop echoes the dot on the badge. */}
+          <span aria-hidden="true" className="text-[var(--accent)]">.</span>
         </motion.h1>
 
         <motion.p
