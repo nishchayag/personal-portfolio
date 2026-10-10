@@ -13,7 +13,7 @@ import { profile, vibes, type Project } from "@/content/profile";
 import { BrowserFrame } from "./browser-frame";
 import { useMediaQuery, usePrefersReducedMotion } from "./hooks";
 import { ThemeToggle } from "./theme";
-import { BTN_PRIMARY, EASE_OUT, FOCUS, GREY, TEXT_LINK } from "./ui";
+import { BTN_PRIMARY, EASE_OUT, GREY, TEXT_LINK } from "./ui";
 
 /** Entrance for everything after the name: rises in, 60ms apart. */
 function rise(step: number) {
@@ -81,7 +81,7 @@ export function Hero({ projects }: { projects: Project[] }) {
           {...rise(0)}
           className={`mt-7 max-w-[34ch] text-[clamp(1.1875rem,1.9vw,1.5rem)] leading-[1.35] tracking-[-0.01em] text-pretty ${GREY}`}
         >
-          {profile.tagline}
+          {profile.intro}
         </motion.p>
 
         {/* One filled button; the two text links pair up beside it (their own centred row on phones). */}
@@ -93,8 +93,8 @@ export function Hero({ projects }: { projects: Project[] }) {
             See the work
           </a>
           <div className="flex items-center justify-center gap-x-8">
-            <a href="#contact" className={TEXT_LINK}>
-              Get in touch
+            <a href={vibes.href} className={TEXT_LINK}>
+              {vibes.heroCta}
               <ChevronRight
                 aria-hidden="true"
                 className="size-[18px] transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-x-0.5"
@@ -115,18 +115,6 @@ export function Hero({ projects }: { projects: Project[] }) {
           <span className="size-1.5 rounded-full bg-[var(--ok)]" aria-hidden="true" />
           {profile.availability}
         </motion.p>
-
-        <motion.a
-          {...rise(3)}
-          href={vibes.href}
-          className={`group mt-3 inline-flex min-h-11 items-center gap-0.5 rounded-md text-[15px] text-[var(--accent)] ${FOCUS}`}
-        >
-          {vibes.heroCta}
-          <ChevronRight
-            aria-hidden="true"
-            className="size-4 transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-x-0.5"
-          />
-        </motion.a>
       </motion.header>
 
       {stackProjects.length > 0 ? <ScreenshotStack progress={progress} projects={stackProjects} /> : null}

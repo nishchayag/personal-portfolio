@@ -1,11 +1,18 @@
+"use client";
+
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import type { Project } from "@/content/profile";
 import { FOCUS, GREY, Reveal, SectionHeading } from "./ui";
 
 /** A compact, quiet list: one row per project, each row a single link. */
 export function MoreWork({ projects: otherProjects }: { projects: Project[] }) {
+  const [open, setOpen] = useState(false);
   if (otherProjects.length === 0) return null;
+  // Products stay visible; small browser experiments fold away so they don't dilute the real work.
+  const products = otherProjects.filter((p) => p.kind !== "Experiment");
+  const experiments = otherProjects.filter((p) => p.kind === "Experiment");
 
   return (
     <section aria-labelledby="more-heading" className="px-4 pt-32 pb-28 sm:px-6 lg:pt-44 lg:pb-44">
@@ -21,56 +28,82 @@ export function MoreWork({ projects: otherProjects }: { projects: Project[] }) {
 
         <Reveal>
           <ul className="overflow-hidden rounded-[28px] bg-[var(--tile)] shadow-[inset_0_0_0_1px_var(--tile-ring)]">
-            {otherProjects.map((p, i) => {
-              const href = p.demoUrl ?? p.githubUrl;
-              const inner = (
-                <>
-                  <span className="relative hidden h-11 w-[70px] shrink-0 overflow-hidden rounded-[8px] bg-[var(--media-bg)] shadow-[inset_0_0_0_1px_rgb(var(--ink)/0.06)] sm:block">
-                    {p.image ? (
-                      <Image src={p.image} alt="" fill sizes="70px" className="object-cover object-top" />
-                    ) : (
-                      <span className={`flex h-full w-full items-center justify-center text-[15px] font-semibold ${GREY}`}>
-                        {p.title.charAt(0)}
-                      </span>
-                    )}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="flex flex-wrap items-baseline gap-x-2.5">
-                      <span className="text-[17px] font-semibold tracking-[-0.015em] text-[var(--fg)] transition-colors duration-150 [@media(hover:hover)]:group-hover/row:text-[var(--accent)]">
-                        {p.title}
-                      </span>
-                      <span className={`text-[13px] ${GREY}`}>{p.kind}</span>
-                    </span>
-                    <span className={`mt-0.5 block text-[15px] leading-[1.45] text-pretty ${GREY}`}>{p.summary}</span>
-                  </span>
-                  {href ? (
-                    <ArrowUpRight
-                      aria-hidden="true"
-                      className="size-5 shrink-0 text-[var(--fg-2)] transition-[transform,color] duration-200 ease-out [@media(hover:hover)]:group-hover/row:-translate-y-0.5 [@media(hover:hover)]:group-hover/row:translate-x-0.5 [@media(hover:hover)]:group-hover/row:text-[var(--accent)]"
-                    />
-                  ) : null}
-                </>
-              );
-              return (
-                <li key={p.slug} className={i > 0 ? "border-t border-[rgb(var(--ink)/0.06)]" : ""}>
-                  {href ? (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`group/row flex min-h-[68px] items-center gap-4 px-5 py-4 transition-colors duration-150 [@media(hover:hover)]:hover:bg-[rgb(var(--ink)/0.03)] sm:px-6 ${FOCUS} focus-visible:-outline-offset-2`}
-                    >
-                      {inner}
-                    </a>
-                  ) : (
-                    <div className="flex min-h-[68px] items-center gap-4 px-5 py-4 sm:px-6">{inner}</div>
-                  )}
-                </li>
-              );
-            })}
+            {products.map((p, i) => (
+              <Row key={p.slug} p={p} first={i === 0} />
+            ))}
+            {experiments.length > 0 ? (
+              <li className={products.length ? "border-t border-[rgb(var(--ink)/0.06)]" : ""}>
+                <button
+                  type="button"
+                  aria-expanded={open}
+                  aria-controls="more-experiments"
+                  onClick={() => setOpen((o) => !o)}
+                  className={`group/row flex min-h-[60px] w-full items-center justify-between gap-4 px-5 py-3 text-left text-[15px] text-[var(--fg-2)] transition-colors duration-150 [@media(hover:hover)]:hover:bg-[rgb(var(--ink)/0.03)] [@media(hover:hover)]:hover:text-[var(--fg)] sm:px-6 ${FOCUS} focus-visible:-outline-offset-2`}
+                >
+                  {open ? "Hide" : "Show"} {experiments.length} browser experiments
+                  <ChevronDown
+                    aria-hidden="true"
+                    className={`size-5 shrink-0 transition-transform duration-200 ease-out ${open ? "rotate-180" : ""}`}
+                  />
+                </button>
+              </li>
+            ) : null}
+            {open
+              ? experiments.map((p) => (
+                  <Row key={p.slug} p={p} first={false} id={p === experiments[0] ? "more-experiments" : undefined} />
+                ))
+              : null}
           </ul>
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function Row({ p, first, id }: { p: Project; first: boolean; id?: string }) {
+  const href = p.demoUrl ?? p.githubUrl;
+  const inner = (
+    <>
+      <span className="relative hidden h-11 w-[70px] shrink-0 overflow-hidden rounded-[8px] bg-[var(--media-bg)] shadow-[inset_0_0_0_1px_rgb(var(--ink)/0.06)] sm:block">
+        {p.image ? (
+          <Image src={p.image} alt="" fill sizes="70px" className="object-cover object-top" />
+        ) : (
+          <span className={`flex h-full w-full items-center justify-center text-[15px] font-semibold ${GREY}`}>
+            {p.title.charAt(0)}
+          </span>
+        )}
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="flex flex-wrap items-baseline gap-x-2.5">
+          <span className="text-[17px] font-semibold tracking-[-0.015em] text-[var(--fg)] transition-colors duration-150 [@media(hover:hover)]:group-hover/row:text-[var(--accent)]">
+            {p.title}
+          </span>
+          <span className={`text-[13px] ${GREY}`}>{p.kind}</span>
+        </span>
+        <span className={`mt-0.5 block text-[15px] leading-[1.45] text-pretty ${GREY}`}>{p.summary}</span>
+      </span>
+      {href ? (
+        <ArrowUpRight
+          aria-hidden="true"
+          className="size-5 shrink-0 text-[var(--fg-2)] transition-[transform,color] duration-200 ease-out [@media(hover:hover)]:group-hover/row:-translate-y-0.5 [@media(hover:hover)]:group-hover/row:translate-x-0.5 [@media(hover:hover)]:group-hover/row:text-[var(--accent)]"
+        />
+      ) : null}
+    </>
+  );
+  return (
+    <li id={id} className={first ? "" : "border-t border-[rgb(var(--ink)/0.06)]"}>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`group/row flex min-h-[68px] items-center gap-4 px-5 py-4 transition-colors duration-150 [@media(hover:hover)]:hover:bg-[rgb(var(--ink)/0.03)] sm:px-6 ${FOCUS} focus-visible:-outline-offset-2`}
+        >
+          {inner}
+        </a>
+      ) : (
+        <div className="flex min-h-[68px] items-center gap-4 px-5 py-4 sm:px-6">{inner}</div>
+      )}
+    </li>
   );
 }

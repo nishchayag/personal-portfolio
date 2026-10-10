@@ -6,6 +6,8 @@ export const profile = {
   role: "Full-stack developer",
   tagline:
     "I build full-stack web apps with React, Next.js and TypeScript — from auth and data models to the last pixel.",
+  /** Hero line, written for both audiences. `tagline` stays the SEO/meta description. */
+  intro: "I design and build websites and web apps, for teams that are hiring and businesses ready to launch.",
   location: "Jaipur, India",
   availability: "Open to freelance projects and full-time roles",
   email: "nishchay.agar@gmail.com",
@@ -143,7 +145,7 @@ export const otherProjects: Project[] = [
   { slug: "connect-4", title: "Connect 4", summary: "Two-player Connect 4 in the browser.", stack: ["JavaScript"], highlights: [], demoUrl: "https://nishchayag.github.io/Connect-4/", kind: "Experiment" },
   { slug: "password-generator", title: "Password Generator", summary: "Configurable random password generator.", stack: ["JavaScript"], highlights: [], demoUrl: "https://nishchayag.github.io/password-generator/", kind: "Experiment" },
   { slug: "newspaper", title: "Newspaper App", summary: "News headlines reader.", stack: ["JavaScript"], highlights: [], demoUrl: "https://nishchayag.github.io/Newspaper-App/", kind: "Experiment" },
-  { slug: "key-logger", title: "Key Logger", summary: "Visualises keyboard events as you type.", stack: ["JavaScript"], highlights: [], demoUrl: "https://nishchayag.github.io/Key-Logger/", kind: "Experiment" },
+  { slug: "key-logger", title: "Keystroke Visualiser", summary: "Visualises keyboard events as you type.", stack: ["JavaScript"], highlights: [], demoUrl: "https://nishchayag.github.io/Key-Logger/", kind: "Experiment" },
 ];
 
 export const experience = [
@@ -187,7 +189,7 @@ export const vibes = {
   body: "Each one is a live sample site I designed and built. Browse them, take the quiz, and send me the ones that feel like your business.",
   cta: "Browse all 22 styles",
   quizCta: "Find yours in 4 questions",
-  heroCta: "Need a website? Start by picking a vibe",
+  heroCta: "Pick a vibe for your site",
   contactCta: "Find your website’s vibe",
   /** Shelf order: alternates light and dark, loud and quiet. Images live in public/vibes/<slug>.jpg. */
   styles: [
