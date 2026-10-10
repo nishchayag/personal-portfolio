@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
 import { THEME_SCRIPT } from "@/components/site/theme-script";
@@ -102,6 +103,7 @@ export default function RootLayout({
           }}
         />
         <MotionProvider>{children}</MotionProvider>
+        <Analytics />
       </body>
     </html>
   );

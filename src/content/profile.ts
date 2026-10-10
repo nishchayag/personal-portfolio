@@ -191,6 +191,7 @@ export const vibes = {
   quizCta: "Find yours in 4 questions",
   heroCta: "Pick a vibe for your site",
   contactCta: "Find your website’s vibe",
+  skipCta: "Here for a website? Skip to vibes",
   /** Shelf order: alternates light and dark, loud and quiet. Images live in public/vibes/<slug>.jpg. */
   styles: [
     { slug: "synthwave", name: "Synthwave", family: "Retro-future" },

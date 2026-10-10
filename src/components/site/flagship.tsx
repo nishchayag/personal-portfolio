@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { IconBrandGithub } from "@tabler/icons-react";
-import type { Project } from "@/content/profile";
+import { vibes, type Project } from "@/content/profile";
 import { BrowserFrame } from "./browser-frame";
-import { BTN_PRIMARY, BTN_SECONDARY, EASE_OUT, GREY, Reveal } from "./ui";
+import { BTN_PRIMARY, BTN_SECONDARY, EASE_OUT, GREY, Reveal, TEXT_LINK } from "./ui";
 
 /** Split "Statement. The rest of it." into a two-tone headline. */
 function splitSummary(summary: string) {
@@ -70,13 +70,23 @@ export function Flagship({ project }: { project: Project }) {
     >
       <div className="mx-auto max-w-[1200px]">
         <Reveal>
-          <p className={`flex items-center gap-3 text-[17px] font-semibold ${GREY}`}>
-            <span>Flagship project</span>
-            <span aria-hidden="true" className="h-4 w-px bg-[rgb(var(--ink)/0.2)]" />
-            <span id={titleId} className="text-[var(--fg)]">
-              {project.title}
-            </span>
-          </p>
+          <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1">
+            <p className={`flex items-center gap-3 text-[17px] font-semibold ${GREY}`}>
+              <span>Flagship project</span>
+              <span aria-hidden="true" className="h-4 w-px bg-[rgb(var(--ink)/0.2)]" />
+              <span id={titleId} className="text-[var(--fg)]">
+                {project.title}
+              </span>
+            </p>
+            {/* Clients can jump past the deep dive straight to the styles. */}
+            <a href="#vibes" className={`${TEXT_LINK} !text-[15px]`}>
+              {vibes.skipCta}
+              <ArrowDown
+                aria-hidden="true"
+                className="size-4 transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover:translate-y-0.5"
+              />
+            </a>
+          </div>
           <h2
             id={headingId}
             className="mt-4 max-w-[30ch] text-[clamp(1.75rem,4vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-balance"
