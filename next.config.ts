@@ -32,6 +32,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     if (!VIBES_ORIGIN) return [];
     return [
+      // The menu's analytics (script and events) go to its own project, not the portfolio's.
+      { source: "/vibes/_vercel/insights/:path*", destination: `${VIBES_ORIGIN}/_vercel/insights/:path*` },
       { source: "/vibes", destination: `${VIBES_ORIGIN}/vibes` },
       { source: "/vibes/:path+", destination: `${VIBES_ORIGIN}/vibes/:path+` },
     ];
